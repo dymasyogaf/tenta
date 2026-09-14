@@ -5,6 +5,7 @@ import ArrowRight from '@components/icons/ArrowRight.astro';
 import { aboutPageJsonLd, breadcrumbJsonLd } from '@lib/seo';
 import { site } from '@data/site';
 
+import imgMascot from '@/assets/tentang/tentang-tentaklik.png';
 import imgSono from '@/assets/tentang/sonoprabowo.avif';
 import imgZabarjad from '@/assets/tentang/zabarjad.avif';
 import imgAhzelan from '@/assets/tentang/ahzelan.avif';
@@ -57,28 +58,14 @@ const jsonLd = [
       </div>
       <div style="display:flex;justify-content:center;">
         <div class="tentang-kraken-wrap">
-          <picture>
-            <source
-              type="image/avif"
-              srcset="/assets/kraken-hero-400.avif 400w, /assets/kraken-hero-560.avif 560w, /assets/kraken-hero-800.avif 800w, /assets/kraken-hero.avif 1200w"
-              sizes="(max-width: 760px) min(480px, 92vw), 560px"
-            />
-            <source
-              type="image/webp"
-              srcset="/assets/kraken-hero-400.webp 400w, /assets/kraken-hero-560.webp 560w, /assets/kraken-hero-800.webp 800w, /assets/kraken-hero.webp 1200w"
-              sizes="(max-width: 760px) min(480px, 92vw), 560px"
-            />
-            <img
-              src="/assets/kraken-hero.png"
-              alt="Tentaklik kraken"
-              width="1200"
-              height="960"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-              class="tentang-kraken"
-            />
-          </picture>
+          <Image
+            src={imgMascot}
+            alt="Tentaklik mascot"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="tentang-kraken"
+          />
         </div>
       </div>
     </div>
@@ -198,7 +185,7 @@ const jsonLd = [
 
     .tentang-kraken-wrap {
       width: 100%;
-      max-width: 560px;
+      max-width: 420px;
       animation: krakenFloat 4.5s ease-in-out infinite;
       will-change: transform;
     }
@@ -207,6 +194,7 @@ const jsonLd = [
       width: 100%;
       height: auto;
       display: block;
+      mix-blend-mode: multiply;
       filter: drop-shadow(0 20px 40px rgba(255, 107, 26, 0.18));
     }
     @keyframes krakenFloat {
@@ -215,7 +203,7 @@ const jsonLd = [
       75%       { transform: translateY(-6px) rotate(-0.5deg); }
     }
     @media (prefers-reduced-motion: reduce) { .tentang-kraken-wrap { animation: none; } }
-    @media (max-width: 760px) { .tentang-kraken-wrap { max-width: min(480px, 92vw); } }
+    @media (max-width: 760px) { .tentang-kraken-wrap { max-width: min(340px, 85vw); } }
   </style>
 
   <section style="padding-bottom:24px;">
