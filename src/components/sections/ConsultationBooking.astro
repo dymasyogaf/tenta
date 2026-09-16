@@ -1,19 +1,8 @@
 ---
 import { getLang } from '@i18n/utils';
-import { waLink } from '@data/site';
 
 const lang = getLang(Astro.currentLocale);
-
-const waWhitelistMsg = lang === 'en'
-  ? 'Hello Tentaklik, I am interested in Ad Whitelist Account Rental (Google & Meta Ads).\n\nCould I get more details? Thank you!'
-  : 'Halo Tentaklik, saya tertarik dan ingin konsultasi mengenai layanan Sewa Akun Whitelist Ads (Google & Meta Ads).\n\nBoleh minta info lebih lanjut mengenai persyaratan dan ketentuannya? Terima kasih!';
-
-const waWebMarketingMsg = lang === 'en'
-  ? 'Hello Tentaklik, I am interested in Website & Digital Marketing services.\n\nCould I get more details? Thank you!'
-  : 'Halo Tentaklik, saya tertarik dan ingin konsultasi mengenai layanan Website & Digital Marketing untuk bisnis saya.\n\nBoleh minta info lebih lanjut mengenai paket dan layanannya? Terima kasih!';
-
-const waWhitelistUrl = waLink(waWhitelistMsg);
-const waWebMarketingUrl = waLink(waWebMarketingMsg);
+const L = (p: string) => (lang === 'en' ? '/en' + (p === '/' ? '' : p) : p) || '/';
 ---
 
 <section id="final-cta" class="consultation-booking-section" style="padding: 72px 0 88px; position: relative;">
@@ -23,17 +12,17 @@ const waWebMarketingUrl = waLink(waWebMarketingMsg);
         {lang === 'en' ? 'SCHEDULE A CONSULTATION' : 'JADWALKAN KONSULTASI'}
       </span>
       <h2 class="consultation-title">
-        {lang === 'en' ? 'Choose your consultation service:' : 'Pilih layanan konsultasi Anda:'}
+        {lang === 'en' ? 'Choose your service:' : 'Pilih layanan Anda:'}
       </h2>
       <p class="consultation-sub">
         {lang === 'en'
-          ? 'Select a service below for a 1-on-1 consultation directly with our specialist team via WhatsApp'
-          : 'Pilih layanan di bawah untuk konsultasi 1-on-1 langsung bersama tim spesialis kami via WhatsApp'}
+          ? 'Select a service below to view full details and consult with our specialist team'
+          : 'Pilih layanan di bawah untuk melihat detail solusi dan konsultasi bersama tim spesialis kami'}
       </p>
     </div>
 
     <div class="consultation-cards-grid">
-      <a href={waWhitelistUrl} target="_blank" rel="noopener noreferrer" class="consultation-card reveal">
+      <a href={L('/layanan/sewa-akun')} class="consultation-card reveal">
         <div class="consultation-card-icon">
           <img src="/assets/v2/images/icon-whitelist-ads.png" alt="Sewa Akun Whitelist Ads Icon" width="48" height="48" loading="lazy" />
         </div>
@@ -45,7 +34,7 @@ const waWebMarketingUrl = waLink(waWebMarketingMsg);
         </span>
       </a>
 
-      <a href={waWebMarketingUrl} target="_blank" rel="noopener noreferrer" class="consultation-card reveal">
+      <a href={L('/layanan/website')} class="consultation-card reveal">
         <div class="consultation-card-icon">
           <img src="/assets/v2/images/icon-web-digital-marketing.png" alt="Website & Digital Marketing Icon" width="48" height="48" loading="lazy" />
         </div>

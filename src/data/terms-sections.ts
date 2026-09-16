@@ -146,7 +146,7 @@ export const TERMS_SECTIONS: TermsSection[] = [
     title: 'Hubungi Kami',
     contentHtml: `<p>Ada pertanyaan tentang Ketentuan ini atau Kebijakan Privasi kami? Hubungi kami:</p>
               <ul>
-                <li><strong>WhatsApp:</strong> <a href="https://wa.me/6285129992225" target="_blank" rel="noopener noreferrer">085129992225</a></li>
+                <li><strong>WhatsApp:</strong> <a href="https://wa.me/6282219987770" target="_blank" rel="noopener noreferrer">+62 822-1998-7770</a></li>
                 <li><strong>Email:</strong> <a href="mailto:hi@tentaklik.com">hi@tentaklik.com</a></li>
                 <li><strong>Alamat:</strong> Indonesia</li>
               </ul>`,
@@ -342,7 +342,7 @@ export const TERMS_SECTIONS_EN: TermsSection[] = [
     title: 'Contact Us',
     contentHtml: `<p>Have questions about these Terms or our Privacy Policy? Contact us:</p>
               <ul>
-                <li><strong>WhatsApp:</strong> <a href="https://wa.me/6285129992225" target="_blank" rel="noopener noreferrer">085129992225</a></li>
+                <li><strong>WhatsApp:</strong> <a href="https://wa.me/6282219987770" target="_blank" rel="noopener noreferrer">+62 822-1998-7770</a></li>
                 <li><strong>Email:</strong> <a href="mailto:hi@tentaklik.com">hi@tentaklik.com</a></li>
                 <li><strong>Address:</strong> Indonesia</li>
               </ul>`,

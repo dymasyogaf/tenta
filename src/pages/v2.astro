@@ -1,12 +1,5 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { waLink } from '@data/site';
-
-const waWhitelistMsg = 'Halo Tentaklik, saya tertarik dan ingin konsultasi mengenai layanan Sewa Akun Whitelist Ads (Google & Meta Ads).\n\nBoleh minta info lebih lanjut mengenai persyaratan dan ketentuannya? Terima kasih!';
-const waWebMarketingMsg = 'Halo Tentaklik, saya tertarik dan ingin konsultasi mengenai layanan Website & Digital Marketing untuk bisnis saya.\n\nBoleh minta info lebih lanjut mengenai paket dan layanannya? Terima kasih!';
-
-const waWhitelistUrl = waLink(waWhitelistMsg);
-const waWebMarketingUrl = waLink(waWebMarketingMsg);
 ---
 
 <BaseLayout
@@ -605,11 +598,11 @@ const waWebMarketingUrl = waLink(waWebMarketingMsg);
                     <div class="book-call-modal__choices" data-book-call-view="choices">
                         <div class="book-call-header">
                             <span class="book-call-badge">Jadwalkan konsultasi</span>
-                            <h2 class="book-call-modal__title">Pilih layanan konsultasi Anda:</h2>
+                            <h2 class="book-call-modal__title">Pilih layanan Anda:</h2>
                             <p class="book-call-subtitle">Pilih layanan di bawah untuk konsultasi 1-on-1 langsung bersama tim spesialis kami via WhatsApp</p>
                         </div>
                         <div class="book-call-modal__cards">
-                            <a href={waWhitelistUrl} target="_blank" rel="noopener noreferrer" class="book-call-card">
+                            <a href="/layanan/sewa-akun" class="book-call-card">
                                 <span class="book-call-card__image">
                                     <img src="/assets/v2/images/icon-whitelist-ads.png"
                                         alt="Sewa Akun Whitelist Ads Icon" />
@@ -617,7 +610,7 @@ const waWebMarketingUrl = waLink(waWebMarketingMsg);
                                 <span class="book-call-card__title">Sewa akun whitelist ads</span>
                                 <span class="book-call-card__cta">Konsultasi sekarang &rarr;</span>
                             </a>
-                            <a href={waWebMarketingUrl} target="_blank" rel="noopener noreferrer" class="book-call-card">
+                            <a href="/layanan/website" class="book-call-card">
                                 <span class="book-call-card__image">
                                     <img src="/assets/v2/images/icon-web-digital-marketing.png"
                                         alt="Website & Digital Marketing Icon" />
@@ -639,9 +632,9 @@ const waWebMarketingUrl = waLink(waWebMarketingMsg);
                 aria-label="Close">&times;</button>
             <div class="book-call-widget">
                 <div class="book-call-modal__choices" data-book-call-view="choices">
-                    <h2 class="book-call-modal__title">Pilih layanan konsultasi Anda:</h2>
+                    <h2 class="book-call-modal__title">Pilih layanan Anda:</h2>
                     <div class="book-call-modal__cards">
-                        <a href={waWhitelistUrl} target="_blank" rel="noopener noreferrer" class="book-call-card">
+                        <a href="/layanan/sewa-akun" class="book-call-card">
                             <span class="book-call-card__image">
                                 <img src="/assets/v2/images/icon-whitelist-ads.png"
                                     alt="Sewa Akun Whitelist Ads Icon" />
@@ -649,7 +642,7 @@ const waWebMarketingUrl = waLink(waWebMarketingMsg);
                             <span class="book-call-card__title">Sewa akun whitelist ads</span>
                             <span class="book-call-card__cta">Konsultasi sekarang &rarr;</span>
                         </a>
-                        <a href={waWebMarketingUrl} target="_blank" rel="noopener noreferrer" class="book-call-card">
+                        <a href="/layanan/website" class="book-call-card">
                             <span class="book-call-card__image">
                                 <img src="/assets/v2/images/icon-web-digital-marketing.png"
                                     alt="Website & Digital Marketing Icon" />

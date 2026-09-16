@@ -69,7 +69,7 @@ const L = (p: string) => (lang === 'en' ? '/en' + (p === '/' ? '' : p) : p) || '
         <a href={L('/')} class="btn btn-primary btn-lg">
           {t('404.home')} <ArrowRight size={16} />
         </a>
-        <a href={L('/layanan')} class="btn btn-ghost">
+        <a href={L('/#layanan')} class="btn btn-ghost">
           {t('404.services')}
         </a>
       </div>
@@ -79,7 +79,7 @@ const L = (p: string) => (lang === 'en' ? '/en' + (p === '/' ? '' : p) : p) || '
         <p class="notfound-suggestions-label">{t('404.suggest')}</p>
         <div class="notfound-links">
           <a href={L('/tentang')} class="notfound-link">{t('nav.tentang')}</a>
-          <a href={L('/portofolio')} class="notfound-link">{t('nav.partner')}</a>
+          <a href={L('/partner')} class="notfound-link">{t('nav.partner')}</a>
           <a href={L('/kontak')} class="notfound-link">{t('nav.kontak')}</a>
         </div>
       </div>

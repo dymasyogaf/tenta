@@ -23,24 +23,18 @@ const L = (path: string) => {
 // Path netral (tanpa /en) untuk language switcher.
 const basePath = stripLocale(Astro.url.pathname);
 
-const services = [
-  { label: t('svc.website'),    href: L('/layanan/website'),    icon: 'code' as const },
-  { label: t('svc.sewaAkun'),   href: L('/layanan/sewa-akun'),  icon: 'shield' as const },
-  { label: t('svc.konsultasi'), href: L('/layanan/konsultasi'), icon: 'lightbulb' as const },
+const homeHref = L('/');
+const tentangHref = L('/tentang');
+const partnerHref = L('/partner');
+const kontakHref = L('/kontak');
+
+const layananItems = [
+  { id: 'sewa-akun', label: t('svc.sewaAkun'),   href: L('/layanan/sewa-akun'),  icon: 'shield' as const },
+  { id: 'website',   label: t('svc.website'),    href: L('/layanan/website'),    icon: 'code' as const },
+  { id: 'konsultasi',label: t('svc.konsultasi'), href: L('/layanan/konsultasi'), icon: 'lightbulb' as const },
 ];
 
-// Link sebelum dropdown Layanan
-const linksBefore = [
-  { id: 'tentang', label: t('nav.tentang'), href: L('/tentang') },
-];
-// Link setelah dropdown Layanan
-const linksAfter = [
-  { id: 'case', label: t('nav.partner'), href: L('/partner') },
-  { id: 'faq',  label: t('nav.faq'),     href: L('/#faq') },
-];
-const blogHref = 'https://mediawaktu.com';
-const homeHref = L('/');
-const kontakHref = L('/kontak');
+const isLayananActive = active === 'layanan';
 
 // Language switcher: link ke path yang sama di bahasa lain.
 const langOptions = [
@@ -50,22 +44,19 @@ const langOptions = [
 ---
 <header class="header" id="site-header">
   <div class="container nav">
-    <a href="/" style="display:flex;align-items:center;flex-shrink:0;" aria-label="Tentaklik beranda">
+    <a href="/" class="nav-brand" aria-label="Tentaklik beranda">
       <TentaklikLogo size={22} />
     </a>
 
-    <!-- Desktop nav — hidden on mobile via CSS -->
+    <!-- Desktop nav — posisi navigasi di tengah -->
     <nav class="nav-links nav-desktop" aria-label="Navigasi utama">
       <a href={homeHref} class={active === 'beranda' ? 'active' : ''}>{t('nav.beranda')}</a>
-
-      {linksBefore.map(l => (
-        <a href={l.href} class={active === l.id ? 'active' : ''}>{l.label}</a>
-      ))}
+      <a href={tentangHref} class={active === 'tentang' ? 'active' : ''}>{t('nav.tentang')}</a>
 
       <!-- Layanan dropdown -->
       <div class="nav-dropdown-wrap" id="layanan-wrap">
         <button
-          class={`nav-dropdown-trigger ${active === 'layanan' ? 'active' : ''}`}
+          class={`nav-dropdown-trigger ${isLayananActive ? 'active' : ''}`}
           aria-haspopup="true"
           aria-expanded="false"
           aria-controls="layanan-menu"
@@ -75,8 +66,8 @@ const langOptions = [
           <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="nav-dropdown" id="layanan-menu" role="menu">
-          {services.map(s => (
-            <a href={s.href} class="nav-dropdown-item" role="menuitem">
+          {layananItems.map(s => (
+            <a href={s.href} class={`nav-dropdown-item ${active === s.id ? 'active' : ''}`} role="menuitem">
               <span class="nav-dropdown-icon" aria-hidden="true"><ServiceIcon type={s.icon} size={16} /></span>
               {s.label}
             </a>
@@ -84,13 +75,14 @@ const langOptions = [
         </div>
       </div>
 
-      {linksAfter.map(l => (
-        <a href={l.href} class={active === l.id ? 'active' : ''}>{l.label}</a>
-      ))}
+      <a href={partnerHref} class={active === 'case' ? 'active' : ''}>{t('nav.partner')}</a>
+    </nav>
 
-      <a href={blogHref} target="_blank" rel="noopener noreferrer" class="nav-blog-link">{t('nav.blog')} <span aria-hidden="true">↗</span></a>
+    <!-- Right actions: Tombol CTA header lalu tombol bahasa di sebelah kanannya -->
+    <div class="nav-actions nav-desktop-actions">
+      <a href={kontakHref} class="btn btn-primary nav-kontak-btn">{t('nav.kontak')}</a>
 
-      <!-- Language switcher -->
+      <!-- Language switcher (sebelah kanan tombol kontak) -->
       <div class="nav-dropdown-wrap nav-lang-wrap" id="lang-wrap">
         <button
           class="nav-dropdown-trigger nav-lang-trigger"
@@ -113,9 +105,7 @@ const langOptions = [
           ))}
         </div>
       </div>
-
-      <a href={kontakHref} class="btn btn-primary nav-kontak-btn">{t('nav.kontak')}</a>
-    </nav>
+    </div>
 
     <!-- Burger (mobile only) -->
     <button
@@ -141,10 +131,7 @@ const langOptions = [
 
     <nav class="mobile-drawer-links" aria-label="Navigasi mobile">
       <a href={homeHref} class={active === 'beranda' ? 'active' : ''}>{t('nav.beranda')}</a>
-
-      {linksBefore.map(l => (
-        <a href={l.href} class={active === l.id ? 'active' : ''}>{l.label}</a>
-      ))}
+      <a href={tentangHref} class={active === 'tentang' ? 'active' : ''}>{t('nav.tentang')}</a>
 
       <!-- Layanan accordion -->
       <div class="mobile-layanan">
@@ -153,19 +140,15 @@ const langOptions = [
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="mobile-layanan-sub" hidden>
-          {services.map(s => (
-            <a href={s.href} class="mobile-sub-item">
+          {layananItems.map(s => (
+            <a href={s.href} class={`mobile-sub-item ${active === s.id ? 'active' : ''}`}>
               <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;color:var(--orange-700);"><ServiceIcon type={s.icon} size={18} /></span> {s.label}
             </a>
           ))}
         </div>
       </div>
 
-      {linksAfter.map(l => (
-        <a href={l.href} class={active === l.id ? 'active' : ''}>{l.label}</a>
-      ))}
-
-      <a href={blogHref} target="_blank" rel="noopener noreferrer">{t('nav.blog')} ↗</a>
+      <a href={partnerHref} class={active === 'case' ? 'active' : ''}>{t('nav.partner')}</a>
 
       <!-- Language switcher (mobile) -->
       <div class="mobile-lang" role="group" aria-label={t('nav.lang')}>
@@ -183,20 +166,54 @@ const langOptions = [
 </div>
 
 <style>
+  /* ─── Header bar container layout ─── */
+  .nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    z-index: 2;
+  }
+
   /* ─── Desktop nav: hidden on mobile, visible on desktop ─── */
   .nav-desktop {
     display: none; /* default hidden */
-    margin-left: auto;
+  }
+  .nav-desktop-actions {
+    display: none; /* default hidden */
   }
   @media (min-width: 1101px) {
-    .nav-desktop { display: flex; }
-    .nav-burger  { display: none !important; }
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    .nav-desktop-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-left: auto;
+      z-index: 2;
+    }
+    .nav-burger { display: none !important; }
   }
 
   /* Burger visible on mobile */
   .nav-burger {
     display: flex;
     margin-left: auto; /* push to right when nav-desktop is hidden */
+    z-index: 2;
   }
 
   /* ─── Desktop dropdown ─── */
@@ -430,6 +447,19 @@ const langOptions = [
   .nav-dropdown-item.active { background: var(--orange-50); color: var(--orange-700); }
   .nav-dropdown-item.active .nav-lang-badge { background: var(--orange-500); color: #fff; }
 
+  /* Right-align language dropdown so it stays within viewport */
+  .nav-lang-menu {
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
+    min-width: 170px !important;
+  }
+  .nav-lang-menu::before {
+    left: auto !important;
+    right: 18px !important;
+    transform: rotate(45deg) !important;
+  }
+
   /* Language switcher (mobile) */
   .mobile-lang { display: flex; gap: 8px; margin: 8px 0 2px; }
   .mobile-lang-item {
@@ -440,8 +470,35 @@ const langOptions = [
     transition: background 0.15s, color 0.15s, border-color 0.15s;
   }
   .mobile-lang-item.active { background: var(--orange-50); color: var(--orange-700); border-color: var(--orange-200); }
-  /* Tombol Hubungi Kami tetap solid oranye dengan teks putih (#fff) */
-  .nav-kontak-btn,
+  /* Tombol Hubungi Kami di Header: hover berubah jadi putih, teks hitam */
+  .nav-kontak-btn {
+    padding: 9px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    background: var(--orange-500) !important;
+    color: #ffffff !important;
+    border: 1.5px solid transparent;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(255, 107, 26, 0.25);
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer;
+  }
+  .nav-kontak-btn:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: var(--ink-200) !important;
+    box-shadow: 0 4px 14px rgba(31, 26, 23, 0.08) !important;
+    transform: translateY(-1px);
+  }
+  .nav-kontak-btn.active::after,
+  .mobile-kontak-btn.active::after { display: none; }
+
+  /* Mobile Hubungi Kami button */
   .mobile-kontak-btn,
   .mobile-drawer-links > a.mobile-kontak-btn,
   .mobile-drawer-links > a.mobile-kontak-btn:hover,
@@ -453,8 +510,6 @@ const langOptions = [
     align-items: center !important;
     text-align: center !important;
   }
-  .nav-kontak-btn.active::after,
-  .mobile-kontak-btn.active::after { display: none; }
 </style>
 
 <script>

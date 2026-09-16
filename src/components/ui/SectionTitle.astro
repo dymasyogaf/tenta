@@ -1,6 +1,0 @@
----
-interface Props { sub?: string; class?: string; }
-const { sub, class: className = '' } = Astro.props;
----
-<h2 class={`section-title ${className}`}><slot /></h2>
-{sub && <p class="section-sub">{sub}</p>}

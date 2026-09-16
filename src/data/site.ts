@@ -10,8 +10,8 @@ export const site = {
   wa: PUBLIC_WA_NUMBER,
   email: 'hi@tentaklik.com',
   emailKarir: 'karir@tentaklik.com',
-  phone: '085129992225',
-  phoneIntl: '+6285129992225',
+  phone: '+62 822-1998-7770',
+  phoneIntl: '+6282219987770',
   address: 'Indonesia',
   foundingDate: '2023-01-01',
 

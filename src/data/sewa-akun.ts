@@ -3,7 +3,7 @@
 // Single source of truth untuk halaman /layanan/sewa-akun.
 
 export interface WhitelistInfo {
-  key: 'meta' | 'google';
+  key: 'meta' | 'google' | 'tiktok';
   title: string;
   desc: string;
   benefits: string[];
@@ -36,7 +36,7 @@ export const SEWA_HERO = {
   eyebrow: 'Sewa Akun',
   title: 'Iklan Jalan Terus,',
   titleAccent: 'Tanpa Drama Akun Kena Banned.',
-  desc: 'Sewa Akun Whitelist Google & Meta Premium di Tentaklik. Dapatkan infrastruktur iklan kelas korporat dengan limit tanpa batas, review kilat, dan kestabilan performa untuk scale-up bisnis Anda.',
+  desc: 'Sewa Akun Whitelist Meta, Google & TikTok Premium di Tentaklik. Dapatkan infrastruktur iklan kelas korporat dengan limit tanpa batas, review kilat, dan kestabilan performa untuk scale-up bisnis Anda.',
 } as const;
 
 export const META_WL: WhitelistInfo = {
@@ -75,6 +75,25 @@ export const GOOGLE_WL: WhitelistInfo = {
     'Memiliki akun Gmail aktif',
     'Memiliki website / landing page yang sudah live',
     'Produk / layanan yang diiklankan tidak melanggar kebijakan Google Ads',
+  ],
+};
+
+export const TIKTOK_WL: WhitelistInfo = {
+  key: 'tiktok',
+  title: 'TikTok Ads Whitelist',
+  desc: 'Akun TikTok Ads agency resmi dari TikTok Marketing Partner dengan fitur prioritas dan stabilitas tinggi.',
+  benefits: [
+    'Akses fitur TikTok Whitelist & Spark Ads tanpa limitasi akun personal',
+    'Limit harian tanpa batas — bebas scale campaign viral & GMV Max',
+    'Bebas PPN dan biaya admin tersembunyi',
+    'Review iklan lebih cepat dengan approval rate tinggi',
+    'Dukungan direct appeal ke perwakilan TikTok Partner jika terjadi kendala',
+    'Saldo terlindungi dan otomatis pindah ke akun baru jika akun bermasalah*',
+  ],
+  requirements: [
+    'Memiliki akun TikTok Business Center aktif',
+    'Landing page / toko online / akun TikTok yang aktif dan sesuai ketentuan TikTok',
+    'Materi iklan dan produk/layanan tidak melanggar TikTok Advertising Policies',
   ],
 };
 
@@ -209,6 +228,15 @@ export const FLOW_GOOGLE: FlowStep[] = [
   { no: 6, tahap: 'Mulai beriklan', aksi: 'Buat campaign di Google Ads sesuai kebutuhan bisnis' },
 ];
 
+export const FLOW_TIKTOK: FlowStep[] = [
+  { no: 1, tahap: 'Daftar akun dashboard', aksi: 'Buka tentaklik.com dan daftar akun dengan email aktif' },
+  { no: 2, tahap: 'Isi formulir pengajuan', aksi: 'Masukkan: TikTok Business Center ID, link akun TikTok/toko, URL website/landing page' },
+  { no: 3, tahap: 'Proses invite agensi', aksi: 'Tim Tentaklik memproses pengaitan akun agency resmi ke Business Center klien' },
+  { no: 4, tahap: 'Akun aktif', aksi: 'Akun TikTok Ads agency muncul di Business Center — siap digunakan' },
+  { no: 5, tahap: 'Topup saldo', aksi: 'Transfer pembayaran saldo iklan + konfirmasi melalui tim Tentaklik' },
+  { no: 6, tahap: 'Mulai beriklan', aksi: 'Jalankan campaign Spark Ads, Traffic, atau GMV Conversion tanpa kendala limit' },
+];
+
 export const TOPUP_METHODS: TopupMethod[] = [
   { metode: 'Transfer Bank', cara: 'Transfer ke rekening Tentaklik → konfirmasi via WhatsApp atau dashboard dengan bukti transfer' },
   { metode: 'E-Wallet (GoPay / OVO / DANA)', cara: 'Transfer ke nomor e-wallet → konfirmasi via WhatsApp dengan bukti' },
@@ -228,17 +256,20 @@ export const SEWA_FAQS: SewaFaq[] = [
 ];
 
 export const SEWA_SEO = {
-  title: 'Sewa Akun Whitelist Google & Meta Ads — Tentaklik',
-  description: 'Sewa akun iklan whitelist Google Ads & Meta Ads (Facebook & Instagram) di Tentaklik: tanpa limit spending, tanpa PPN, anti random banned, dan saldo pindah otomatis jika disable. Fee topup mulai dari 3,5%.',
+  title: 'Sewa Akun Whitelist Meta, Google & TikTok Ads — Tentaklik',
+  description: 'Sewa akun iklan whitelist Meta (Facebook & Instagram), Google Ads, dan TikTok Ads di Tentaklik: tanpa limit spending, tanpa PPN, anti random banned, dan saldo pindah otomatis jika disable. Fee topup mulai dari 3,5%.',
 } as const;
 
 export const SEWA_KEYWORDS = [
   'sewa akun iklan',
   'sewa akun facebook ads',
   'sewa akun google ads',
+  'sewa akun tiktok ads',
   'akun whitelist meta',
   'akun whitelist google',
+  'akun whitelist tiktok',
   'sewa akun meta ads',
+  'tiktok whitelist account',
   'agency ads whitelist',
 ];
 
@@ -264,7 +295,7 @@ export const SEWA_HERO_EN = {
   eyebrow: 'Account Rental',
   title: 'Keep Ads Running,',
   titleAccent: 'Without Account Ban Drama.',
-  desc: 'Rent Premium Google & Meta Whitelist Accounts at Tentaklik. Get corporate-grade ad infrastructure with unlimited spending, lightning-fast reviews, and stable performance to scale up your business.',
+  desc: 'Rent Premium Meta, Google & TikTok Whitelist Accounts at Tentaklik. Get corporate-grade ad infrastructure with unlimited spending, lightning-fast reviews, and stable performance to scale up your business.',
 } as const;
 
 export const META_WL_EN: WhitelistInfo = {
@@ -306,6 +337,25 @@ export const GOOGLE_WL_EN: WhitelistInfo = {
   ],
 };
 
+export const TIKTOK_WL_EN: WhitelistInfo = {
+  key: 'tiktok',
+  title: 'TikTok Ads Whitelist',
+  desc: 'Official agency TikTok Ads account directly from TikTok Marketing Partner with priority features and high stability.',
+  benefits: [
+    'Access to TikTok Whitelist features & Spark Ads without personal account limits',
+    'No daily spending limit — scale viral & GMV Max campaigns freely',
+    'No VAT and no hidden administrative markups',
+    'Faster ad reviews with high approval rate',
+    'Direct appeal support to TikTok Partner representatives in case of issues',
+    'Protected balance with automatic migration to a new replacement account*',
+  ],
+  requirements: [
+    'Have an active TikTok Business Center account',
+    'Active landing page / online store / TikTok account compliant with policies',
+    'Ad creatives and advertised products comply with TikTok Advertising Policies',
+  ],
+};
+
 export const FLOW_META_EN: FlowStep[] = [
   { no: 1, tahap: 'Register dashboard account', aksi: 'Go to tentaklik.com and register an account with an active email' },
   { no: 2, tahap: 'Fill out request form', aksi: 'Enter: Meta BM ID, Fan Page link, landing page link, product/service type' },
@@ -322,6 +372,15 @@ export const FLOW_GOOGLE_EN: FlowStep[] = [
   { no: 4, tahap: 'Account active', aksi: 'The Google Ads account appears in the client\'s dashboard — ready for top-up' },
   { no: 5, tahap: 'Top-up balance', aksi: 'Transfer to Tentaklik\'s account + confirm — balance is credited within hours' },
   { no: 6, tahap: 'Start advertising', aksi: 'Create campaigns in Google Ads according to your business needs' },
+];
+
+export const FLOW_TIKTOK_EN: FlowStep[] = [
+  { no: 1, tahap: 'Register dashboard account', aksi: 'Go to tentaklik.com and register an account with an active email' },
+  { no: 2, tahap: 'Fill out request form', aksi: 'Enter: TikTok Business Center ID, TikTok account link, website/landing page URL' },
+  { no: 3, tahap: 'Agency invite process', aksi: 'The Tentaklik team links the official agency account to your Business Center' },
+  { no: 4, tahap: 'Account active', aksi: 'The TikTok Ads agency account appears in your Business Center — ready to use' },
+  { no: 5, tahap: 'Top-up balance', aksi: 'Transfer ad balance top-up + confirm via Tentaklik team' },
+  { no: 6, tahap: 'Start advertising', aksi: 'Run Spark Ads, Traffic, or GMV Conversion campaigns without spending limits' },
 ];
 
 export const TOPUP_METHODS_EN: TopupMethod[] = [
@@ -343,16 +402,18 @@ export const SEWA_FAQS_EN: SewaFaq[] = [
 ];
 
 export const SEWA_SEO_EN = {
-  title: 'Google & Meta Ads Whitelist Account Rental — Tentaklik',
-  description: 'Rent Google Ads & Meta Ads (Facebook & Instagram) whitelist ad accounts at Tentaklik: no spending limit, no VAT, anti random ban, and automatic balance transfer if disabled. Top-up fees start at 3%.',
+  title: 'Meta, Google & TikTok Ads Whitelist Account Rental — Tentaklik',
+  description: 'Rent Meta Ads, Google Ads, and TikTok Ads whitelist accounts at Tentaklik: no spending limit, no VAT, anti random ban, and automatic balance transfer if disabled. Top-up fees start at 3%.',
 } as const;
 
 export const SEWA_KEYWORDS_EN = [
   'rent ad account',
   'rent facebook ads account',
   'rent google ads account',
+  'rent tiktok ads account',
   'meta whitelist account',
   'google whitelist account',
+  'tiktok whitelist account',
   'rent meta ads account',
   'agency ads whitelist',
 ];

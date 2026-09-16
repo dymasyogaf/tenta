@@ -43,8 +43,9 @@ const L = (path: string) => {
         <li>
           <a href={L("/layanan/sewa-akun")}>{t('svc.sewaAkun')}</a>
           <ul class="footer-subnav">
-<li><a href={L("/whitelist/metaads")}>{t('footer.metaWhitelist')}</a></li>
-        <li><a href={L("/whitelist/gads")}>{t('footer.googleWhitelist')}</a></li>
+            <li><a href={L("/layanan/sewa-akun#meta")}>{t('footer.metaWhitelist')}</a></li>
+            <li><a href={L("/layanan/sewa-akun#google")}>{t('footer.googleWhitelist')}</a></li>
+            <li><a href={L("/layanan/sewa-akun#tiktok")}>{t('footer.tiktokWhitelist')}</a></li>
           </ul>
         </li>
         <li><a href={L("/layanan/konsultasi")}>{t('svc.konsultasi')}</a></li>
@@ -55,6 +56,7 @@ const L = (path: string) => {
       <ul>
         <li><a href={L("/")}>{t('nav.beranda')}</a></li>
         <li><a href={L("/tentang")}>{t('footer.tentang')}</a></li>
+        <li><a href={L("/karir")}>{t('nav.karir')}</a></li>
         <li><a href={L("/partner")}>{t('footer.partner')}</a></li>
         <li><a href={L("/#faq")}>{t('footer.faq')}</a></li>
         <li><a href="https://mediawaktu.com" target="_blank" rel="noopener noreferrer">{t('nav.blog')} ↗</a></li>
@@ -66,20 +68,17 @@ const L = (path: string) => {
         <li style="display:flex;align-items:center;gap:8px;"><WhatsApp size={14} /> <a href={waLink(lang === 'en' ? 'Hi Tentaklik! I would like to inquire further about your digital marketing services. Can you help?' : 'Halo Tentaklik! Saya ingin menanyakan lebih lanjut mengenai layanan digital marketing Anda. Bisa bantu saya?')} target="_blank" rel="noopener noreferrer" class="footer-wa-link">{site.phone}</a></li>
         <li style="display:flex;align-items:center;gap:8px;"><Email size={14} /> {site.email}</li>
       </ul>
-    </div>
-  </div>
-  <div class="container partner-row">
-    <span class="partner-label">{t('footer.officialPartner')}</span>
-    <div class="partner-logos-container">
-      <a href="https://www.google.com/partners/agency?id=1004085415" target="_blank" rel="noopener noreferrer" aria-label="Google Partner" class="partner-logo">
-        <picture><source type="image/avif" srcset="/assets/partner-google.avif" /><source type="image/webp" srcset="/assets/partner-logo-google-partner.webp" /><img src="/assets/partner-google.png" alt="Google Partner" width="120" height="50" loading="lazy" decoding="async" /></picture>
-      </a>
-      <a href="https://www.facebook.com/business/partner-directory" target="_blank" rel="noopener noreferrer" aria-label="Meta Business Partner" class="partner-logo">
-        <img src="/assets/partner-meta.png" alt="Meta Business Partner" width="120" height="50" loading="lazy" decoding="async" />
-      </a>
-      <a href="https://www.tiktok.com/business/en/partner" target="_blank" rel="noopener noreferrer" aria-label="TikTok Partner" class="partner-logo">
-        <img src="/assets/tiktok-partner.png" alt="TikTok Partner" width="120" height="50" loading="lazy" decoding="async" />
-      </a>
+      <div class="footer-partner-logos">
+        <a href="https://www.google.com/partners/agency?id=1004085415" target="_blank" rel="noopener noreferrer" aria-label="Google Partner" class="footer-partner-logo">
+          <picture><source type="image/avif" srcset="/assets/partner-google.avif" /><source type="image/webp" srcset="/assets/partner-google.webp" /><img src="/assets/partner-google.png" alt="Google Partner" width="76" height="26" loading="lazy" decoding="async" /></picture>
+        </a>
+        <a href="https://www.facebook.com/business/partner-directory" target="_blank" rel="noopener noreferrer" aria-label="Meta Business Partner" class="footer-partner-logo">
+          <img src="/assets/partner-meta.png" alt="Meta Business Partner" width="76" height="26" loading="lazy" decoding="async" />
+        </a>
+        <a href="https://www.tiktok.com/business/en/partner" target="_blank" rel="noopener noreferrer" aria-label="TikTok Partner" class="footer-partner-logo">
+          <img src="/assets/tiktok-partner.png" alt="TikTok Partner" width="76" height="26" loading="lazy" decoding="async" />
+        </a>
+      </div>
     </div>
   </div>
   <div class="container footer-legal" style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--ink-300);">
@@ -110,68 +109,42 @@ const L = (path: string) => {
     color: var(--orange-300);
   }
 
-  .partner-row {
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
+  .footer-partner-logos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 18px;
+    width: 100%;
+    max-width: 240px;
   }
-  .partner-label {
-    font-size: 12px;
-    color: var(--ink-300);
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .partner-logos-container {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .partner-logo {
+  .footer-partner-logo {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 4px 6px;
+    height: 36px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .partner-logo img {
-    width: auto;
+  .footer-partner-logo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  .footer-partner-logo picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .footer-partner-logo img {
+    width: 100%;
     height: auto;
-    max-height: 42px;
-    max-width: 120px;
+    max-height: 22px;
+    max-width: 66px;
     object-fit: contain;
-  }
-
-  @media (max-width: 768px) {
-    .partner-row {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 18px;
-    }
-    .partner-label {
-      margin-bottom: 4px;
-    }
-    .partner-logos-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      width: 100%;
-      max-width: 340px;
-      margin: 0 auto;
-    }
-    .partner-logo {
-      width: 100%;
-    }
-    .partner-logo img {
-      width: 100%;
-      max-width: 96px;
-      max-height: 36px;
-      object-fit: contain;
-    }
+    display: block;
   }
 </style>

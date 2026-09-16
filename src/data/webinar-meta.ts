@@ -80,7 +80,7 @@ export const WEBINAR_META = {
     ctaText: 'Daftar Sekarang',
     footnote: 'Kuota peserta terbatas.',
     scriptUrl: 'https://script.google.com/macros/s/AKfycbyqBbjxA91y18QR_PvcYArI62SSEbdD0JU49PFnlb4Wj7Q1xviBNbwDaHG_jSKZk0OutA/exec',
-    waNumber: '6285129992225',
+    waNumber: '6282219987770',
     pixelId: '1341980327384883',
   },
 };

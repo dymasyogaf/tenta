@@ -94,6 +94,6 @@ export const WEBINAR_GADS = {
     headingAccent: 'Jangan Tambah Budget Dulu.',
     sub: 'Pahami dulu kenapa click tidak jadi customer. Gabung ke grup Telegram untuk mendapatkan link akses Zoom dan Materi PDF.',
     scriptUrl: '',
-    waNumber: '6285129992225',
+    waNumber: '6282219987770',
   },
 };

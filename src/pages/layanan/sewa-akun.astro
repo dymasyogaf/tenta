@@ -10,7 +10,7 @@ import { getLang, useT } from '@i18n/utils';
 import { serviceJsonLd, faqJsonLd, breadcrumbJsonLd } from '@lib/seo';
 import { site } from '@data/site';
 import {
-  SEWA_HERO, META_WL, GOOGLE_WL, SEWA_PLANS,
+  SEWA_HERO, META_WL, GOOGLE_WL, TIKTOK_WL, SEWA_PLANS,
   SEWA_FAQS, SEWA_SEO, SEWA_KEYWORDS,
   INDUSTRIES, INDUSTRY_HEADING,
   type WhitelistInfo,
@@ -20,7 +20,7 @@ const lang = getLang(Astro.currentLocale);
 const t = useT(lang);
 
 const url = `${site.url}/layanan/sewa-akun`;
-const wlBlocks: WhitelistInfo[] = [META_WL, GOOGLE_WL];
+const wlBlocks: WhitelistInfo[] = [META_WL, GOOGLE_WL, TIKTOK_WL];
 
 const jsonLd = [
   serviceJsonLd({
@@ -59,22 +59,32 @@ const jsonLd = [
     </div>
   </ServiceHero>
 
-  <!-- Layanan whitelist: Meta + Google -->
+  <!-- Layanan whitelist: Meta + Google + TikTok -->
   <section aria-labelledby="wl-heading">
     <div class="container">
       <h2 id="wl-heading" class="section-title">{t('sewa.avail.title')}</h2>
       <p class="section-sub" style="margin-bottom:48px;">{t('sewa.avail.sub')}</p>
       <div class="wl-grid">
         {wlBlocks.map((wl) => (
-          <article class="wl-card reveal">
+          <article class="wl-card reveal" id={wl.key}>
+            <div class="wl-badge-wrap">
+              <span class={`wl-badge wl-badge-${wl.key}`}>
+                {wl.key === 'meta' ? 'Meta Agency' : wl.key === 'google' ? 'Google Partner' : 'TikTok Partner'}
+              </span>
+            </div>
             <h3 class="wl-title">{wl.title}</h3>
             <p class="wl-desc">{wl.desc}</p>
             <h4 class="wl-sub">Keunggulan</h4>
             <ul class="wl-benefits">
               {wl.benefits.map((b) => (
-                <li><span class="wl-check" aria-hidden="true"><Check size={12} /></span>{b}</li>
+                <li><span class="wl-check" aria-hidden="true"><Check size={12} /></span><span>{b}</span></li>
               ))}
             </ul>
+            <div class="wl-action">
+              <a href="#pricing" class="wl-cta-btn">
+                Lihat Paket Sewa →
+              </a>
+            </div>
           </article>
         ))}
       </div>
@@ -91,29 +101,92 @@ const jsonLd = [
 
 <style>
   /* Whitelist cards */
-  .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .wl-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+  }
   .wl-card {
     background: white;
     border: 1px solid var(--ink-100);
     border-radius: var(--radius-xl);
-    padding: 28px;
+    padding: 30px 26px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    scroll-margin-top: 100px;
   }
-  .wl-title { font-size: 22px; margin-bottom: 8px; }
-  .wl-desc { font-size: 14.5px; color: var(--ink-500); margin-bottom: 22px; line-height: 1.6; }
+  .wl-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px -8px rgba(10, 37, 64, 0.08);
+    border-color: var(--orange-300);
+  }
+  .wl-badge-wrap {
+    margin-bottom: 14px;
+  }
+  .wl-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .wl-badge-meta { background: rgba(24, 119, 242, 0.1); color: #1877F2; }
+  .wl-badge-google { background: rgba(234, 67, 53, 0.1); color: #EA4335; }
+  .wl-badge-tiktok { background: rgba(0, 0, 0, 0.08); color: #111111; }
+  .wl-title { font-size: 21px; margin-bottom: 8px; font-weight: 700; }
+  .wl-desc { font-size: 14px; color: var(--ink-500); margin-bottom: 20px; line-height: 1.6; }
   .wl-sub {
     font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--orange-700); margin-bottom: 12px;
   }
-  .wl-benefits { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-  .wl-benefits li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ink-700); line-height: 1.5; }
+  .wl-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+  }
+  .wl-benefits li { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: var(--ink-700); line-height: 1.5; }
   .wl-check {
     width: 18px; height: 18px; border-radius: 999px;
     background: var(--orange-100); color: var(--orange-700);
     display: inline-flex; align-items: center; justify-content: center;
     flex-shrink: 0; margin-top: 1px;
   }
+  .wl-action {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--ink-100);
+  }
+  .wl-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-700);
+    background: var(--ink-50);
+    border: 1px solid var(--ink-200);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .wl-cta-btn:hover {
+    background: var(--ink-900);
+    color: #ffffff;
+    border-color: var(--ink-900);
+  }
 
-  @media (max-width: 900px) {
+  @media (max-width: 980px) {
     .wl-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {

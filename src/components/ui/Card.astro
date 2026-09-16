@@ -1,7 +1,0 @@
----
-interface Props { class?: string; reveal?: boolean; }
-const { class: className = '', reveal = false } = Astro.props;
----
-<div class={`card ${reveal ? 'reveal' : ''} ${className}`}>
-  <slot />
-</div>
