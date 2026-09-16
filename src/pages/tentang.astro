@@ -6,9 +6,6 @@ import { aboutPageJsonLd, breadcrumbJsonLd } from '@lib/seo';
 import { site } from '@data/site';
 
 import imgMascot from '@/assets/tentang/tentang-tentaklik.png';
-import imgSono from '@/assets/tentang/sonoprabowo.avif';
-import imgZabarjad from '@/assets/tentang/zabarjad.avif';
-import imgAhzelan from '@/assets/tentang/ahzelan.avif';
 
 const galeriImages = [
   '/assets/galeri/1.jpg', '/assets/galeri/2.jpg', '/assets/galeri/3.jpg',
@@ -18,15 +15,34 @@ const galeriImages = [
 ];
 
 const values = [
-  { iconId: 'target', title: 'Results > Vanity',     desc: 'Yang penting konversi & ROI, bukan sekadar reach atau likes.' },
-  { iconId: 'search', title: 'Transparan',         desc: 'Akun iklan milik klien, data terbuka, fee clear dari awal.' },
-  { iconId: 'partner', title: 'Long-term Partner',  desc: 'Bukan vendor sekali putus — kami invest waktu untuk growth bisnis Anda.' },
+  {
+    iconId: 'search',
+    title: 'Terbuka dari Awal',
+    desc: 'Kami jelaskan biaya, proses, dan cakupan layanan sejak awal. Termasuk batasan yang perlu kamu tahu, supaya kamu bisa mengambil keputusan dengan lebih jelas.',
+  },
+  {
+    iconId: 'target',
+    title: 'Pahami Dulu, Bantu dengan Tepat',
+    desc: 'Setiap bisnis punya kebutuhan yang berbeda. Kami mulai dengan mendengar tujuan dan kendala kamu, lalu menyarankan bantuan yang sesuai.',
+  },
+  {
+    iconId: 'trending',
+    title: 'Terus Belajar, Terus Berbenah',
+    desc: 'Dunia digital terus berubah. Kami terbuka pada masukan, belajar dari pengalaman, dan memperbaiki cara kerja supaya bantuan kami tetap relevan.',
+  },
 ];
 
 const team = [
-  { name: 'Sono Prabowo. S.Kep., M.M., M.Pd.', role: 'Founder',                  image: imgSono },
-  { name: 'Zabarjad Dliya U, S.H',             role: 'Chief Operating Officer',  image: imgZabarjad },
-  { name: 'Ahzelan',                           role: 'Chief Technology Officer', image: imgAhzelan },
+  { name: '(nama tim)', role: '(jabatan tim)' },
+  { name: '(nama tim)', role: '(jabatan tim)' },
+  { name: '(nama tim)', role: '(jabatan tim)' },
+  { name: '(nama tim)', role: '(jabatan tim)' },
+  { name: '(nama tim)', role: '(jabatan tim)' },
+  { name: '(nama tim)', role: '(jabatan tim)' },
+  { name: '(nama tim)', role: '(jabatan tim)' },
+  { name: '(nama tim)', role: '(jabatan tim)' },
+  { name: '(nama tim)', role: '(jabatan tim)' },
+  { name: '(nama tim)', role: '(jabatan tim)' },
 ];
 
 const url = `${site.url}/tentang`;
@@ -50,10 +66,10 @@ const jsonLd = [
       <div>
         <span class="eyebrow">Tentang Tentaklik</span>
         <h1 style="font-size:48px;margin-top:18px;margin-bottom:18px;">
-          Kraken kecil yang serius soal <span style="color:var(--orange-500);">growth bisnis</span>.
+          Kraken kecil yang siap <span style="color:var(--orange-500);">bawa perubahan</span>.
         </h1>
         <p style="font-size:17px;color:var(--ink-500);max-width:540px;">
-          Tentaklik berdiri dari frustrasi: terlalu banyak agensi yang janji muluk, tapi hasilnya cuma laporan cantik. Kami pilih jalan beda — fokus angka yang berarti, eksekusi rapi, dan partnership jangka panjang.
+          Di balik si Kraken, ada tim Tentaklik yang siap bantu kamu menjalankan digital marketing dengan lebih terarah. Mulai dari kebutuhan akun iklan, website, sampai diskusi strategi, kami hadir buat membantu kamu menemukan langkah yang sesuai dengan kebutuhan bisnis.
         </p>
       </div>
       <div style="display:flex;justify-content:center;">
@@ -74,13 +90,14 @@ const jsonLd = [
   <section>
     <div class="container">
       <h2 class="section-title">Nilai yang Kami Pegang</h2>
-      <p class="section-sub" style="margin-bottom:40px;">Tiga hal yang nggak bisa ditawar.</p>
+      <p class="section-sub" style="margin-bottom:40px;">Cara kami bekerja, berdiskusi, dan menjaga kepercayaan kamu.</p>
       <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px;">
         {values.map(v => (
           <div class="card reveal">
             <div style="width:50px;height:50px;border-radius:14px;background:var(--orange-100);color:var(--orange-700);display:flex;align-items:center;justify-content:center;margin-bottom:14px;" aria-hidden="true">
-              {v.iconId === 'target' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>}
               {v.iconId === 'search' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>}
+              {v.iconId === 'target' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>}
+              {v.iconId === 'trending' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 6 23 6 23 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>}
               {v.iconId === 'partner' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>}
             </div>
             <h3 style="font-size:18px;margin-bottom:8px;">{v.title}</h3>
@@ -91,18 +108,44 @@ const jsonLd = [
     </div>
   </section>
 
-  <section style="background:var(--bg-warm);">
+  <!-- Our Story section -->
+  <section style="padding-top:10px;padding-bottom:50px;">
     <div class="container">
-      <h2 class="section-title">Tim Inti</h2>
+      <div class="mission-box reveal">
+        <div class="mission-heading">
+          <h2>Our Story</h2>
+        </div>
+        <div class="mission-body">
+          <p>
+            Tentaklik lahir dari satu hal sederhana: membantu bisnis tumbuh lebih mudah di dunia digital. Nama Tentaklik terinspirasi dari dua hal: Tentakel dan Klik. Tentakel menggambarkan fleksibilitas dan kemampuan untuk menjangkau banyak hal sekaligus. Sementara Klik menggambarkan ketepatan dalam mengambil tindakan. Dari situlah kami membangun Tentaklik sebagai digital agency yang menggabungkan strategi, teknologi, dan eksekusi untuk membantu bisnis berkembang.
+          </p>
+          <p>
+            Kami bekerja seperti Kraken. Satu kepala untuk menyusun strategi, banyak tentakel untuk menjalankan eksekusi. Mulai dari Website Development, Meta Ads, Google Ads, Tiktok Ads, hingga Business Consultation, kami menghubungkan berbagai kebutuhan digital dalam satu ekosistem. Kami juga terus beradaptasi dengan perubahan platform, algoritma, dan perilaku pasar. Karena di dunia digital, cara terbaik hari ini belum tentu menjadi cara terbaik besok.
+          </p>
+          <div class="mission-highlight">
+            Misi kami adalah menggerakkan setiap tentakel kami untuk membantu bisnis menemukan strategi yang tepat, mengeksekusi dengan lebih baik, dan terus berkembang.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg-warm);padding-top:56px;padding-bottom:56px;">
+    <div class="container">
+      <h2 class="section-title">Sapa Tim Kami</h2>
       <p class="section-sub" style="margin-bottom:40px;">Orang-orang yang turun langsung di project kamu.</p>
-      <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
+      
+      <div class="team-grid">
         {team.map(t => (
-          <div class="card reveal" style="text-align:center;width:100%;max-width:340px;padding:36px 24px;">
-            <div style="width:140px;height:140px;border-radius:50%;margin:0 auto 20px;overflow:hidden;padding:0;background:var(--ink-50);border:4px solid white;box-shadow:0 8px 24px rgba(14,27,42,0.08);">
-              <Image src={t.image} alt={t.name} style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <div class="card reveal team-card">
+            <div class="team-avatar-placeholder" aria-hidden="true">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:34px;height:34px;display:block;">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
             </div>
-            <h3 style="font-size:18px;margin-bottom:8px;line-height:1.4;">{t.name}</h3>
-            <p style="font-size:14px;color:var(--orange-600);font-weight:600;margin:0;">{t.role}</p>
+            <h3 class="team-name">{t.name}</h3>
+            <p class="team-role">{t.role}</p>
           </div>
         ))}
       </div>
@@ -204,6 +247,146 @@ const jsonLd = [
     }
     @media (prefers-reduced-motion: reduce) { .tentang-kraken-wrap { animation: none; } }
     @media (max-width: 760px) { .tentang-kraken-wrap { max-width: min(340px, 85vw); } }
+
+    /* Mission Box Section */
+    .mission-box {
+      background: #FAF7F2;
+      border: 1px solid rgba(14, 27, 42, 0.05);
+      border-radius: 28px;
+      padding: 56px 52px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .mission-heading h2 {
+      font-size: 40px;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+      color: var(--ink-900);
+      margin: 0;
+      line-height: 1.2;
+    }
+    .mission-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink-700);
+      margin: 0 0 20px 0;
+    }
+    .mission-highlight {
+      background: #FFE8D6;
+      color: var(--orange-600);
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 18px 24px;
+      border-radius: 14px;
+      margin-top: 24px;
+    }
+    @media (max-width: 860px) {
+      .mission-box {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 36px 24px;
+      }
+      .mission-heading h2 {
+        font-size: 32px;
+      }
+    }
+
+    /* Team Grid - Desktop: 5 kolom (5-5), Mobile: 2 kolom rapi */
+    .team-grid {
+      display: grid !important;
+      grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+    }
+    .team-card {
+      text-align: center !important;
+      padding: 24px 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #FFFFFF !important;
+      border-radius: 20px !important;
+      border: 1px solid var(--ink-100) !important;
+      min-width: 0 !important;
+      overflow: hidden !important;
+    }
+    .team-avatar-placeholder {
+      width: 76px !important;
+      height: 76px !important;
+      border-radius: 50% !important;
+      margin: 0 auto 14px !important;
+      background: var(--ink-50) !important;
+      border: 3px solid #FFFFFF !important;
+      box-shadow: 0 4px 14px rgba(14,27,42,0.08) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: var(--ink-300) !important;
+      flex-shrink: 0 !important;
+    }
+    .team-avatar-placeholder :global(svg) {
+      width: 34px !important;
+      height: 34px !important;
+      max-width: 34px !important;
+      max-height: 34px !important;
+      display: block !important;
+    }
+    .team-name {
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      margin-bottom: 5px !important;
+      line-height: 1.35 !important;
+      color: var(--ink-900) !important;
+      text-align: center !important;
+      word-break: break-word !important;
+    }
+    .team-role {
+      font-size: 13px !important;
+      color: var(--orange-600) !important;
+      font-weight: 600 !important;
+      margin: 0 !important;
+      text-align: center !important;
+      word-break: break-word !important;
+    }
+
+    @media (max-width: 1080px) {
+      .team-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 14px !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+      }
+      .team-card {
+        padding: 14px 8px !important;
+        border-radius: 14px !important;
+      }
+      .team-avatar-placeholder {
+        width: 56px !important;
+        height: 56px !important;
+        margin: 0 auto 10px !important;
+        border-width: 2.5px !important;
+      }
+      .team-avatar-placeholder :global(svg) {
+        width: 24px !important;
+        height: 24px !important;
+        max-width: 24px !important;
+        max-height: 24px !important;
+      }
+      .team-name {
+        font-size: 13px !important;
+        margin-bottom: 2px !important;
+      }
+      .team-role {
+        font-size: 11px !important;
+      }
+    }
   </style>
 
   <section style="padding-bottom:24px;">
