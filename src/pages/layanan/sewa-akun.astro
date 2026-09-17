@@ -5,6 +5,7 @@ import PricingSection from '@components/sections/service/PricingSection.astro';
 import ServiceFAQ from '@components/sections/service/ServiceFAQ.astro';
 import ServiceCTA from '@components/sections/service/ServiceCTA.astro';
 import Check from '@components/icons/Check.astro';
+import PlatformLogo from '@components/icons/PlatformLogo.astro';
 import IndustriesGrid from '@components/sections/IndustriesGrid.astro';
 import { getLang, useT } from '@i18n/utils';
 import { serviceJsonLd, faqJsonLd, breadcrumbJsonLd } from '@lib/seo';
@@ -49,6 +50,8 @@ const jsonLd = [
     title={SEWA_HERO.title}
     titleAccent={SEWA_HERO.titleAccent}
     desc={SEWA_HERO.desc}
+    flipWords={SEWA_HERO.flipWords}
+    flipInterval={1200}
   >
     <div slot="illustration" class="kraken-float" style="width:100%;max-width:480px;margin:0 auto;filter:drop-shadow(0 24px 48px rgba(255,107,26,0.18));">
       <picture>
@@ -68,9 +71,7 @@ const jsonLd = [
         {wlBlocks.map((wl) => (
           <article class="wl-card reveal" id={wl.key}>
             <div class="wl-badge-wrap">
-              <span class={`wl-badge wl-badge-${wl.key}`}>
-                {wl.key === 'meta' ? 'Meta Agency' : wl.key === 'google' ? 'Google Partner' : 'TikTok Partner'}
-              </span>
+              <PlatformLogo platform={wl.key} />
             </div>
             <h3 class="wl-title">{wl.title}</h3>
             <p class="wl-desc">{wl.desc}</p>
@@ -81,7 +82,7 @@ const jsonLd = [
               ))}
             </ul>
             <div class="wl-action">
-              <a href="#pricing" class="wl-cta-btn">
+              <a href={wl.href} class="wl-cta-btn">
                 Lihat Paket Sewa →
               </a>
             </div>
@@ -181,15 +182,50 @@ const jsonLd = [
     transition: all 0.2s ease;
   }
   .wl-cta-btn:hover {
-    background: var(--ink-900);
+    background: var(--orange-500);
     color: #ffffff;
-    border-color: var(--ink-900);
+    border-color: var(--orange-500);
+    box-shadow: 0 4px 14px rgba(255, 107, 26, 0.3);
   }
 
   @media (max-width: 980px) {
-    .wl-grid { grid-template-columns: 1fr; }
+    .wl-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .wl-card {
+      text-align: center;
+      align-items: center;
+    }
+    .wl-badge-wrap {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .wl-title {
+      text-align: center;
+    }
+    .wl-desc {
+      text-align: center;
+    }
+    .wl-sub {
+      text-align: center;
+    }
+    .wl-benefits {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto 24px auto;
+    }
+    .wl-benefits li {
+      text-align: left;
+      justify-content: flex-start;
+    }
+    .wl-action {
+      width: 100%;
+    }
   }
   @media (max-width: 560px) {
-    .wl-card { padding: 22px; }
+    .wl-card { padding: 24px 20px; }
   }
 </style>

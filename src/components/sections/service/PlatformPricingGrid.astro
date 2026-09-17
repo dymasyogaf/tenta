@@ -1,0 +1,375 @@
+---
+import type { PlatformPricingCard } from '@data/sewa-akun';
+
+interface Props {
+  platformPricing: PlatformPricingCard[];
+  lang: 'en' | 'id';
+}
+
+const { platformPricing, lang } = Astro.props;
+---
+
+<div class="platform-pricing-grid">
+  {platformPricing.map((card) => (
+    <div class="platform-pricing-card reveal">
+      <!-- Gradient Header Banner with Floating Overlapping Logo Badge -->
+      <div class={`ppc-banner ppc-banner-${card.key}`}>
+        <div class="ppc-logo-circle" aria-hidden="true">
+          {card.key === 'meta' && (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="url(#meta-brand-grad)" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="meta-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0064E1" />
+                  <stop offset="50%" stop-color="#0073EE" />
+                  <stop offset="100%" stop-color="#0082FB" />
+                </linearGradient>
+              </defs>
+              <path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z" />
+            </svg>
+          )}
+          {card.key === 'google' && (
+            <svg width="28" height="28" viewBox="0 0 250 250" fill="none">
+              <path fill="#4285F4" d="M85.9,28.6c2.4-6.3,5.7-12.1,10.6-16.8c19.6-19.1,52-14.3,65.3,9.7c10,18.2,20.6,36,30.9,54c17.2,29.9,34.6,59.8,51.6,89.8c14.3,25.1-1.2,56.8-29.6,61.1c-17.4,2.6-33.7-5.4-42.7-21c-15.1-26.3-30.3-52.6-45.4-78.8c-0.3-0.6-0.7-1.1-1.1-1.6c-1.6-1.3-2.3-3.2-3.3-4.9c-6.7-11.8-13.6-23.5-20.3-35.2c-4.3-7.6-8.8-15.1-13.1-22.7c-3.9-6.8-5.7-14.2-5.5-22C83.6,36.2,84.1,32.2,85.9,28.6"/>
+              <path fill="#FABC04" d="M85.9,28.6c-0.9,3.6-1.7,7.2-1.9,11c-0.3,8.4,1.8,16.2,6,23.5C101,82,112,101,122.9,120c1,1.7,1.8,3.4,2.8,5c-6,10.4-12,20.7-18.1,31.1c-8.4,14.5-16.8,29.1-25.3,43.6c-0.4,0-0.5-0.2-0.6-0.5c-0.1-0.8,0.2-1.5,0.4-2.3c4.1-15,0.7-28.3-9.6-39.7c-6.3-6.9-14.3-10.8-23.5-12.1c-12-1.7-22.6,1.4-32.1,8.9c-1.7,1.3-2.8,3.2-4.8,4.2c-0.4,0-0.6-0.2-0.7-0.5c4.8-8.3,9.5-16.6,14.3-24.9C45.5,98.4,65.3,64,85.2,29.7C85.4,29.3,85.7,29,85.9,28.6"/>
+              <path fill="#34A852" d="M11.8,158c1.9-1.7,3.7-3.5,5.7-5.1c24.3-19.2,60.8-5.3,66.1,25.1c1.3,7.3,0.6,14.3-1.6,21.3c-0.1,0.6-0.2,1.1-0.4,1.7c-0.9,1.6-1.7,3.3-2.7,4.9c-8.9,14.7-22,22-39.2,20.9C20,225.4,4.5,210.6,1.8,191c-1.3-9.5,0.6-18.4,5.5-26.6c1-1.8,2.2-3.4,3.3-5.2C11.1,158.8,10.9,158,11.8,158"/>
+            </svg>
+          )}
+          {card.key === 'tiktok' && (
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#000000">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+            </svg>
+          )}
+        </div>
+      </div>
+
+      <!-- Card Content -->
+      <div class="ppc-body">
+        <h3 class="ppc-title">{card.title}</h3>
+        <div class="ppc-pill">{card.topupFeePill}</div>
+
+        <div class="ppc-fee-section">
+          <span class="ppc-fee-label">{card.monthlyFeeLabel}</span>
+          <div class="ppc-fee-price">
+            <span class="ppc-currency">{lang === 'en' ? '$' : 'Rp'}</span>
+            <span class="ppc-price-val">{lang === 'en' ? '31' : '150.000'}</span>
+            <span class="ppc-price-unit">{card.monthlyFeeUnit}</span>
+          </div>
+        </div>
+
+        <!-- Top-up Tier Breakdown -->
+        <div class="ppc-tiers">
+          <div class="ppc-tiers-header">
+            <span>{lang === 'en' ? 'Top-up Spend' : 'Nominal Top-up'}</span>
+            <span>Fee</span>
+          </div>
+          {card.tiers.map((tr) => (
+            <div class="ppc-tier-row">
+              <span class="ppc-tier-label">{tr.label}</span>
+              <span class="ppc-tier-rate">{tr.fee}</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- Key Benefits -->
+        <ul class="ppc-features">
+          {card.features.map((f) => (
+            <li>
+              <svg class="ppc-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a href={card.href} class="ppc-btn">
+          {card.btnText}
+        </a>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .platform-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1140px;
+    margin: 0 auto;
+    align-items: stretch;
+  }
+
+  .platform-pricing-card {
+    background: #ffffff;
+    border: 1px solid var(--ink-100, #e2e8f0);
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px -2px rgba(10, 37, 64, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+  }
+
+  .platform-pricing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -10px rgba(10, 37, 64, 0.12);
+    border-color: var(--orange-300, #fdba74);
+  }
+
+  /* Pastel Gradient Header Banner with Warm Tentaklik Undertone */
+  .ppc-banner {
+    height: 78px;
+    position: relative;
+    background: linear-gradient(90deg, #fff7ed 0%, #ffedd5 50%, #fef3c7 100%);
+  }
+
+  .ppc-banner-meta {
+    background: linear-gradient(90deg, #eff6ff 0%, #fed7aa 60%, #fff7ed 100%);
+  }
+
+  .ppc-banner-google {
+    background: linear-gradient(90deg, #fef3c7 0%, #fed7aa 60%, #fff7ed 100%);
+  }
+
+  .ppc-banner-tiktok {
+    background: linear-gradient(90deg, #fce7f3 0%, #fed7aa 60%, #fff7ed 100%);
+  }
+
+  /* Overlapping White Platform Logo Badge */
+  .ppc-logo-circle {
+    position: absolute;
+    right: 22px;
+    bottom: -26px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(10, 37, 64, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .ppc-body {
+    padding: 32px 24px 26px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .ppc-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink-900, #0a2540);
+    margin: 0 0 10px 0;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  /* Warm Orange Tentaklik Pill Badge */
+  .ppc-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 14px;
+    border: 1.5px solid var(--orange-200, #fed7aa);
+    background: var(--orange-50, #fff7ed);
+    color: var(--orange-600, #ea580c);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    width: fit-content;
+    margin-bottom: 20px;
+  }
+
+  .ppc-fee-section {
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ink-100, #e2e8f0);
+  }
+
+  .ppc-fee-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-500, #64748b);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .ppc-fee-price {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+  }
+
+  .ppc-currency {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink-900, #0a2540);
+  }
+
+  .ppc-price-val {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--ink-900, #0a2540);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .ppc-price-unit {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink-500, #64748b);
+    margin-left: 2px;
+  }
+
+  /* Tier Breakdown */
+  .ppc-tiers {
+    background: var(--ink-50, #f8fafc);
+    border: 1px solid var(--ink-100, #e2e8f0);
+    border-radius: var(--radius-md, 12px);
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ppc-tiers-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-400, #94a3b8);
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--ink-200, #cbd5e1);
+  }
+
+  .ppc-tier-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+    color: var(--ink-700, #334155);
+  }
+
+  .ppc-tier-rate {
+    font-weight: 700;
+    color: var(--orange-600, #ea580c);
+  }
+
+  /* Features */
+  .ppc-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+  }
+
+  .ppc-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink-600, #475569);
+    line-height: 1.4;
+  }
+
+  .ppc-check {
+    color: #10b981;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Signature Tentaklik Orange Action Button */
+  .ppc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 13px 20px;
+    background: var(--orange-500, #ff6b1a);
+    color: #ffffff;
+    border-radius: var(--radius-md, 12px);
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: 1px solid var(--orange-500, #ff6b1a);
+    box-shadow: 0 4px 14px rgba(255, 107, 26, 0.25);
+  }
+
+  .ppc-btn:hover {
+    background: var(--orange-600, #ea580c);
+    border-color: var(--orange-600, #ea580c);
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(255, 107, 26, 0.42);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 980px) {
+    .platform-pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .platform-pricing-card {
+      text-align: center;
+    }
+    .ppc-logo-circle {
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      bottom: -27px;
+    }
+    .ppc-body {
+      padding-top: 40px;
+      align-items: center;
+      text-align: center;
+    }
+    .ppc-title {
+      text-align: center;
+    }
+    .ppc-pill {
+      margin: 0 auto 20px auto;
+    }
+    .ppc-fee-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .ppc-fee-label {
+      text-align: center;
+    }
+    .ppc-fee-price {
+      justify-content: center;
+    }
+    .ppc-tiers {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto 18px auto;
+    }
+    .ppc-features {
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto 24px auto;
+    }
+    .ppc-features li {
+      text-align: left;
+    }
+    .ppc-btn {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+  }
+</style>

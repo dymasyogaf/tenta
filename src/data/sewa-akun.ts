@@ -6,8 +6,22 @@ export interface WhitelistInfo {
   key: 'meta' | 'google' | 'tiktok';
   title: string;
   desc: string;
+  href: string;
   benefits: string[];
   requirements: string[];
+}
+
+export interface PlatformPricingCard {
+  key: 'meta' | 'google' | 'tiktok';
+  title: string;
+  topupFeePill: string;
+  monthlyFeeLabel: string;
+  monthlyFeePrice: string;
+  monthlyFeeUnit: string;
+  href: string;
+  btnText: string;
+  tiers: { label: string; fee: string }[];
+  features: string[];
 }
 
 export interface SewaPlan {
@@ -33,16 +47,18 @@ export interface TopupMethod {
 export interface SewaFaq { q: string; a: string }
 
 export const SEWA_HERO = {
-  eyebrow: 'Sewa Akun',
+  eyebrow: 'Sewa Akun Iklan Level Tier 1',
   title: 'Iklan Jalan Terus,',
-  titleAccent: 'Tanpa Drama Akun Kena Banned.',
-  desc: 'Sewa Akun Whitelist Meta, Google & TikTok Premium di Tentaklik. Dapatkan infrastruktur iklan kelas korporat dengan limit tanpa batas, review kilat, dan kestabilan performa untuk scale-up bisnis Anda.',
+  titleAccent: 'Tanpa Drama Kena',
+  flipWords: ['Banned', 'Restrict', 'Limit'] as const,
+  desc: 'Sewa akun Whitelist Meta, Google, dan TikTok untuk membantu campaign kamu berjalan lebih lancar. Biar urusan akun nggak bikin ribet, kamu bisa fokus ke growth bisnis.',
 } as const;
 
 export const META_WL: WhitelistInfo = {
   key: 'meta',
   title: 'Meta Ads Whitelist',
   desc: 'Akun iklan Facebook & Instagram yang sudah terverifikasi di bawah Business Manager resmi partner Meta.',
+  href: '/whitelist/metaads',
   benefits: [
     'Akun stabil, minim risiko random restrict',
     'Tidak ada limit spending harian — bebas scale',
@@ -64,6 +80,7 @@ export const GOOGLE_WL: WhitelistInfo = {
   key: 'google',
   title: 'Google Ads Whitelist',
   desc: 'Akun Google Ads yang dikelola resmi Google Partner agensi Tentaklik.',
+  href: '/whitelist/gads',
   benefits: [
     'Risiko suspend lebih rendah dibanding akun Google Ads personal biasa',
     'Tidak ada batas maksimal spending harian — cocok untuk skala besar',
@@ -82,6 +99,7 @@ export const TIKTOK_WL: WhitelistInfo = {
   key: 'tiktok',
   title: 'TikTok Ads Whitelist',
   desc: 'Akun TikTok Ads agency resmi dari TikTok Marketing Partner dengan fitur prioritas dan stabilitas tinggi.',
+  href: '/whitelist/tiktokads',
   benefits: [
     'Akses fitur TikTok Whitelist & Spark Ads tanpa limitasi akun personal',
     'Limit harian tanpa batas — bebas scale campaign viral & GMV Max',
@@ -191,6 +209,138 @@ export const SEWA_PLANS_EN: SewaPlan[] = [
   },
 ];
 
+export const SEWA_PLATFORM_PRICING: PlatformPricingCard[] = [
+  {
+    key: 'meta',
+    title: 'Meta Ads Whitelist',
+    topupFeePill: '3,5% – 5% Per Top Up',
+    monthlyFeeLabel: 'Monthly Fee',
+    monthlyFeePrice: 'Rp150.000',
+    monthlyFeeUnit: '/bulan',
+    href: '/whitelist/metaads',
+    btnText: 'Dapetin Akun WL Meta',
+    tiers: [
+      { label: '300rb – 5jt', fee: '5%' },
+      { label: '5jt – 15jt', fee: '4,5%' },
+      { label: '> 15jt', fee: '3,5%' },
+    ],
+    features: [
+      'Akun Whitelist Resmi',
+      'Tanpa biaya PPN',
+      'Support appeal jalur partner',
+      'Saldo pindah otomatis jika disable*',
+    ],
+  },
+  {
+    key: 'google',
+    title: 'Google Ads Whitelist',
+    topupFeePill: '3,5% – 5% Per Top Up',
+    monthlyFeeLabel: 'Monthly Fee',
+    monthlyFeePrice: 'Rp150.000',
+    monthlyFeeUnit: '/bulan',
+    href: '/whitelist/gads',
+    btnText: 'Dapetin Akun WL Google',
+    tiers: [
+      { label: '300rb – 5jt', fee: '5%' },
+      { label: '5jt – 15jt', fee: '4,5%' },
+      { label: '> 15jt', fee: '3,5%' },
+    ],
+    features: [
+      'Akun Whitelist Resmi',
+      'Tanpa biaya PPN',
+      'Support appeal jalur partner',
+      'Saldo pindah otomatis jika disable*',
+    ],
+  },
+  {
+    key: 'tiktok',
+    title: 'TikTok Ads Whitelist',
+    topupFeePill: '3,5% – 5% Per Top Up',
+    monthlyFeeLabel: 'Monthly Fee',
+    monthlyFeePrice: 'Rp150.000',
+    monthlyFeeUnit: '/bulan',
+    href: '/whitelist/tiktokads',
+    btnText: 'Dapetin Akun WL TikTok',
+    tiers: [
+      { label: '300rb – 5jt', fee: '5%' },
+      { label: '5jt – 15jt', fee: '4,5%' },
+      { label: '> 15jt', fee: '3,5%' },
+    ],
+    features: [
+      'Akun Whitelist Resmi',
+      'Tanpa biaya PPN',
+      'Support appeal jalur partner',
+      'Saldo pindah otomatis jika disable*',
+    ],
+  },
+];
+
+export const SEWA_PLATFORM_PRICING_EN: PlatformPricingCard[] = [
+  {
+    key: 'meta',
+    title: 'Meta Ads Whitelist',
+    topupFeePill: '3% – 5% Per Top Up',
+    monthlyFeeLabel: 'Monthly Fee',
+    monthlyFeePrice: '$31',
+    monthlyFeeUnit: '/month',
+    href: '/en/whitelist/metaads',
+    btnText: 'Get Meta WL Account',
+    tiers: [
+      { label: '$0 – $10,000', fee: '5%' },
+      { label: '$11,000 – $50,000', fee: '4%' },
+      { label: '$51,000 – $100,000', fee: '3%' },
+    ],
+    features: [
+      'Official Whitelist Ad Account',
+      'No VAT / Tax Markup',
+      'Partner Support Appeal',
+      'Automatic Balance Migration*',
+    ],
+  },
+  {
+    key: 'google',
+    title: 'Google Ads Whitelist',
+    topupFeePill: '3% – 5% Per Top Up',
+    monthlyFeeLabel: 'Monthly Fee',
+    monthlyFeePrice: '$31',
+    monthlyFeeUnit: '/month',
+    href: '/en/whitelist/gads',
+    btnText: 'Get Google WL Account',
+    tiers: [
+      { label: '$0 – $10,000', fee: '5%' },
+      { label: '$11,000 – $50,000', fee: '4%' },
+      { label: '$51,000 – $100,000', fee: '3%' },
+    ],
+    features: [
+      'Official Whitelist Ad Account',
+      'No VAT / Tax Markup',
+      'Partner Support Appeal',
+      'Automatic Balance Migration*',
+    ],
+  },
+  {
+    key: 'tiktok',
+    title: 'TikTok Ads Whitelist',
+    topupFeePill: '3% – 5% Per Top Up',
+    monthlyFeeLabel: 'Monthly Fee',
+    monthlyFeePrice: '$31',
+    monthlyFeeUnit: '/month',
+    href: '/en/whitelist/tiktokads',
+    btnText: 'Get TikTok WL Account',
+    tiers: [
+      { label: '$0 – $10,000', fee: '5%' },
+      { label: '$11,000 – $50,000', fee: '4%' },
+      { label: '$51,000 – $100,000', fee: '3%' },
+    ],
+    features: [
+      'Official Whitelist Ad Account',
+      'No VAT / Tax Markup',
+      'Partner Support Appeal',
+      'Automatic Balance Migration*',
+    ],
+  },
+];
+
 // Biaya sewa akun & setup — ditampilkan di section pricing homepage (di atas fee topup per paket).
 export const SEWA_RENTAL = {
   setup: 'Gratis',
@@ -292,16 +442,18 @@ export const INDUSTRIES: Industry[] = [
 ];
 
 export const SEWA_HERO_EN = {
-  eyebrow: 'Account Rental',
+  eyebrow: 'Tier 1 Level Ad Account Rental',
   title: 'Keep Ads Running,',
-  titleAccent: 'Without Account Ban Drama.',
-  desc: 'Rent Premium Meta, Google & TikTok Whitelist Accounts at Tentaklik. Get corporate-grade ad infrastructure with unlimited spending, lightning-fast reviews, and stable performance to scale up your business.',
+  titleAccent: 'Without the Drama of Being',
+  flipWords: ['Banned', 'Restricted', 'Limited'] as const,
+  desc: 'Rent Whitelist Meta, Google, and TikTok accounts to keep your campaigns running smoothly. Leave account hassles behind so you can focus on business growth.',
 } as const;
 
 export const META_WL_EN: WhitelistInfo = {
   key: 'meta',
   title: 'Meta Ads Whitelist',
   desc: 'Verified Facebook & Instagram ad accounts under the official Business Manager of a Meta partner.',
+  href: '/en/whitelist/metaads',
   benefits: [
     'Stable account, minimal risk of random restrictions',
     'No daily spending limit — free to scale',
@@ -323,6 +475,7 @@ export const GOOGLE_WL_EN: WhitelistInfo = {
   key: 'google',
   title: 'Google Ads Whitelist',
   desc: 'Google Ads account officially managed by Tentaklik, a Google Partner agency.',
+  href: '/en/whitelist/gads',
   benefits: [
     'Lower suspension risk compared to regular personal Google Ads accounts',
     'No maximum daily spending limit — suitable for large scale',
@@ -341,6 +494,7 @@ export const TIKTOK_WL_EN: WhitelistInfo = {
   key: 'tiktok',
   title: 'TikTok Ads Whitelist',
   desc: 'Official agency TikTok Ads account directly from TikTok Marketing Partner with priority features and high stability.',
+  href: '/en/whitelist/tiktokads',
   benefits: [
     'Access to TikTok Whitelist features & Spark Ads without personal account limits',
     'No daily spending limit — scale viral & GMV Max campaigns freely',

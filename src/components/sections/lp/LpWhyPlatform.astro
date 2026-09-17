@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 // Note: We use the generated 3D image here.
 import meta3d from '@/assets/images/meta-whitelist-3d.png';
 import google3d from '@/assets/images/google-whitelist-3d.png';
+import tiktok3d from '@/assets/images/tiktok-whitelist-3d.png';
 
 interface WhyItem {
   iconId: 'stable' | 'comfortable' | 'scale' | 'tax' | 'priority' | 'expert' | 'protection';
@@ -12,7 +13,7 @@ interface WhyItem {
 }
 
 interface Props {
-  platform: 'meta' | 'google';
+  platform: 'meta' | 'google' | 'tiktok';
   heading: string;
   sub: string;
   items: WhyItem[];
@@ -26,8 +27,8 @@ const leftItems = items.slice(0, 6).filter((_, i) => i % 2 === 0);
 const rightItems = items.slice(0, 6).filter((_, i) => i % 2 !== 0);
 const bottomItem = items[6];
 
-const centerImage = platform === 'meta' ? meta3d : google3d;
-const imageAlt = platform === 'meta' ? 'Meta Whitelist 3D Illustration' : 'Google Whitelist 3D Illustration';
+const centerImage = platform === 'meta' ? meta3d : platform === 'tiktok' ? tiktok3d : google3d;
+const imageAlt = platform === 'meta' ? 'Meta Whitelist 3D Illustration' : platform === 'tiktok' ? 'TikTok Whitelist 3D Illustration' : 'Google Whitelist 3D Illustration';
 ---
 <section class="lp-why-section" id={`why-${platform}`} aria-labelledby="lp-why-heading">
   <div class="container">

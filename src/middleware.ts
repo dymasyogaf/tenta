@@ -17,7 +17,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const { request, url, cookies } = context;
 
   const neutral = stripLocale(url.pathname).replace(/\/$/, '');
-  if (!['/whitelist/metaads', '/whitelist/gads'].includes(neutral)) return next();
+  if (!['/whitelist/metaads', '/whitelist/gads', '/whitelist/tiktokads'].includes(neutral)) return next();
 
   const isEnPath = url.pathname === '/en' || url.pathname.startsWith('/en/');
   const currentLang: 'id' | 'en' = isEnPath ? 'en' : 'id';

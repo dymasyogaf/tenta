@@ -11,35 +11,48 @@ import IndustriesGrid from '@components/sections/IndustriesGrid.astro';
 import LpTestimonials from '@components/sections/lp/LpTestimonials.astro';
 import LpPromoBanner from '@components/sections/lp/LpPromoBanner.astro';
 import LpShortForm from '@components/sections/lp/LpShortForm.astro';
-import { META_LP, INDUSTRIES_LP, INDUSTRY_LP_HEADING } from '@data/whitelist-lp';
+import { META_LP, GOOGLE_LP, TIKTOK_LP, INDUSTRIES_LP, INDUSTRY_LP_HEADING } from '@data/whitelist-lp';
 import { serviceJsonLd, breadcrumbJsonLd } from '@lib/seo';
 import { site } from '@data/site';
 import { getLang } from '@i18n/utils';
 
-interface Props { platform: 'meta' | 'google' }
+interface Props { platform: 'meta' | 'google' | 'tiktok' }
 const { platform } = Astro.props;
 const lang = getLang(Astro.currentLocale);
 
-// Tampilan & konteks digabung: kedua permalink dirender identik (konten + SEO).
-// Yang beda hanya penanda channel (canonical URL, GTM/Pixel) + header (khusus Google).
-const content = META_LP[lang];
+const content = platform === 'google' 
+  ? GOOGLE_LP[lang] 
+  : platform === 'tiktok' 
+  ? TIKTOK_LP[lang] 
+  : META_LP[lang];
 
-// SEO "1 konteks" — sama untuk /whitelist/metaads & /whitelist/gads.
 const seo = lang === 'en'
   ? {
-      title: 'Whitelist Ad Account Rental (Meta & Google Ads) — Tentaklik',
-      description: 'Rent a Meta & Google Ads whitelist account at Tentaklik: stable, resilient accounts, no spending limit, minimal ban risk, and appeal support via the official partner line.',
-      keywords: ['whitelist ad account', 'meta ads account rental', 'google ads account rental', 'meta whitelist account', 'google whitelist account'],
+      title: platform === 'tiktok'
+        ? TIKTOK_LP.en.seo.title
+        : 'Whitelist Ad Account Rental (Meta & Google Ads) — Tentaklik',
+      description: platform === 'tiktok'
+        ? TIKTOK_LP.en.seo.description
+        : 'Rent a Meta & Google Ads whitelist account at Tentaklik: stable, resilient accounts, no spending limit, minimal ban risk, and appeal support via the official partner line.',
+      keywords: platform === 'tiktok'
+        ? TIKTOK_LP.en.keywords
+        : ['whitelist ad account', 'meta ads account rental', 'google ads account rental', 'meta whitelist account', 'google whitelist account'],
       crumbWhitelist: 'Whitelist Account',
     }
   : {
-      title: 'Sewa Akun Whitelist (Meta & Google Ads) — Tentaklik',
-      description: 'Sewa akun whitelist Meta & Google Ads di Tentaklik: akun stabil & tangguh, tanpa limit spending, minim risiko banned, dan support appeal via jalur partner resmi.',
-      keywords: ['akun whitelist', 'sewa akun meta ads', 'sewa akun google ads', 'akun whitelist meta', 'akun whitelist google'],
+      title: platform === 'tiktok'
+        ? TIKTOK_LP.id.seo.title
+        : 'Sewa Akun Whitelist (Meta & Google Ads) — Tentaklik',
+      description: platform === 'tiktok'
+        ? TIKTOK_LP.id.seo.description
+        : 'Sewa akun whitelist Meta & Google Ads di Tentaklik: akun stabil & tangguh, tanpa limit spending, minim risiko banned, dan support appeal via jalur partner resmi.',
+      keywords: platform === 'tiktok'
+        ? TIKTOK_LP.id.keywords
+        : ['akun whitelist', 'sewa akun meta ads', 'sewa akun google ads', 'akun whitelist meta', 'akun whitelist google'],
       crumbWhitelist: 'Akun Whitelist',
     };
 
-const slug = platform === 'google' ? 'whitelist/gads' : 'whitelist/metaads';
+const slug = platform === 'google' ? 'whitelist/gads' : platform === 'tiktok' ? 'whitelist/tiktokads' : 'whitelist/metaads';
 const path = lang === 'en' ? `/en/${slug}` : `/${slug}`;
 const url = `${site.url}${path}`;
 const crumbSewa = lang === 'en' ? 'Account Rental' : 'Sewa Akun';
@@ -50,7 +63,7 @@ const jsonLd = [
     name: seo.title,
     description: seo.description,
     url,
-    serviceType: 'Meta & Google Ads Whitelist Account Rental',
+    serviceType: platform === 'tiktok' ? 'TikTok Ads Whitelist Account Rental' : 'Meta & Google Ads Whitelist Account Rental',
   }),
   breadcrumbJsonLd([
     { name: crumbHome, url: lang === 'en' ? `${site.url}/en` : site.url },

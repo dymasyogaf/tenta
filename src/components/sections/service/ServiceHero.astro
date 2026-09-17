@@ -1,17 +1,40 @@
 ---
 import ArrowRight from '../../icons/ArrowRight.astro';
 import { getLang, useT } from '@i18n/utils';
-interface Props { eyebrow: string; title: string; titleAccent: string; desc: string; ctaText?: string; }
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  titleAccent: string;
+  desc: string;
+  ctaText?: string;
+  flipWords?: readonly string[] | string[];
+  flipInterval?: number;
+}
+
 const lang = getLang(Astro.currentLocale);
 const t = useT(lang);
-const { eyebrow, title, titleAccent, desc, ctaText = t('svc.hero.cta') } = Astro.props;
+const {
+  eyebrow,
+  title,
+  titleAccent,
+  desc,
+  ctaText = t('svc.hero.cta'),
+  flipWords,
+  flipInterval = 1200,
+} = Astro.props;
 ---
+
 <section style="padding-top:56px;padding-bottom:56px;background:var(--bg-warm);position:relative;overflow:hidden;">
-  <div class="container" style="display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;">
+  <div class="container service-hero-grid">
     <div>
       <span class="eyebrow">{eyebrow}</span>
-      <h1 style="font-size:50px;margin-top:18px;margin-bottom:18px;">
-        {title} <span style="color:var(--orange-500);">{titleAccent}</span>
+      <h1 class="service-hero-title">
+        {title} <span style="color:var(--orange-500);">{titleAccent}</span>{flipWords && flipWords.length > 0 && (
+          <span class="hero-flip-wrapper" data-flip-words={JSON.stringify(flipWords)} data-flip-interval={flipInterval}>
+            <span class="hero-flip-word" style="color:var(--orange-500);">{flipWords[0]}</span>
+          </span>
+        )}
       </h1>
       <p style="font-size:17px;color:var(--ink-500);max-width:520px;margin-bottom:28px;">{desc}</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -24,3 +47,117 @@ const { eyebrow, title, titleAccent, desc, ctaText = t('svc.hero.cta') } = Astro
     </div>
   </div>
 </section>
+
+<style>
+  .service-hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .service-hero-title {
+    font-size: 50px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    line-height: 1.15;
+  }
+  .hero-flip-wrapper {
+    display: inline-block;
+    position: relative;
+    perspective: 600px;
+    vertical-align: baseline;
+    text-align: left;
+    margin-left: 0.2em;
+    white-space: nowrap;
+  }
+  .hero-flip-word {
+    display: inline-block;
+    transform-origin: 50% 50% -12px;
+    transition: transform 0.24s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.22s ease;
+    will-change: transform, opacity;
+  }
+  .hero-flip-word.flip-out {
+    transform: translateY(-80%) rotateX(85deg);
+    opacity: 0;
+  }
+  .hero-flip-word.flip-in {
+    transform: translateY(80%) rotateX(-85deg);
+    opacity: 0;
+  }
+
+  @media (max-width: 900px) {
+    .service-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      text-align: center;
+    }
+    .service-hero-grid > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .service-hero-title {
+      font-size: 38px;
+      text-align: center;
+    }
+    .service-hero-grid p {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .service-hero-grid > div:first-child > div:last-child {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 480px) {
+    .service-hero-title {
+      font-size: 32px;
+    }
+  }
+</style>
+
+<script>
+  function initFlipText() {
+    const wrappers = document.querySelectorAll('.hero-flip-wrapper');
+    wrappers.forEach((wrap) => {
+      if ((wrap as any)._flipInitialized) return;
+      (wrap as any)._flipInitialized = true;
+
+      const wordsAttr = wrap.getAttribute('data-flip-words');
+      if (!wordsAttr) return;
+      let words: string[] = [];
+      try {
+        words = JSON.parse(wordsAttr);
+      } catch {
+        return;
+      }
+      if (words.length <= 1) return;
+
+      const intervalMs = parseInt(wrap.getAttribute('data-flip-interval') || '1200', 10);
+      let currentIndex = 0;
+      const wordEl = wrap.querySelector('.hero-flip-word') as HTMLElement | null;
+      if (!wordEl) return;
+
+      const animDuration = 220;
+
+      setInterval(() => {
+        wordEl.classList.add('flip-out');
+
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % words.length;
+          wordEl.textContent = words[currentIndex];
+          wordEl.classList.remove('flip-out');
+          wordEl.classList.add('flip-in');
+
+          void wordEl.offsetWidth; // force reflow
+
+          wordEl.classList.remove('flip-in');
+        }, animDuration);
+      }, intervalMs);
+    });
+  }
+
+  initFlipText();
+  document.addEventListener('astro:page-load', initFlipText);
+</script>

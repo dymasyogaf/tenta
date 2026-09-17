@@ -3,7 +3,7 @@ import ArrowRight from '@components/icons/ArrowRight.astro';
 import { getLang, useT } from '@i18n/utils';
 
 interface Props {
-  platform: 'meta' | 'google';
+  platform: 'meta' | 'google' | 'tiktok';
   heading?: string;
   sub?: string;
   lang?: 'en' | 'id';
@@ -45,6 +45,7 @@ const formId = `shortform-${platform}`;
         <select id={`${formId}-platform`} name="platform" required>
           <option value="meta" selected={platform === 'meta'}>{t('form.platform.meta')}</option>
           <option value="google" selected={platform === 'google'}>{t('form.platform.google')}</option>
+          <option value="tiktok" selected={platform === 'tiktok'}>{t('form.platform.tiktok')}</option>
         </select>
       </div>
       <div class="sf-field">
@@ -82,46 +83,80 @@ const formId = `shortform-${platform}`;
 </section>
 
 <style>
+  /* Container & typography form short (bilingual: label ditarik dari useT) */
   .shortform {
-    background: white;
-    border: 1.5px solid var(--orange-100);
+    background: #ffffff;
+    border: 1px solid var(--ink-100);
     border-radius: var(--radius-xl);
-    padding: 28px;
+    padding: 32px 28px;
+    box-shadow: 0 12px 32px -4px rgba(10,37,64,0.06);
     display: flex;
     flex-direction: column;
     gap: 16px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
-  .shortform:hover {
-    border-color: var(--orange-300);
-    box-shadow: var(--shadow-md);
+  .sf-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
   }
-  .sf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-  .sf-field { display: flex; flex-direction: column; gap: 6px; }
-  .sf-field label { font-size: 13px; font-weight: 600; color: var(--ink-700); }
-  .sf-field input, .sf-field textarea, .sf-field select {
-    font: inherit; padding: 12px 14px;
+  .sf-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .sf-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-700);
+  }
+  .sf-field input,
+  .sf-field select {
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 1px solid var(--ink-200);
     border-radius: var(--radius-md);
-    border: 1.5px solid var(--ink-100); background: white;
+    background: #ffffff;
+    color: var(--ink-900);
+    font-family: inherit;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
-  .sf-field input:focus, .sf-field textarea:focus, .sf-field select:focus {
-    outline: none; border-color: var(--orange-500);
+  .sf-field input:focus,
+  .sf-field select:focus {
+    outline: none;
+    border-color: var(--orange-500);
     box-shadow: 0 0 0 3px rgba(255,107,26,0.15);
   }
-  .sf-field select {
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23334155'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    background-size: 16px;
-    padding-right: 40px;
-    cursor: pointer;
+  .sf-submit {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px 20px;
+    font-size: 14.5px;
   }
-  .sf-field textarea { resize: vertical; min-height: 80px; }
-  .sf-sent { color: #15803d; font-size: 14px; font-weight: 600; margin: 0; }
-  .sf-err { color: #b91c1c; font-size: 14px; margin: 0; }
+  .sf-hint {
+    font-size: 12px;
+    color: var(--ink-400);
+    text-align: center;
+    margin: -4px 0 0;
+  }
+  .sf-status {
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .sf-sent {
+    background: #e6f7ec;
+    color: #0d6832;
+    border: 1px solid #b3e6c3;
+  }
+  .sf-err {
+    background: #fde8e8;
+    color: #9b1c1c;
+    border: 1px solid #f8b4b4;
+  }
 
   /* Tombol kirim: state default vs loading */
   .sf-submit { position: relative; }
@@ -163,10 +198,12 @@ const formId = `shortform-${platform}`;
   // Greeting WhatsApp disesuaikan per platform + bahasa.
   function waGreeting(platform: string, lang: string, nama: string, kategori: string, paket: string, hasPricing: boolean, pagePlatform: string): string {
     const layanan = platform === 'google' ? 'Google Ads Whitelist'
+                  : platform === 'tiktok' ? 'TikTok Ads Whitelist'
                   : platform === 'meta'   ? 'Meta Ads Whitelist'
                   : 'Whitelist';
                   
     const sourceForm = pagePlatform === 'google' ? 'Google Ads Whitelist'
+                     : pagePlatform === 'tiktok' ? 'TikTok Ads Whitelist'
                      : pagePlatform === 'meta'   ? 'Meta Ads Whitelist'
                      : 'Whitelist';
 

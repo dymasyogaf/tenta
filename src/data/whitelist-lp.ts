@@ -11,7 +11,7 @@ export interface LpPhoto { src: string; alt: string; portrait?: boolean }
 export interface LpTestimonial { stars: number; text: string; name: string; role: string; initials: string; avatar: string; }
 
 export interface BaseLpData {
-  platform: 'meta' | 'google';
+  platform: 'meta' | 'google' | 'tiktok';
   hero: { eyebrow: string; title: string; titleAccent: string; desc: string };
   photoHeading: string;
   photoSub: string;
@@ -46,7 +46,19 @@ export interface GoogleLpData extends BaseLpData {
   whyItems: WhyItem[];
 }
 
-export type LpData = MetaLpData | GoogleLpData;
+export interface TikTokLpData extends BaseLpData {
+  platform: 'tiktok';
+  problemHeading: string;
+  problemSub: string;
+  problems: LpProblem[];
+  benefitHeading: string;
+  benefits: string[];
+  whyHeading: string;
+  whySub: string;
+  whyItems: WhyItem[];
+}
+
+export type LpData = MetaLpData | GoogleLpData | TikTokLpData;
 
 // Kategori industri khusus 2 LP whitelist (beda dari sewa-akun). Bilingual.
 export const INDUSTRIES_LP: Record<Lang, Industry[]> = {
@@ -336,6 +348,135 @@ export const GOOGLE_LP: Record<Lang, GoogleLpData> = {
       description: 'Rent a Google Ads whitelist account at Tentaklik: managed by an official Google Partner, lower suspend risk, no daily spending cap, and faster appeals for large scale.',
     },
     keywords: ['google ads account rental', 'google whitelist account', 'google ads whitelist account rental', 'google ads mcc account', 'google ads account rental service'],
+  },
+};
+
+export const TIKTOK_LP: Record<Lang, TikTokLpData> = {
+  id: {
+    platform: 'tiktok',
+    hero: {
+      eyebrow: 'Akun Whitelist',
+      title: 'Jangan Biarkan',
+      titleAccent: 'Kendala Akun Menghambat Pertumbuhan Bisnis Anda',
+      desc: 'Akun Whitelist TikTok Ads membantu bisnis yang aktif beriklan menjalankan campaign Spark Ads & GMV Max dengan nyaman dan bebas drama limit.',
+    },
+    whyHeading: 'Mengapa Memilih Akun Whitelist TikTok?',
+    whySub: 'Solusi terbaik untuk scale-up iklan TikTok Anda dengan aman, nyaman, dan bebas hambatan.',
+    whyItems: [
+      { iconId: 'stable', title: 'Akun Stabil & Prioritas', desc: 'Akun agency resmi TikTok Partner, minim risiko banned acak' },
+      { iconId: 'comfortable', title: 'Lebih Nyaman', desc: 'Review materi iklan lebih cepat dengan approval rate tinggi' },
+      { iconId: 'scale', title: 'Bebas Scale', desc: 'Tanpa limit spending harian — bebas maksimalkan campaign viral' },
+      { iconId: 'tax', title: 'Tanpa PPN', desc: 'Tidak dikenakan PPN dan biaya admin tersembunyi' },
+      { iconId: 'priority', title: 'Jalur Prioritas', desc: 'Dukungan direct appeal ke perwakilan TikTok Partner' },
+      { iconId: 'expert', title: 'Support Expert', desc: 'Pendampingan teknis langsung dari spesialis TikTok Ads Tentaklik' },
+      { iconId: 'protection', title: 'Proteksi Saldo', desc: 'Saldo aman terlindungi dan otomatis pindah ke akun baru jika disable (s&k berlaku)' },
+    ],
+    problemHeading: 'Saat scale, masalah TikTok Ads makin kompleks',
+    problemSub: 'Hal-hal yang bikin advertiser kehilangan momentum:',
+    problems: [
+      { iconId: 'ban', title: 'Akun sering kena suspend', desc: 'Akun TikTok personal sangat sensitif dan rentan ditutup saat baru scale.' },
+      { iconId: 'clock', title: 'Review video lama', desc: 'Materi iklan tertahan berjam-jam bahkan berhari-hari, momentum tren terbuang.' },
+      { iconId: 'trending-down', title: 'Limit spending harian', desc: 'Batas spend awal membatasi performa video yang sedang FYP & viral.' },
+      { iconId: 'help-circle', title: 'Appeal tidak ditanggapi', desc: 'Tiket bantuan hanya dijawab bot tanpa solusi konkret.' },
+    ],
+    benefitHeading: 'Yang kamu dapat dengan akun TikTok Whitelist',
+    benefits: [
+      'Akses fitur **TikTok Whitelist & Spark Ads** tanpa batasan akun personal',
+      'Tidak ada **limit spending** harian — maksimalkan momentum FYP & GMV',
+      '**Bebas biaya PPN**',
+      'Proses review iklan lebih cepat dengan **approval rate tinggi**',
+      'Dukungan **direct appeal** ke tim partner resmi TikTok',
+      'Saldo otomatis pindah ke **akun pengganti** jika terjadi kendala (syarat & ketentuan berlaku)',
+    ],
+    photoHeading: 'Didukung Partner Resmi <span style="color: var(--orange-500)">Meta, Google &amp; TikTok</span>',
+    photoSub: 'Tim Tentaklik memiliki akses langsung ke perwakilan dan jaringan partner tier-1.',
+    photos: [
+      { src: '/assets/galeri-meta/meta1.avif', alt: 'Tim Tentaklik di event Meta' },
+      { src: '/assets/galeri-meta/meta2.avif', alt: 'Kunjungan ke kantor Meta' },
+      { src: '/assets/galeri/2.jpg', alt: 'Kunjungan tim ke kantor Google' },
+      { src: '/assets/galeri/3.jpg', alt: 'Event resmi Partner' },
+      { src: '/assets/galeri-meta/meta5.avif', alt: 'Tim Tentaklik', portrait: true },
+    ],
+    testimonials: [
+      { stars: 5, text: "Setelah beralih ke Akun Whitelist TikTok Tentaklik, campaign Spark Ads kami bisa tembus omzet ratusan juta tanpa terhenti masalah limit spending harian.", name: "Dion", role: "TikTok Shop Merchant", initials: "D", avatar: "/assets/testimonials/review_fajar.png" },
+      { stars: 5, text: "Video iklan kami yang viral langsung kami scale gila-gilaan dengan akun whitelist ini. Approval ad sangat cepat dan akun super stabil!", name: "Maya", role: "Brand Fashion & Hijab", initials: "M", avatar: "/assets/testimonials/review_rizka.png" },
+      { stars: 5, text: "Layanan support Tentaklik juara. Ada tim yang siap bantu jika ada materi yang butuh penyesuaian kebijakan TikTok. Worth it banget.", name: "Budi", role: "Agency Media Buyer", initials: "B", avatar: "/assets/testimonials/review_andi.png" },
+      { stars: 5, text: "Bebas PPN dan saldo pindah otomatis memberi rasa tenang luar biasa. Bisnis skincare kami sekarang 100% fokus ke konten dan sales.", name: "Sarah", role: "Owner Skincare Brand", initials: "S", avatar: "/assets/testimonials/review_sarah.png" },
+      { stars: 5, text: "Proses setup ke TikTok Business Center cuma butuh beberapa jam. Sangat profesional dan rekomendasi utama untuk scale up!", name: "Kevin", role: "Dropship & E-commerce", initials: "K", avatar: "/assets/testimonials/review_kevin.png" }
+    ],
+    cta: {
+      title: 'Siap pakai akun TikTok Whitelist?',
+      desc: 'Lihat detail layanan, alur pendaftaran, dan struktur harga di halaman Sewa Akun.',
+      btn: 'Ajukan Sekarang',
+    },
+    seo: {
+      title: 'Sewa Akun TikTok Ads Whitelist (Agency Account) — Tentaklik',
+      description: 'Sewa akun TikTok Ads Whitelist agency resmi di Tentaklik: tanpa limit spending, bebas PPN, approval kilat, proteksi saldo, dan appeal jalur partner TikTok.',
+    },
+    keywords: ['sewa akun tiktok ads', 'akun whitelist tiktok', 'tiktok agency account', 'tiktok ads whitelist', 'sewa tiktok ads partner'],
+  },
+  en: {
+    platform: 'tiktok',
+    hero: {
+      eyebrow: 'Whitelist Account',
+      title: "Don't Let",
+      titleAccent: 'Account Limits Hinder Your Business Growth',
+      desc: 'TikTok Ads Whitelist Accounts help active advertisers scale Spark Ads & GMV Max campaigns smoothly and free from spending caps.',
+    },
+    whyHeading: 'Why Choose a TikTok Whitelist Account?',
+    whySub: 'The ultimate solution to scale your TikTok ads safely, comfortably, and without hurdles.',
+    whyItems: [
+      { iconId: 'stable', title: 'Stable & Priority Account', desc: 'Official TikTok Partner agency account with minimal random ban risk' },
+      { iconId: 'comfortable', title: 'Smoother Advertising', desc: 'Faster ad creative review with high approval rates' },
+      { iconId: 'scale', title: 'Scale Freely', desc: 'No daily spending limits — capitalize on viral campaign momentum' },
+      { iconId: 'tax', title: 'No VAT Markup', desc: 'No VAT charged and no hidden administrative markups' },
+      { iconId: 'priority', title: 'Priority Route', desc: 'Direct appeal route to TikTok Partner representatives' },
+      { iconId: 'expert', title: 'Expert Support', desc: 'Direct technical guidance from Tentaklik TikTok Ads specialists' },
+      { iconId: 'protection', title: 'Balance Protection', desc: 'Ad spend balance auto-migrates to a replacement account if disabled' },
+    ],
+    problemHeading: 'As you scale, TikTok Ads challenges grow fast',
+    problemSub: 'Bottlenecks that cost advertisers momentum and revenue:',
+    problems: [
+      { iconId: 'ban', title: 'Frequent suspensions', desc: 'Personal TikTok ad accounts are highly sensitive and prone to sudden bans.' },
+      { iconId: 'clock', title: 'Slow video review', desc: 'Creatives stuck in review for hours while viral trends fade away.' },
+      { iconId: 'trending-down', title: 'Daily spending caps', desc: 'Strict early limits prevent scaling videos when conversion rates peak.' },
+      { iconId: 'help-circle', title: 'Automated bot replies', desc: 'Support tickets handled by bots without any concrete appeal route.' },
+    ],
+    benefitHeading: 'What you get with a TikTok Whitelist account',
+    benefits: [
+      'Access **TikTok Whitelist & Spark Ads** without personal account limitations',
+      'No daily **spending cap** — scale viral winning creatives instantly',
+      '**No VAT markups** applied',
+      'Faster creative reviews with **higher approval rates**',
+      'Direct appeal support through **official TikTok partner lines**',
+      'Automatic **balance transfer** to a replacement account (T&C apply)',
+    ],
+    photoHeading: 'Supported by Tier-1 Partners <span style="color: var(--orange-500)">Meta, Google &amp; TikTok</span>',
+    photoSub: 'The Tentaklik team maintains direct access to partner managers and official programs.',
+    photos: [
+      { src: '/assets/galeri-meta/meta1.avif', alt: 'Tentaklik team at a partner event' },
+      { src: '/assets/galeri-meta/meta2.avif', alt: 'Visit to partner office' },
+      { src: '/assets/galeri/2.jpg', alt: 'Team visit to Google office' },
+      { src: '/assets/galeri/3.jpg', alt: 'Official partner event' },
+      { src: '/assets/galeri-meta/meta5.avif', alt: 'Tentaklik Team', portrait: true },
+    ],
+    testimonials: [
+      { stars: 5, text: "Switching to Tentaklik's TikTok Whitelist account allowed our Spark Ads campaigns to reach 9-figure revenues without hitting daily spend caps.", name: "Dion", role: "TikTok Shop Merchant", initials: "D", avatar: "/assets/testimonials/review_fajar.png" },
+      { stars: 5, text: "When our video went viral, we were able to scale aggressively with zero friction. Creative approvals are lightning fast and the account is rock-solid.", name: "Maya", role: "Fashion Brand Founder", initials: "M", avatar: "/assets/testimonials/review_rizka.png" },
+      { stars: 5, text: "Tentaklik's support is unmatched. Real specialists help ensure creatives stay compliant with TikTok policies. Highly recommended!", name: "Budi", role: "Media Buyer Lead", initials: "B", avatar: "/assets/testimonials/review_andi.png" },
+      { stars: 5, text: "No VAT and automatic balance protection provide incredible peace of mind. Our skincare business can now focus 100% on content and growth.", name: "Sarah", role: "Skincare Brand Owner", initials: "S", avatar: "/assets/testimonials/review_sarah.png" },
+      { stars: 5, text: "Setup into our TikTok Business Center took only a few hours. Seamless, professional, and the best decision for scaling.", name: "Kevin", role: "E-Commerce Founder", initials: "K", avatar: "/assets/testimonials/review_kevin.png" }
+    ],
+    cta: {
+      title: 'Ready to use a TikTok Whitelist account?',
+      desc: 'Explore service details, onboarding process, and pricing on the Account Rental page.',
+      btn: 'Apply Now',
+    },
+    seo: {
+      title: 'TikTok Ads Whitelist Account Rental (Agency Account) — Tentaklik',
+      description: 'Rent an official TikTok Ads Whitelist agency account at Tentaklik: no spending cap, no VAT, fast approvals, balance protection, and TikTok Partner appeal support.',
+    },
+    keywords: ['tiktok ads account rental', 'tiktok whitelist account', 'tiktok agency account rental', 'tiktok ads agency account', 'tiktok ads whitelist'],
   },
 };
 
