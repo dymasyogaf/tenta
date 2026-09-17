@@ -12,6 +12,31 @@ period: "10 bulan"
 period_en: "10 months"
 cover: "/assets/case-study/antam.png"
 publishDate: 2026-04-05
+sections_en:
+  challengeTitle: "The Challenge"
+  challengeText: "Selling Antam gold online involves substantial transaction values and requires exceptionally high consumer trust. The audience is inherently cautious with online gold sellers: fearing fraud, doubting quality, and demanding verified credibility. The objective: establish unshakable trust and convert interest into completed transactions."
+  approachTitle: "Our Approach"
+  approachItems:
+    - bold: "Trust-focused landing page"
+      text: "authentic customer testimonials, verified Antam certificates, unboxing videos, and live stock tracking."
+    - bold: "Multi-channel ads"
+      text: "Google Ads (Search + Shopping) capturing high-intent active demand, complemented by Meta Ads for brand awareness and buyer retargeting."
+    - bold: "Funnel by buyer maturity"
+      text: "tailored education for first-time buyers and exclusive loyalty offers for repeat investors."
+    - bold: "Live chat + WhatsApp"
+      text: "instant assistance from our sales specialists to remove hesitation at the critical moment of purchase."
+    - bold: "Transactional retargeting"
+      text: "cart abandoners retargeted with dynamic product ads featuring the exact gold grammage viewed."
+  resultsTitle: "Results (10 months)"
+  resultsItems:
+    - bold: "6,000+ completed transactions"
+      text: "of online Antam gold sales."
+    - bold: "IDR 4.2 million"
+      text: "average order value per transaction."
+    - bold: "5.4x net ROAS"
+      text: "maintained consistently starting from month 3."
+    - bold: "34% repeat customer rate"
+      text: "achieved within the first 6 months."
 ---
 
 ## Tantangan

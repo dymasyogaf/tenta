@@ -12,6 +12,31 @@ period: "8 bulan"
 period_en: "8 months"
 cover: "/assets/case-study/jogjaride.png"
 publishDate: 2026-04-10
+sections_en:
+  challengeTitle: "The Challenge"
+  challengeText: "Jogja Ride is a motorcycle and car rental provider in Yogyakarta looking to scale their service to out-of-town travelers. Previously reliant solely on WhatsApp inquiries and word-of-mouth referrals, they struggled with lengthy booking cycles, lost leads, and disorganized records."
+  approachTitle: "Our Approach"
+  approachItems:
+    - bold: "New booking web platform"
+      text: "real-time availability calendar, transparent pricing, and a streamlined 3-step checkout (choose vehicle → dates → payment)."
+    - bold: "High-intent Google Search Ads"
+      text: "targeted high-intent tourist keywords such as 'rental motor jogja' and 'sewa mobil jogja' prioritized by tourism hotspots (Malioboro, Borobudur, etc.)."
+    - bold: "Aggressive negative keyword filtering"
+      text: "eliminating irrelevant search queries (job openings, driver vacancies, etc.)."
+    - bold: "Streamlined 3-field inquiry form"
+      text: "minimal friction on the landing page, with details finalized post-confirmation via WhatsApp."
+    - bold: "Full-funnel conversion tracking"
+      text: "phone calls, WhatsApp inquiries, and online form submissions comprehensively tracked in GA4."
+  resultsTitle: "Results (8 months)"
+  resultsItems:
+    - bold: "6,000+ renters"
+      text: "with 78% originating directly from digital channels."
+    - bold: "IDR 18,000"
+      text: "average cost per qualified booking."
+    - bold: "12.4% website conversion rate"
+      text: "(significantly outperforming the 3–5% industry average)."
+    - bold: "6.8x net ROI on ad spend"
+      text: "based on total rental revenues."
 ---
 
 ## Tantangan

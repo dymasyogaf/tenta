@@ -72,6 +72,14 @@ const caseStudies = defineCollection({
     period_en: z.string().optional(),
     cover: z.string().optional(),
     publishDate: z.coerce.date(),
+    sections_en: z.object({
+      challengeTitle: z.string().optional(),
+      challengeText: z.string(),
+      approachTitle: z.string().optional(),
+      approachItems: z.array(z.object({ bold: z.string(), text: z.string() })),
+      resultsTitle: z.string(),
+      resultsItems: z.array(z.object({ bold: z.string(), text: z.string() })),
+    }).optional(),
   }),
 });
 

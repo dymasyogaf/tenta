@@ -12,6 +12,31 @@ period: "1 tahun"
 period_en: "1 year"
 cover: "/assets/case-study/daftarunissula.png"
 publishDate: 2026-04-15
+sections_en:
+  challengeTitle: "The Challenge"
+  challengeText: "Sultan Agung Islamic University (Unnisula) in Semarang set an ambitious goal: attracting 6,000+ new student enrollments from across Indonesia in a single admission cycle. Key hurdles: fierce competition from other public and private universities, limited brand awareness outside Central Java, and an unorganized digital admissions funnel."
+  approachTitle: "Our Approach"
+  approachItems:
+    - bold: "Multi-channel campaign architecture"
+      text: "Google Search and YouTube Ads to capture high-intent demand, paired with Meta Ads for broad awareness and retargeting."
+    - bold: "Targeted audience layering"
+      text: "high school seniors (grade 12), gap-year graduates, and parents segmented by custom regional audiences."
+    - bold: "Dedicated landing pages per study program"
+      text: "dramatically improving academic relevance and enrollment conversion rates."
+    - bold: "Comprehensive tracking infrastructure"
+      text: "Meta Pixel, GA4, and CRM synchronization tracking the complete lifecycle from awareness through formal re-registration."
+    - bold: "Weekly performance optimization"
+      text: "rigorous A/B testing of creative messaging, ad copy, and bidding algorithms."
+  resultsTitle: "Results (1 year)"
+  resultsItems:
+    - bold: "6,000+ registered new students"
+      text: "enrolled from all across Indonesia."
+    - bold: "48% reduction in cost per qualified lead"
+      text: "compared to the initial quarter."
+    - bold: "3.2x increase in Unnisula brand search volume"
+      text: "by the end of the campaign period."
+    - bold: "Geographic coverage expanded"
+      text: "from 6 provinces to 28 provinces nationwide."
 ---
 
 ## Tantangan

@@ -6,27 +6,54 @@ import { aboutPageJsonLd, breadcrumbJsonLd } from '@lib/seo';
 import { site } from '@data/site';
 
 import imgMascot from '@/assets/tentang/tentang-tentaklik.png';
-import imgSono from '@/assets/tentang/sonoprabowo.avif';
-import imgZabarjad from '@/assets/tentang/zabarjad.avif';
-import imgAhzelan from '@/assets/tentang/ahzelan.avif';
 
 const galeriImages = [
-  '/assets/galeri/1.jpg', '/assets/galeri/2.jpg', '/assets/galeri/3.jpg',
-  '/assets/galeri/4.jpg', '/assets/galeri/5.jpg', '/assets/galeri/6.jpg',
-  '/assets/galeri/7.jpg', '/assets/galeri/8.jpg',
-  '/assets/galeri/9.jpeg', '/assets/galeri/10.jpeg',
+  '/assets/galeri/1.jpg',
+  '/assets/galeri/gambar1.avif',
+  '/assets/galeri/3.jpg',
+  '/assets/galeri/gambar4.avif',
+  '/assets/galeri/6.jpg',
+  '/assets/galeri/gambar2.avif',
+  '/assets/galeri/7.jpg',
+  '/assets/galeri/gambar3.avif',
+  '/assets/galeri/gambar5.avif',
 ];
 
 const values = [
-  { iconId: 'target', title: 'Results > Vanity',     desc: 'What matters is conversion & ROI, not just reach or likes.' },
-  { iconId: 'search', title: 'Transparent',         desc: 'Client owns the ad account, open data, clear fees from the start.' },
-  { iconId: 'partner', title: 'Long-term Partner',  desc: 'Not a one-off vendor — we invest in your growth.' },
+  {
+    iconId: 'search',
+    title: 'Transparent from the Start',
+    desc: 'We explain costs, processes, and service scope from the start. Including limitations you need to know, so you can make decisions with complete clarity.',
+  },
+  {
+    iconId: 'target',
+    title: 'Understand First, Guide Accurately',
+    desc: 'Every business has distinct needs. We start by listening to your goals and challenges, then recommend the right solutions.',
+  },
+  {
+    iconId: 'trending',
+    title: 'Continuous Learning, Always Improving',
+    desc: 'The digital landscape constantly evolves. We welcome feedback, learn from experience, and refine how we work so our support remains relevant.',
+  },
 ];
 
-const team = [
-  { name: 'Sono Prabowo. S.Kep., M.M., M.Pd.', role: 'Founder',                  image: imgSono },
-  { name: 'Zabarjad Dliya U, S.H',             role: 'Chief Operating Officer',  image: imgZabarjad },
-  { name: 'Ahzelan',                           role: 'Chief Technology Officer', image: imgAhzelan },
+interface TeamMember {
+  name: string;
+  role: string;
+  image?: any;
+}
+
+const team: TeamMember[] = [
+  { name: 'Jack', role: 'Leader', image: '/assets/team/jack.jpg' },
+  { name: '(team member)', role: '(team role)' },
+  { name: '(team member)', role: '(team role)' },
+  { name: '(team member)', role: '(team role)' },
+  { name: '(team member)', role: '(team role)' },
+  { name: '(team member)', role: '(team role)' },
+  { name: '(team member)', role: '(team role)' },
+  { name: '(team member)', role: '(team role)' },
+  { name: '(team member)', role: '(team role)' },
+  { name: '(team member)', role: '(team role)' },
 ];
 
 const url = `${site.url}/en/tentang`;
@@ -38,25 +65,32 @@ const jsonLd = [
   ]),
 ];
 ---
+
 <BaseLayout
   title="About Tentaklik — Digital Marketing Agency"
   description="Tentaklik is a digital marketing agency focusing on real results — website development, Google Ads, Meta Ads, and consulting for brands in Indonesia."
   active="tentang"
   jsonLd={jsonLd}
-  keywords={['about tentaklik', 'digital marketing agency', 'tentaklik team', 'agency profile', 'digital agency']}
+  keywords={[
+    'about tentaklik',
+    'digital marketing agency',
+    'tentaklik team',
+    'agency profile',
+    'digital agency',
+  ]}
 >
   <section style="padding-top:56px;padding-bottom:40px;background:var(--bg-warm);">
-    <div class="container" style="display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;">
-      <div>
-        <span class="eyebrow">About Tentaklik</span>
-        <h1 style="font-size:48px;margin-top:18px;margin-bottom:18px;">
-          A small kraken serious about <span style="color:var(--orange-500);">business growth</span>.
+    <div class="container tentang-hero-grid">
+      <div class="tentang-hero-content">
+        <span class="eyebrow" style="margin-bottom:8px;">About Tentaklik</span>
+        <h1 class="tentang-hero-title">
+          A small kraken ready to <span style="color:var(--orange-500);">bring change</span>.
         </h1>
-        <p style="font-size:17px;color:var(--ink-500);max-width:540px;">
-          Tentaklik was born out of frustration: too many agencies promising the world but only delivering pretty reports. We chose a different path — focusing on meaningful numbers, neat execution, and long-term partnerships.
+        <p class="tentang-hero-desc">
+          Behind the Kraken, there's the Tentaklik team ready to help you navigate digital marketing with clearer direction. From ad accounts and website development to strategic consulting, we are here to help you find the next right step for your business.
         </p>
       </div>
-      <div style="display:flex;justify-content:center;">
+      <div class="tentang-kraken-col">
         <div class="tentang-kraken-wrap">
           <Image
             src={imgMascot}
@@ -73,38 +107,118 @@ const jsonLd = [
 
   <section>
     <div class="container">
-      <h2 class="section-title">Our Values</h2>
-      <p class="section-sub" style="margin-bottom:40px;">Three things we don't compromise on.</p>
-      <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px;">
-        {values.map(v => (
-          <div class="card reveal">
-            <div style="width:50px;height:50px;border-radius:14px;background:var(--orange-100);color:var(--orange-700);display:flex;align-items:center;justify-content:center;margin-bottom:14px;" aria-hidden="true">
-              {v.iconId === 'target' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>}
-              {v.iconId === 'search' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>}
-              {v.iconId === 'partner' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>}
+      <h2 class="section-title">Our Core Values</h2>
+      <p class="section-sub" style="margin-bottom:40px;">
+        How we work, collaborate, and maintain your trust.
+      </p>
+      <div class="values-grid">
+        {
+          values.map((v) => (
+            <div class="card value-card reveal">
+              <div class="value-icon-box" aria-hidden="true">
+                {v.iconId === 'search' && (
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                    <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8" />
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  </svg>
+                )}
+                {v.iconId === 'target' && (
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" />
+                    <circle cx="12" cy="12" r="3" fill="currentColor" />
+                  </svg>
+                )}
+                {v.iconId === 'trending' && (
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <polyline points="17 6 23 6 23 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                )}
+                {v.iconId === 'partner' && (
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                )}
+              </div>
+              <h3>{v.title}</h3>
+              <p>{v.desc}</p>
             </div>
-            <h3 style="font-size:18px;margin-bottom:8px;">{v.title}</h3>
-            <p style="font-size:14px;color:var(--ink-500);">{v.desc}</p>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <section style="background:var(--bg-warm);">
+  <!-- Our Story section -->
+  <section style="padding-top:10px;padding-bottom:50px;">
     <div class="container">
-      <h2 class="section-title">Core Team</h2>
-      <p class="section-sub" style="margin-bottom:40px;">The people working directly on your project.</p>
-      <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
-        {team.map(t => (
-          <div class="card reveal" style="text-align:center;width:100%;max-width:340px;padding:36px 24px;">
-            <div style="width:140px;height:140px;border-radius:50%;margin:0 auto 20px;overflow:hidden;padding:0;background:var(--ink-50);border:4px solid white;box-shadow:0 8px 24px rgba(14,27,42,0.08);">
-              <Image src={t.image} alt={t.name} style="width:100%;height:100%;object-fit:cover;display:block;" />
-            </div>
-            <h3 style="font-size:18px;margin-bottom:8px;line-height:1.4;">{t.name}</h3>
-            <p style="font-size:14px;color:var(--orange-600);font-weight:600;margin:0;">{t.role}</p>
+      <div class="mission-box reveal">
+        <div class="mission-heading">
+          <h2>Our Story</h2>
+        </div>
+        <div class="mission-body">
+          <p>
+            Tentaklik was born from one simple thing: helping businesses grow more easily in the digital world. The name Tentaklik is inspired by two things: Tentacles and Click. Tentacles represent flexibility and the ability to reach many things at once. Meanwhile, Click represents precision in taking action. That's where we built Tentaklik as a digital agency that combines strategy, technology, and execution to help businesses thrive.
+          </p>
+          <p>
+            We work like a Kraken. One head to craft strategy, multiple tentacles to execute. From Website Development, Meta Ads, Google Ads, TikTok Ads, to Business Consultation, we connect diverse digital needs into one unified ecosystem. We also continuously adapt to changes in platforms, algorithms, and market behavior. Because in the digital world, today's best practice isn't necessarily tomorrow's.
+          </p>
+          <div class="mission-highlight">
+            Our mission is to move every one of our tentacles to help businesses discover the right strategy, execute better, and keep growing continuously.
           </div>
-        ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team section -->
+  <section style="background:var(--bg-warm);padding-top:60px;padding-bottom:70px;">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;">Meet Our Team</h2>
+      <p class="section-sub" style="margin-bottom:36px;text-align:center;">
+        The people working directly on your project.
+      </p>
+
+      <div class="team-grid">
+        {
+          team.map((t) => (
+            <div class="team-card reveal">
+              <div class="team-image-wrap">
+                {t.image ? (
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    class="team-img"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div class="team-photo-placeholder" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="team-avatar-icon"
+                    >
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+              <div class="team-info">
+                <h3 class="team-name">{t.name}</h3>
+                <p class="team-role">
+                  <span class="team-role-dot" aria-hidden="true" />
+                  <span>{t.role}</span>
+                </p>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -112,29 +226,38 @@ const jsonLd = [
   <!-- Galeri section -->
   <section>
     <div class="container">
-      <h2 class="section-title">Gallery</h2>
-      <p class="section-sub" style="margin-bottom:36px;">A glimpse into Tentaklik's team and atmosphere.</p>
-      <div class="galeri-grid">
-        {galeriImages.map((src, i) => (
-          <div class={`galeri-item reveal ${i === 0 || i === 7 ? 'galeri-wide' : ''}`}>
-            <img src={src} alt={`Tentaklik gallery ${i + 1}`} loading="lazy" decoding="async" />
-          </div>
-        ))}
+      <h2 class="section-title">Networking with Tentaklik</h2>
+      <p class="section-sub" style="margin-bottom:36px;">
+        A glimpse into Tentaklik's team and atmosphere.
+      </p>
+      <div
+        class="galeri-grid"
+        style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));"
+      >
+        {
+          galeriImages.map((src, i) => (
+            <div class="galeri-item reveal">
+              <img
+                src={src}
+                alt={`Tentaklik gallery ${i + 1}`}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <style>
-    /* Galeri */
+    /* Galeri 3-3-3 Grid */
     .galeri-grid {
-      display: grid;
-      /* Desktop: 4 cols, image 1 & 8 wide for balanced 3-row layout */
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 220px;
-      gap: 14px;
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      grid-auto-rows: 240px;
+      gap: 16px;
     }
-    /* Wide images span 2 columns */
-    .galeri-wide { grid-column: span 2; }
 
     .galeri-item {
       border-radius: 16px;
@@ -153,34 +276,74 @@ const jsonLd = [
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, rgba(14,27,42,0.18));
+      background: linear-gradient(
+        to bottom,
+        transparent 60%,
+        rgba(14, 27, 42, 0.18)
+      );
       transition: opacity 0.3s ease;
       border-radius: inherit;
       opacity: 0;
     }
-    .galeri-item:hover img { transform: scale(1.06); }
-    .galeri-item:hover::after { opacity: 1; }
-
-    @media (max-width: 1100px) {
-      .galeri-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 200px;
-      }
-      .galeri-wide { grid-column: span 2; }
+    .galeri-item:hover img {
+      transform: scale(1.06);
     }
-    @media (max-width: 760px) {
+    .galeri-item:hover::after {
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
       .galeri-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 180px;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        grid-auto-rows: 200px;
+        gap: 12px;
+      }
+    }
+    @media (max-width: 640px) {
+      .galeri-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-auto-rows: 160px;
         gap: 10px;
       }
-      .galeri-wide { grid-column: span 2; }
+      .galeri-item:first-child {
+        grid-column: span 2;
+      }
     }
-    @media (max-width: 480px) {
+    @media (max-width: 420px) {
       .galeri-grid {
-        grid-auto-rows: 150px;
+        grid-auto-rows: 135px;
         gap: 8px;
       }
+    }
+
+    /* Hero Section */
+    .tentang-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .tentang-hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .tentang-hero-title {
+      font-size: 48px;
+      margin-top: 18px;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+    .tentang-hero-desc {
+      font-size: 17px;
+      color: var(--ink-500);
+      max-width: 540px;
+      line-height: 1.6;
+    }
+    .tentang-kraken-col {
+      display: flex;
+      justify-content: center;
     }
 
     .tentang-kraken-wrap {
@@ -189,7 +352,10 @@ const jsonLd = [
       animation: krakenFloat 4.5s ease-in-out infinite;
       will-change: transform;
     }
-    .tentang-kraken-wrap :global(picture) { display: block; width: 100%; }
+    .tentang-kraken-wrap :global(picture) {
+      display: block;
+      width: 100%;
+    }
     :global(.tentang-kraken) {
       width: 100%;
       height: auto;
@@ -198,12 +364,334 @@ const jsonLd = [
       filter: drop-shadow(0 20px 40px rgba(255, 107, 26, 0.18));
     }
     @keyframes krakenFloat {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      25%       { transform: translateY(-14px) rotate(0.8deg); }
-      75%       { transform: translateY(-6px) rotate(-0.5deg); }
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-14px) rotate(0.8deg);
+      }
+      75% {
+        transform: translateY(-6px) rotate(-0.5deg);
+      }
     }
-    @media (prefers-reduced-motion: reduce) { .tentang-kraken-wrap { animation: none; } }
-    @media (max-width: 760px) { .tentang-kraken-wrap { max-width: min(340px, 85vw); } }
+    @media (prefers-reduced-motion: reduce) {
+      .tentang-kraken-wrap {
+        animation: none;
+      }
+    }
+    @media (max-width: 760px) {
+      .tentang-kraken-wrap {
+        max-width: min(340px, 85vw);
+      }
+    }
+
+    /* Nilai / Values (Desktop & Tablet: left-aligned content) */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .value-card {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 32px 24px;
+    }
+    .value-icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: var(--orange-100);
+      color: var(--orange-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 16px 0;
+    }
+    .value-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--ink-900);
+    }
+    .value-card p {
+      font-size: 14px;
+      color: var(--ink-500);
+      text-align: left;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Mission Box Section (Desktop & Tablet: 2-column side-by-side, left-aligned) */
+    .mission-box {
+      background: #faf7f2;
+      border: 1px solid rgba(14, 27, 42, 0.05);
+      border-radius: 28px;
+      padding: 56px 52px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .mission-heading h2 {
+      font-size: 40px;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+      color: var(--ink-900);
+      margin: 0;
+      line-height: 1.2;
+      text-align: left;
+    }
+    .mission-body {
+      text-align: left;
+    }
+    .mission-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink-700);
+      margin: 0 0 20px 0;
+      text-align: left;
+    }
+    .mission-highlight {
+      background: #ffe8d6;
+      color: var(--orange-600);
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 18px 24px;
+      border-radius: 14px;
+      margin-top: 24px;
+      text-align: left;
+    }
+
+    /* Tablet Portrait Optimization (769px - 1080px): Maintain side-by-side / left-align */
+    @media (min-width: 769px) and (max-width: 1080px) {
+      .mission-box {
+        grid-template-columns: 220px 1fr;
+        gap: 36px;
+        padding: 44px 36px;
+      }
+      .mission-heading h2 {
+        font-size: 34px;
+      }
+    }
+
+    /* Mobile ONLY (max-width: 768px): Align Center for Hero, Values Cards, and Our Story */
+    @media (max-width: 768px) {
+      .tentang-hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+        text-align: center !important;
+      }
+      .tentang-hero-content {
+        align-items: center !important;
+        text-align: center !important;
+      }
+      .tentang-hero-title {
+        font-size: clamp(28px, 6.5vw, 38px) !important;
+        text-align: center !important;
+      }
+      .tentang-hero-desc {
+        text-align: center !important;
+        margin: 0 auto !important;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+      .value-card {
+        text-align: center !important;
+        align-items: center !important;
+        padding: 24px 20px !important;
+      }
+      .value-icon-box {
+        margin: 0 auto 16px !important;
+      }
+      .value-card h3 {
+        text-align: center !important;
+      }
+      .value-card p {
+        text-align: center !important;
+      }
+
+      .mission-box {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 36px 20px !important;
+        border-radius: 22px !important;
+        text-align: center !important;
+        gap: 20px !important;
+      }
+      .mission-heading h2 {
+        font-size: 30px !important;
+        text-align: center !important;
+        margin-bottom: 8px !important;
+      }
+      .mission-body {
+        text-align: center !important;
+      }
+      .mission-body p {
+        font-size: 15px !important;
+        text-align: center !important;
+      }
+      .mission-highlight {
+        padding: 16px 18px !important;
+        font-size: 14px !important;
+        text-align: center !important;
+      }
+    }
+
+    /* Team Section Grid & Cards (Matching Reference Card) */
+    .team-grid {
+      display: grid !important;
+      grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+      gap: 20px !important;
+    }
+
+    .team-card {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      background: #ffffff !important;
+      border: 1px solid rgba(14, 27, 42, 0.08) !important;
+      border-radius: 22px !important;
+      overflow: hidden !important;
+      box-shadow: 0 4px 18px rgba(14, 27, 42, 0.03) !important;
+      transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease !important;
+      text-align: left !important;
+      min-width: 0 !important;
+    }
+    .team-card:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 14px 30px rgba(14, 27, 42, 0.08) !important;
+      border-color: rgba(255, 107, 26, 0.3) !important;
+    }
+
+    .team-image-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1.15;
+      overflow: hidden;
+      background: #eef2f6;
+      position: relative;
+    }
+
+    .team-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .team-card:hover .team-img {
+      transform: scale(1.04);
+    }
+
+    .team-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+      color: #94a3b8;
+      transition:
+        background 0.3s ease,
+        color 0.3s ease;
+    }
+    .team-card:hover .team-photo-placeholder {
+      background: linear-gradient(180deg, #f1f5f9 0%, #cbd5e1 100%);
+      color: #64748b;
+    }
+
+    .team-avatar-icon {
+      width: 48px;
+      height: 48px;
+      opacity: 0.7;
+      display: block;
+    }
+
+    .team-info {
+      padding: 16px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .team-name {
+      font-size: 18px !important;
+      font-weight: 700 !important;
+      margin: 0 0 6px 0 !important;
+      line-height: 1.3 !important;
+      color: #111827 !important;
+      text-align: left !important;
+      word-break: break-word !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .team-role {
+      font-size: 13.5px !important;
+      color: #4b5563 !important;
+      font-weight: 500 !important;
+      margin: 0 !important;
+      text-align: left !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      line-height: 1.35 !important;
+      word-break: break-word !important;
+    }
+
+    .team-role-dot {
+      width: 6.5px;
+      height: 6.5px;
+      border-radius: 50%;
+      background: #ff6b1a;
+      flex-shrink: 0;
+      display: inline-block;
+    }
+
+    @media (max-width: 1080px) {
+      .team-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 18px !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+      }
+      .team-card {
+        border-radius: 18px !important;
+      }
+      .team-info {
+        padding: 12px 14px 16px !important;
+      }
+      .team-name {
+        font-size: 15px !important;
+        margin-bottom: 4px !important;
+      }
+      .team-role {
+        font-size: 12px !important;
+        gap: 6px !important;
+      }
+      .team-role-dot {
+        width: 5.5px;
+        height: 5.5px;
+      }
+      .team-avatar-icon {
+        width: 38px;
+        height: 38px;
+      }
+    }
   </style>
 
   <section style="padding-bottom:24px;">
@@ -211,7 +699,9 @@ const jsonLd = [
       <div class="cta-banner reveal" style="background:var(--orange-500);">
         <div style="flex:1;position:relative;z-index:1;">
           <h3>Want to talk about your business?</h3>
-          <p style="margin-top:8px;font-size:15px;opacity:0.95;">Free 30-minute consultation, no hard-selling.</p>
+          <p style="margin-top:8px;font-size:15px;opacity:0.95;">
+            Free 30-minute consultation, no hard-selling.
+          </p>
         </div>
         <a href="/en/kontak" class="btn btn-ghost">Free Consultation <ArrowRight size={14} /></a>
       </div>

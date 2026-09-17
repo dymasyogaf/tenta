@@ -51,8 +51,8 @@ export const site = {
   description_en: 'Digital marketing agency for website development, Google Ads, Meta Ads (Facebook & Instagram), and digital marketing consulting for SMEs and brands in Indonesia.',
   shortDescription: 'Agensi untuk website, Google Ads, Meta Ads, dan konsultasi digital marketing.',
   shortDescription_en: 'Agency for websites, Google Ads, Meta Ads, and digital marketing consulting.',
-  footerTagline: 'Penyedia solusi digital marketing terintegrasi yang menghadirkan akses akun whitelist Google Ads & Meta Ads premium, optimasi website, dan konsultasi bisnis untuk mendukung pertumbuhan eksponensial brand di pasar lintas negara',
-  footerTagline_en: 'An integrated digital marketing solution provider bringing premium Google Ads & Meta Ads whitelist account access, website optimization, and business consulting to support exponential brand growth across global markets.',
+  footerTagline: 'Tentaklik bantu kebutuhan digital marketing bisnis kamu, mulai dari sewa akun iklan, pembuatan website dan landing page, sampai konsultasi strategi. Dengan tim yang bisa diajak diskusi, kamu punya teman untuk menentukan langkah berikutnya.',
+  footerTagline_en: 'Tentaklik supports your business\'s digital marketing needs, from ad account rentals, website and landing page creation, to strategy consulting. With a team ready for discussion, you have a partner to navigate your next steps.',
 
   defaultOgImage: '/assets/kraken-hero.png',
   logoUrl: '/logo-full.png',
