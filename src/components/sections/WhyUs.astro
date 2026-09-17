@@ -181,14 +181,16 @@ const benefits = lang === 'en' ? [
     .why-us-grid {
       grid-template-columns: 1fr;
       gap: 16px;
+      max-width: 480px;
+      margin-inline: auto;
     }
     .why-us-card {
-      padding: 24px 20px;
-      align-items: center;
-      text-align: center;
+      padding: 24px 22px;
+      align-items: flex-start;
+      text-align: left;
     }
     .why-us-card-icon {
-      justify-content: center;
+      justify-content: flex-start;
     }
   }
 </style>

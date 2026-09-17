@@ -141,13 +141,26 @@ const services = [
   @media (max-width: 640px) {
     .services-grid-list {
       grid-template-columns: 1fr;
+      max-width: 440px;
+      margin-inline: auto;
     }
     .service-card {
-      text-align: center;
-      align-items: center;
+      text-align: left;
+      align-items: stretch;
+      padding: 22px;
+    }
+    .service-title {
+      text-align: left;
+      justify-content: flex-start;
     }
     .service-desc {
+      text-align: left;
       min-height: auto;
+      margin-bottom: 18px;
+    }
+    .service-cta-btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>
