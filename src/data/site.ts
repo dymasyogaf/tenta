@@ -31,9 +31,7 @@ export const site = {
   ],
 
   openingHours: [
-    'Mo-Th 08:00-16:00',
-    'Fr 08:00-17:00',
-    'Sa 08:00-15:00',
+    'Mo-Fr 09:00-17:00',
   ],
 
   social: {

@@ -3,6 +3,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import ArrowRight from '@components/icons/ArrowRight.astro';
 import WhatsApp from '@components/icons/WhatsApp.astro';
 import Email from '@components/icons/Email.astro';
+import Telegram from '@components/icons/Telegram.astro';
 import { site, waLink } from '@data/site';
 import { contactPageJsonLd, breadcrumbJsonLd } from '@lib/seo';
 
@@ -26,10 +27,10 @@ const jsonLd = [
     <div class="container" style="text-align:center;">
       <span class="eyebrow">Contact Us</span>
       <h1 style="font-size:48px;margin-top:18px;margin-bottom:14px;">
-        Let's talk about <span style="color:var(--orange-500);">your business</span>.
+        Let's talk about <span style="color:var(--orange-500);">your business</span>
       </h1>
       <p style="font-size:17px;color:var(--ink-500);max-width:620px;margin:0 auto;">
-        Fill out the form below or WhatsApp us directly. We will reply within 1×24 working hours.
+        Contact us via WhatsApp
       </p>
     </div>
   </section>
@@ -56,12 +57,17 @@ const jsonLd = [
               <div style="font-size:15px;font-weight:600;">{site.email}</div>
             </div>
           </a>
+          <a href={site.social.telegram} target="_blank" rel="noopener noreferrer" class="contact-row">
+            <div class="contact-icon"><Telegram size={18} /></div>
+            <div>
+              <div style="font-size:12px;color:var(--ink-500);">Telegram</div>
+              <div style="font-size:15px;font-weight:600;">@komunitastentaklik</div>
+            </div>
+          </a>
         </div>
         <div style="margin-top:32px;padding:20px;background:var(--orange-50);border-radius:16px;border:1px solid var(--orange-200);">
           <div style="font-size:14px;font-weight:700;margin-bottom:6px;">⏰ Operational Hours</div>
-          <div style="font-size:13px;color:var(--ink-500);">Monday–Thursday · 08:00–16:00 WIB</div>
-          <div style="font-size:13px;color:var(--ink-500);">Friday · 08:00–17:00 WIB</div>
-          <div style="font-size:13px;color:var(--ink-500);">Saturday · 08:00–15:00 WIB</div>
+          <div style="font-size:13px;color:var(--ink-500);">Monday–Friday · 09:00–17:00 WIB</div>
         </div>
       </div>
 
@@ -132,7 +138,7 @@ const jsonLd = [
       <div class="cta-banner reveal">
         <div style="flex:1;">
           <h3>Faster via WhatsApp?</h3>
-          <p style="margin-top:8px;opacity:0.95;font-size:15px;">Click the button below to chat directly with our team.</p>
+          <p style="margin-top:8px;opacity:0.95;font-size:15px;">Click WhatsApp chat to connect directly with our team.</p>
         </div>
         <a href={waLink('Halo Tentaklik, I would like to consult')} target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
           WhatsApp Chat <ArrowRight size={14} />
