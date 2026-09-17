@@ -291,6 +291,7 @@ export const SEWA_PLATFORM_PRICING_EN: PlatformPricingCard[] = [
       { label: '$51,000 – $100,000', fee: '3%' },
     ],
     features: [
+      'Monthly spend: $0 - $10,000',
       'Official Whitelist Ad Account',
       'No VAT / Tax Markup',
       'Partner Support Appeal',
@@ -312,6 +313,7 @@ export const SEWA_PLATFORM_PRICING_EN: PlatformPricingCard[] = [
       { label: '$51,000 – $100,000', fee: '3%' },
     ],
     features: [
+      'Monthly spend: $0 - $10,000',
       'Official Whitelist Ad Account',
       'No VAT / Tax Markup',
       'Partner Support Appeal',
@@ -333,6 +335,7 @@ export const SEWA_PLATFORM_PRICING_EN: PlatformPricingCard[] = [
       { label: '$51,000 – $100,000', fee: '3%' },
     ],
     features: [
+      'Monthly spend: $0 - $10,000',
       'Official Whitelist Ad Account',
       'No VAT / Tax Markup',
       'Partner Support Appeal',
