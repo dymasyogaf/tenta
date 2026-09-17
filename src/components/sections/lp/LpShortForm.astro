@@ -42,11 +42,14 @@ const formId = `shortform-${platform}`;
       </div>
       <div class="sf-field">
         <label for={`${formId}-platform`}>{t('form.platform')}</label>
-        <select id={`${formId}-platform`} name="platform" required>
-          <option value="meta" selected={platform === 'meta'}>{t('form.platform.meta')}</option>
-          <option value="google" selected={platform === 'google'}>{t('form.platform.google')}</option>
-          <option value="tiktok" selected={platform === 'tiktok'}>{t('form.platform.tiktok')}</option>
-        </select>
+        <input 
+          id={`${formId}-platform`} 
+          type="text" 
+          value={platform === 'meta' ? t('form.platform.meta') : platform === 'tiktok' ? t('form.platform.tiktok') : t('form.platform.google')} 
+          readonly 
+          class="sf-input-readonly"
+        />
+        <input type="hidden" name="platform" value={platform} />
       </div>
       <div class="sf-field">
         <label for={`${formId}-kat`}>{t('form.kategori')}</label>
@@ -128,6 +131,18 @@ const formId = `shortform-${platform}`;
     outline: none;
     border-color: var(--orange-500);
     box-shadow: 0 0 0 3px rgba(255,107,26,0.15);
+  }
+  .sf-field .sf-input-readonly {
+    background: #f8fafc;
+    color: var(--ink-700);
+    font-weight: 600;
+    cursor: default;
+    border-color: #e2e8f0;
+    user-select: none;
+  }
+  .sf-field .sf-input-readonly:focus {
+    border-color: #e2e8f0;
+    box-shadow: none;
   }
   .sf-submit {
     width: 100%;

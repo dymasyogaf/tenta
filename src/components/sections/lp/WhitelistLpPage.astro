@@ -26,31 +26,16 @@ const content = platform === 'google'
   ? TIKTOK_LP[lang] 
   : META_LP[lang];
 
-const seo = lang === 'en'
-  ? {
-      title: platform === 'tiktok'
-        ? TIKTOK_LP.en.seo.title
-        : 'Whitelist Ad Account Rental (Meta & Google Ads) — Tentaklik',
-      description: platform === 'tiktok'
-        ? TIKTOK_LP.en.seo.description
-        : 'Rent a Meta & Google Ads whitelist account at Tentaklik: stable, resilient accounts, no spending limit, minimal ban risk, and appeal support via the official partner line.',
-      keywords: platform === 'tiktok'
-        ? TIKTOK_LP.en.keywords
-        : ['whitelist ad account', 'meta ads account rental', 'google ads account rental', 'meta whitelist account', 'google whitelist account'],
-      crumbWhitelist: 'Whitelist Account',
-    }
-  : {
-      title: platform === 'tiktok'
-        ? TIKTOK_LP.id.seo.title
-        : 'Sewa Akun Whitelist (Meta & Google Ads) — Tentaklik',
-      description: platform === 'tiktok'
-        ? TIKTOK_LP.id.seo.description
-        : 'Sewa akun whitelist Meta & Google Ads di Tentaklik: akun stabil & tangguh, tanpa limit spending, minim risiko banned, dan support appeal via jalur partner resmi.',
-      keywords: platform === 'tiktok'
-        ? TIKTOK_LP.id.keywords
-        : ['akun whitelist', 'sewa akun meta ads', 'sewa akun google ads', 'akun whitelist meta', 'akun whitelist google'],
-      crumbWhitelist: 'Akun Whitelist',
-    };
+const platformLabel = platform === 'meta' ? 'Meta Ads' : platform === 'google' ? 'Google Ads' : 'TikTok Ads';
+
+const seo = {
+  title: content.seo.title,
+  description: content.seo.description,
+  keywords: content.keywords,
+  crumbWhitelist: lang === 'en' 
+    ? `${platformLabel} Whitelist` 
+    : `Akun Whitelist ${platformLabel}`,
+};
 
 const slug = platform === 'google' ? 'whitelist/gads' : platform === 'tiktok' ? 'whitelist/tiktokads' : 'whitelist/metaads';
 const path = lang === 'en' ? `/en/${slug}` : `/${slug}`;
@@ -63,7 +48,7 @@ const jsonLd = [
     name: seo.title,
     description: seo.description,
     url,
-    serviceType: platform === 'tiktok' ? 'TikTok Ads Whitelist Account Rental' : 'Meta & Google Ads Whitelist Account Rental',
+    serviceType: `${platformLabel} Whitelist Account Rental`,
   }),
   breadcrumbJsonLd([
     { name: crumbHome, url: lang === 'en' ? `${site.url}/en` : site.url },

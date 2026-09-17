@@ -8,32 +8,103 @@ interface Props {
 const { platform, lang = Astro.currentLocale === 'en' ? 'en' : 'id' } = Astro.props;
 const isEn = lang === 'en';
 
-const comparisons = [
+const googleComparisons = [
   {
-    leftIcon: 'user',
-    leftText: isEn ? 'Suitable for general use' : 'Cocok untuk penggunaan umum',
-    rightIcon: 'users',
-    rightText: isEn ? 'Fit for active advertisers' : 'Cocok untuk bisnis yang aktif beriklan'
+    leftIcon: 'lock',
+    leftText: isEn ? 'Spending caps limit growth and slow down scaling' : 'Batas spending harian menghambat pertumbuhan & memperlambat scale',
+    rightIcon: 'trending-up',
+    rightText: isEn ? 'No caps, scale budgets freely with stable delivery' : 'Tanpa batasan spending, scale budget bebas & delivery stabil'
   },
   {
-    leftIcon: 'settings',
-    leftText: isEn ? 'Self-managed' : 'Dikelola secara mandiri',
+    leftIcon: 'shield-alert',
+    leftText: isEn ? 'Higher risk of suspensions disrupting active campaigns' : 'Risiko suspend tinggi yang mengganggu performa campaign aktif',
+    rightIcon: 'shield',
+    rightText: isEn ? 'More stable setup with reduced risk of interruptions' : 'Setup akun jauh lebih stabil & minim risiko pembatasan/gangguan'
+  },
+  {
+    leftIcon: 'clock',
+    leftText: isEn ? 'Refunds can take 20 to 40 days to process' : 'Proses refund lama memakan waktu 20 hingga 40 hari kerja',
+    rightIcon: 'refresh',
+    rightText: isEn ? 'Faster handling with smoother billing management' : 'Penanganan saldo cepat & manajemen billing lebih lancar'
+  },
+  {
+    leftIcon: 'user',
+    leftText: isEn ? 'Fully self-managed with no expert guidance' : 'Dikelola mandiri sepenuhnya tanpa panduan expert spesialis',
     rightIcon: 'headset',
-    rightText: isEn ? 'Gets support and guidance' : 'Mendapat dukungan dan pendampingan'
+    rightText: isEn ? 'Supported by Google-trained and certified specialists' : 'Didukung langsung oleh tim spesialis tersertifikasi Google'
   },
   {
     leftIcon: 'chat',
-    leftText: isEn ? 'Limited support' : 'Support terbatas',
-    rightIcon: 'chat-orange',
-    rightText: isEn ? 'Highly responsive support' : 'Dukungan yang lebih responsif'
+    leftText: isEn ? 'Mostly automated responses with limited escalation options' : 'Mayoritas respon otomatis/bot dengan opsi eskalasi terbatas',
+    rightIcon: 'zap',
+    rightText: isEn ? 'Priority support with faster issue resolution' : 'Jalur support prioritas dengan penyelesaian kendala lebih cepat'
+  },
+  {
+    leftIcon: 'lock',
+    leftText: isEn ? 'Limited payment methods with higher tax costs' : 'Metode pembayaran terbatas dengan beban biaya pajak tinggi',
+    rightIcon: 'credit-card',
+    rightText: isEn ? 'Flexible billing with easier balance management' : 'Billing fleksibel dengan pengelolaan & top up saldo lebih mudah'
+  },
+  {
+    leftIcon: 'lock',
+    leftText: isEn ? 'Hidden costs from inefficiencies and delays' : 'Biaya tak terduga akibat inefisiensi dan delay campaign',
+    rightIcon: 'layers',
+    rightText: isEn ? 'Flexible service fees optimized for scalable advertising' : 'Biaya layanan fleksibel yang dioptimalkan untuk scale iklan'
+  }
+];
+
+const defaultComparisons = [
+  {
+    leftIcon: 'lock',
+    leftText: isEn ? 'Restricted daily budgets & spend limits' : 'Batas budget harian terbatas & limit spending ketat',
+    rightIcon: 'trending-up',
+    rightText: isEn ? 'Flexible budget growth without daily limits' : 'Bebas scale budget tanpa limit spending harian'
   },
   {
     leftIcon: 'clipboard',
-    leftText: isEn ? 'Fit for basic needs' : 'Cocok untuk kebutuhan dasar',
-    rightIcon: 'chart',
-    rightText: isEn ? 'Ready to scale up with your business' : 'Lebih siap mendukung kebutuhan bisnis yang berkembang'
+    leftText: isEn ? 'Limited campaign setup options' : 'Pilihan setup & kombinasi campaign terbatas',
+    rightIcon: 'layers',
+    rightText: isEn ? 'Unlimited campaign & ad combinations' : 'Kombinasi campaign, ad set & ads tanpa batas'
+  },
+  {
+    leftIcon: 'lock',
+    leftText: isEn ? 'Basic billing methods & card decline risks' : 'Metode pembayaran dasar & rawan kartu ditolak',
+    rightIcon: 'credit-card',
+    rightText: isEn ? 'Multiple flexible payment & top-up options' : 'Beragam opsi pembayaran & topup saldo fleksibel'
+  },
+  {
+    leftIcon: 'clock',
+    leftText: isEn ? 'Longer ad review & approval times' : 'Waktu review & approval iklan lebih lama',
+    rightIcon: 'zap',
+    rightText: isEn ? 'Priority review access via official partner' : 'Jalur review prioritas langsung partner resmi'
+  },
+  {
+    leftIcon: 'user',
+    leftText: isEn ? 'Independent management only' : 'Dikelola mandiri tanpa pendampingan teknis',
+    rightIcon: 'headset',
+    rightText: isEn ? 'Hands-on agency guidance & expert support' : 'Mendapat pendampingan langsung tim agensi'
+  },
+  {
+    leftIcon: 'shield-alert',
+    leftText: isEn ? 'Frequent delivery disruptions & random restrictions' : 'Sering mengalami gangguan delivery & random restrict',
+    rightIcon: 'shield',
+    rightText: isEn ? 'Stronger operational stability for scaling' : 'Stabilitas operasional jauh lebih kuat & tangguh'
+  },
+  {
+    leftIcon: 'chat',
+    leftText: isEn ? 'Delayed appeal responses & bot answers' : 'Respon appeal lambat & bantuan bot berbelit',
+    rightIcon: 'chat-orange',
+    rightText: isEn ? 'Faster technical assistance & priority escalation' : 'Bantuan teknis responsif & eskalasi prioritas'
+  },
+  {
+    leftIcon: 'lock',
+    leftText: isEn ? 'Locked unused balances when disabled' : 'Saldo terkunci jika akun mengalami kendala',
+    rightIcon: 'refresh',
+    rightText: isEn ? 'Flexible balance reallocation to new account' : 'Realokasi saldo aman & pindah ke akun baru'
   }
 ];
+
+const comparisons = platform === 'google' ? googleComparisons : defaultComparisons;
 ---
 <section class="lp-comparison-section" id={`comparison-${platform}`}>
   <div class="container">

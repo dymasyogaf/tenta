@@ -50,13 +50,13 @@ const { data, slug } = Astro.props;
 const lang = getLang(Astro.currentLocale);
 const t = useT(lang);
 
-const serviceImages: Record<string, string> = {
-  web:    '/assets/services/webdev.png',
-  google: '/assets/services/google.png',
-  meta:   '/assets/services/meta.png',
-  konsul: '/assets/services/konsul.png',
+const serviceImages: Record<string, { png: string; avif: string; webp?: string }> = {
+  web:    { png: '/assets/services/webdev.png', avif: '/assets/services/webdev.avif', webp: '/assets/services/webdev.webp' },
+  google: { png: '/assets/services/google.png', avif: '/assets/services/google.avif', webp: '/assets/services/google.webp' },
+  meta:   { png: '/assets/services/meta.png', avif: '/assets/services/meta.avif', webp: '/assets/services/meta.webp' },
+  konsul: { png: '/assets/services/konsultasi-digital-marketing-tentaklik.png', avif: '/assets/services/konsultasi-digital-marketing-tentaklik.avif', webp: '/assets/services/konsultasi-digital-marketing-tentaklik.webp' },
 };
-const imgSrc = serviceImages[data.icon];
+const serviceImg = serviceImages[data.icon] || { png: '/assets/services/konsultasi-digital-marketing-tentaklik.png', avif: '/assets/services/konsultasi-digital-marketing-tentaklik.avif' };
 
 const url = lang === 'en' ? `${site.url}/en/layanan/${slug}` : `${site.url}/layanan/${slug}`;
 const serviceKeywordMap: Record<string, string[]> = lang === 'en' ? {
@@ -106,9 +106,9 @@ const jsonLd = [
     <!-- Ilustrasi per layanan dengan float animation (konsisten dengan beranda) -->
     <div slot="illustration" class="service-img-wrap">
       <picture>
-        <source type="image/avif" srcset={imgSrc.replace('.png', '.avif')} />
-        <source type="image/webp" srcset={imgSrc.replace('.png', '.webp')} />
-        <img src={imgSrc} alt={data.eyebrow} class="service-hero-img" width="600" height="600" loading="eager" fetchpriority="high" decoding="async" />
+        <source type="image/avif" srcset={serviceImg.avif} />
+        {serviceImg.webp && <source type="image/webp" srcset={serviceImg.webp} />}
+        <img src={serviceImg.png} alt={data.eyebrow} class="service-hero-img" width="600" height="600" loading="eager" fetchpriority="high" decoding="async" />
       </picture>
     </div>
   </ServiceHero>
