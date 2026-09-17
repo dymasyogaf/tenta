@@ -430,18 +430,18 @@ export const SEWA_KEYWORDS = [
 export interface Industry { label: string; iconId: string; tint: string }
 
 export const INDUSTRY_HEADING = {
-  title: 'Cocok untuk berbagai industri',
+  title: 'Cocok untuk <span style="color: var(--orange-500)">berbagai industri</span>',
   sub: 'Umumnya digunakan oleh advertiser di industri:',
 } as const;
 
 // tint = warna dasar kartu (gradient lembut digenerate di komponen).
 export const INDUSTRIES: Industry[] = [
-  { label: 'Personal Care',   iconId: 'bottle', tint: '#E8F0FE' },
-  { label: 'Fashion Dewasa',  iconId: 'shirt', tint: '#FCE7F3' },
-  { label: 'Kesehatan',       iconId: 'shield-cross', tint: '#E7F6EC' },
-  { label: 'Kecantikan',      iconId: 'sparkles', tint: '#F3E8FF' },
-  { label: 'Produk Dewasa',   iconId: 'box', tint: '#FFF1E6' },
-  { label: 'NGO / Sosial',    iconId: 'heart', tint: '#E6F4F7' },
+  { label: 'UMKM',                 iconId: 'store', tint: '#FFF1E6' },
+  { label: 'Produk Kecantikan',    iconId: 'sparkles', tint: '#F3E8FF' },
+  { label: 'Travel',               iconId: 'plane', tint: '#E8F0FE' },
+  { label: 'Konsultan Pendidikan', iconId: 'graduation-cap', tint: '#E7F6EC' },
+  { label: 'Fashion',              iconId: 'shirt', tint: '#FCE7F3' },
+  { label: 'FnB / Kuliner',        iconId: 'utensils', tint: '#E6F4F7' },
 ];
 
 export const SEWA_HERO_EN = {
@@ -576,15 +576,15 @@ export const SEWA_KEYWORDS_EN = [
 ];
 
 export const INDUSTRY_HEADING_EN = {
-  title: 'Suitable for various industries',
-  sub: 'Commonly used by advertisers in these industries:',
+  title: 'Fit for <span style="color: var(--orange-500)">various industries</span>',
+  sub: 'Commonly used by advertisers in industries:',
 } as const;
 
 export const INDUSTRIES_EN: Industry[] = [
-  { label: 'Personal Care',   iconId: 'bottle', tint: '#E8F0FE' },
-  { label: 'Adult Fashion',   iconId: 'shirt', tint: '#FCE7F3' },
-  { label: 'Healthcare',      iconId: 'shield-cross', tint: '#E7F6EC' },
-  { label: 'Beauty',          iconId: 'sparkles', tint: '#F3E8FF' },
-  { label: 'Adult Products',  iconId: 'box', tint: '#FFF1E6' },
-  { label: 'NGO / Social',    iconId: 'heart', tint: '#E6F4F7' },
+  { label: 'SMEs',                 iconId: 'store', tint: '#FFF1E6' },
+  { label: 'Beauty Products',      iconId: 'sparkles', tint: '#F3E8FF' },
+  { label: 'Travel',               iconId: 'plane', tint: '#E8F0FE' },
+  { label: 'Education Consultant', iconId: 'graduation-cap', tint: '#E7F6EC' },
+  { label: 'Fashion',              iconId: 'shirt', tint: '#FCE7F3' },
+  { label: 'F&B / Culinary',       iconId: 'utensils', tint: '#E6F4F7' },
 ];

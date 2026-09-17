@@ -8,7 +8,7 @@ interface Props {
   center?: boolean;
   variant?: 'default' | 'premium';
 }
-const { items, heading, bg = 'default', center = false, variant = 'default' } = Astro.props;
+const { items, heading, bg = 'default', center = true, variant = 'premium' } = Astro.props;
 
 let sectionClass = 'industri-section';
 if (bg === 'warm') sectionClass += ' bg-warm';
