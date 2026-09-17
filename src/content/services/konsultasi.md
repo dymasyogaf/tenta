@@ -1,12 +1,22 @@
 ---
-title: "Konsultasi"
-title_en: "Actionable Digital"
-titleAccent: "Digital Marketing yang Actionable."
-titleAccent_en: "Actionable Digital Marketing."
-eyebrow: "Konsultasi"
-eyebrow_en: "Consulting"
-desc: "Audit funnel, strategi channel, dan rekomendasi prioritas — bukan teori, tapi langkah konkret yang bisa langsung dieksekusi."
-desc_en: "Funnel audit, channel strategy, and priority recommendations — not theories, but concrete steps you can execute immediately."
+title: "Kami Bantu Kamu Paham"
+title_en: "We Help You Understand"
+titleAccent: "A-Z Soal Digital Marketing"
+titleAccent_en: "A-Z Digital Marketing."
+eyebrow: "Konsultasi Digital Marketing"
+eyebrow_en: "Digital Marketing Consulting"
+desc: "Tentaklik bisa bantu kamu cari solusi terbaik untuk masalah digital marketing di bisnis kamu. Mulai dari stuktur hingga scaleup bisa kamu konsultasikan dengan yang benar-benar paham dan berpengalaman. Jadi bukan hanya main tebak-tebakan."
+desc_en: "Tentaklik helps you find the best solutions for your business digital marketing challenges. From structure to scaling up, consult with experienced experts who truly understand — no more guesswork."
+singleCtaText: "Konsultasi Sekarang"
+singleCtaText_en: "Consult Now"
+singleCtaHref: "/kontak"
+singleCtaHref_en: "/en/kontak"
+hidePricing: true
+showClientResults: true
+featuresTitle: "Apa yang kami bantu?"
+featuresTitle_en: "What we help you with"
+featuresSub: "Kami benar-benar berpengalaman dan paham di bidang yang kami kerjakan"
+featuresSub_en: "We are truly experienced and understand the field we work in"
 icon: konsul
 features:
   - { iconId: "search", title: "Funnel Audit",         desc: "Petakan leak di funnel — dari awareness sampai retention." }

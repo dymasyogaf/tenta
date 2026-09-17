@@ -588,3 +588,74 @@ export const INDUSTRIES_EN: Industry[] = [
   { label: 'Fashion',              iconId: 'shirt', tint: '#FCE7F3' },
   { label: 'F&B / Culinary',       iconId: 'utensils', tint: '#E6F4F7' },
 ];
+
+export interface ClientAdResult {
+  niche: string;
+  revenue: string;
+  roas: string;
+  image: string;
+  platform?: string;
+}
+
+export const CLIENT_AD_RESULTS: ClientAdResult[] = [
+  {
+    niche: 'VAPE & E-LIQUID BRAND',
+    revenue: '$555K',
+    roas: '9.5x',
+    image: '/assets/results/proof-1.jpg',
+    platform: 'Meta Ads',
+  },
+  {
+    niche: 'RESEARCH & PEPTIDES',
+    revenue: '$377K',
+    roas: '7.8x',
+    image: '/assets/results/proof-2.jpg',
+    platform: 'Meta Ads',
+  },
+  {
+    niche: 'FASHION & APPAREL DTC',
+    revenue: '$480K',
+    roas: '8.85x',
+    image: '/assets/results/proof-1.jpg',
+    platform: 'Meta Ads',
+  },
+  {
+    niche: 'SUPPLEMENT & WELLNESS',
+    revenue: '$620K',
+    roas: '11.2x',
+    image: '/assets/results/proof-2.jpg',
+    platform: 'Meta Ads',
+  },
+];
+
+export const CLIENT_AD_RESULTS_EN: ClientAdResult[] = [
+  {
+    niche: 'VAPE & E-LIQUID BRAND',
+    revenue: '$555K',
+    roas: '9.5x',
+    image: '/assets/results/proof-1.jpg',
+    platform: 'Meta Ads',
+  },
+  {
+    niche: 'RESEARCH & PEPTIDES',
+    revenue: '$377K',
+    roas: '7.8x',
+    image: '/assets/results/proof-2.jpg',
+    platform: 'Meta Ads',
+  },
+  {
+    niche: 'FASHION & APPAREL DTC',
+    revenue: '$480K',
+    roas: '8.85x',
+    image: '/assets/results/proof-1.jpg',
+    platform: 'Meta Ads',
+  },
+  {
+    niche: 'SUPPLEMENT & WELLNESS',
+    revenue: '$620K',
+    roas: '11.2x',
+    image: '/assets/results/proof-2.jpg',
+    platform: 'Meta Ads',
+  },
+];
+

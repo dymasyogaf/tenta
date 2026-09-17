@@ -817,7 +817,7 @@ const jsonLd = [
     display: grid;
     grid-template-columns: 1fr 1.1fr;
     gap: 56px;
-    align-items: center;
+    align-items: start;
   }
   .v2-solution-visual {
     border-radius: var(--radius-xl);
@@ -840,6 +840,11 @@ const jsonLd = [
     margin-bottom: 18px;
     color: var(--ink-900);
   }
+  .v2-solution-content .v2-sec-title,
+  .v2-values-info .v2-sec-title,
+  .v2-bonus-content .v2-sec-title {
+    margin-top: 0;
+  }
   .v2-sec-desc p {
     font-size: 16px;
     line-height: 1.65;
@@ -859,7 +864,7 @@ const jsonLd = [
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     gap: 56px;
-    align-items: center;
+    align-items: start;
   }
   .v2-value-cards {
     display: flex;
@@ -1281,7 +1286,7 @@ const jsonLd = [
     display: grid;
     grid-template-columns: 1fr 1.15fr;
     gap: 56px;
-    align-items: center;
+    align-items: start;
   }
   .v2-bonus-visual img {
     width: 100%;

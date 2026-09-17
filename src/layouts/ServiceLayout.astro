@@ -3,11 +3,13 @@ import BaseLayout from './BaseLayout.astro';
 import ServiceHero from '@components/sections/service/ServiceHero.astro';
 import FeaturesGrid from '@components/sections/service/FeaturesGrid.astro';
 import PricingSection from '@components/sections/service/PricingSection.astro';
+import ClientAdResults from '@components/sections/service/ClientAdResults.astro';
 import ServiceProcess from '@components/sections/service/ServiceProcess.astro';
 import ServiceFAQ from '@components/sections/service/ServiceFAQ.astro';
 import ServiceCTA from '@components/sections/service/ServiceCTA.astro';
 import { serviceJsonLd, faqJsonLd, breadcrumbJsonLd } from '@lib/seo';
 import { site } from '@data/site';
+import { CLIENT_AD_RESULTS, CLIENT_AD_RESULTS_EN } from '@data/sewa-akun';
 import { getLang, useT } from '@i18n/utils';
 
 interface Props {
@@ -21,9 +23,19 @@ interface Props {
     desc: string;
     desc_en?: string;
     icon: 'web' | 'google' | 'meta' | 'konsul';
+    singleCtaText?: string;
+    singleCtaText_en?: string;
+    singleCtaHref?: string;
+    singleCtaHref_en?: string;
+    featuresTitle?: string;
+    featuresTitle_en?: string;
+    featuresSub?: string;
+    featuresSub_en?: string;
+    hidePricing?: boolean;
+    showClientResults?: boolean;
     features: { icon?: string; iconId?: string; title: string; desc: string }[];
     features_en?: { icon?: string; iconId?: string; title: string; desc: string }[];
-    plans: { name: string; tagline: string; price: string; unit: string; featured?: boolean; features: string[] }[];
+    plans?: { name: string; tagline: string; price: string; unit: string; featured?: boolean; features: string[] }[];
     plans_en?: { name: string; tagline: string; price: string; unit: string; featured?: boolean; features: string[] }[];
     process: { title: string; desc: string }[];
     process_en?: { title: string; desc: string }[];
@@ -64,7 +76,9 @@ const jsonLd = [
     description: lang === 'en' && data.seo.description_en ? data.seo.description_en : data.seo.description,
     url,
     serviceType: data.eyebrow,
-    plans: (lang === 'en' && data.plans_en ? data.plans_en : data.plans).map(p => ({ name: p.name, price: p.price })),
+    plans: !data.hidePricing && (lang === 'en' && data.plans_en ? data.plans_en : data.plans)
+      ? (lang === 'en' && data.plans_en ? data.plans_en : data.plans)!.map(p => ({ name: p.name, price: p.price }))
+      : undefined,
   }),
   faqJsonLd(lang === 'en' && data.faqs_en ? data.faqs_en : data.faqs),
   breadcrumbJsonLd([
@@ -86,6 +100,8 @@ const jsonLd = [
     title={lang === 'en' && data.title_en ? data.title_en : data.title}
     titleAccent={lang === 'en' && data.titleAccent_en ? data.titleAccent_en : data.titleAccent}
     desc={lang === 'en' && data.desc_en ? data.desc_en : data.desc}
+    singleCtaText={lang === 'en' && data.singleCtaText_en ? data.singleCtaText_en : data.singleCtaText}
+    singleCtaHref={lang === 'en' && data.singleCtaHref_en ? data.singleCtaHref_en : data.singleCtaHref}
   >
     <!-- Ilustrasi per layanan dengan float animation (konsisten dengan beranda) -->
     <div slot="illustration" class="service-img-wrap">
@@ -96,8 +112,17 @@ const jsonLd = [
       </picture>
     </div>
   </ServiceHero>
-  <FeaturesGrid title={t('svc.features.title')} sub={t('svc.features.sub')} items={lang === 'en' && data.features_en ? data.features_en : data.features} />
-  <PricingSection plans={lang === 'en' && data.plans_en ? data.plans_en : data.plans} service={data.eyebrow} />
+  <FeaturesGrid
+    title={lang === 'en' && data.featuresTitle_en ? data.featuresTitle_en : data.featuresTitle || t('svc.features.title')}
+    sub={lang === 'en' && data.featuresSub_en ? data.featuresSub_en : data.featuresSub || t('svc.features.sub')}
+    items={lang === 'en' && data.features_en ? data.features_en : data.features}
+  />
+  {data.showClientResults && (
+    <ClientAdResults results={lang === 'en' ? CLIENT_AD_RESULTS_EN : CLIENT_AD_RESULTS} />
+  )}
+  {!data.hidePricing && !data.showClientResults && (lang === 'en' && data.plans_en ? data.plans_en : data.plans) && (
+    <PricingSection plans={(lang === 'en' && data.plans_en ? data.plans_en : data.plans)!} service={data.eyebrow} />
+  )}
   <ServiceProcess steps={lang === 'en' && data.process_en ? data.process_en : data.process} />
   <ServiceFAQ items={lang === 'en' && data.faqs_en ? data.faqs_en : data.faqs} />
   <ServiceCTA />
