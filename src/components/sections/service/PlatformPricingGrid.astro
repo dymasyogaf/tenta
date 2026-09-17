@@ -319,57 +319,79 @@ const { platformPricing, lang } = Astro.props;
       grid-template-columns: 1fr;
       max-width: 440px;
       margin: 0 auto;
+      gap: 28px;
     }
     .platform-pricing-card {
-      text-align: center;
+      text-align: left;
     }
     .ppc-logo-circle {
-      left: 50%;
-      right: auto;
-      transform: translateX(-50%);
-      bottom: -27px;
+      right: 20px;
+      left: auto;
+      transform: none;
+      bottom: -26px;
     }
     .ppc-body {
-      padding-top: 40px;
-      align-items: center;
-      text-align: center;
+      padding: 30px 22px 24px;
+      align-items: stretch;
+      text-align: left;
     }
     .ppc-title {
-      text-align: center;
+      text-align: left;
+      font-size: 22px;
     }
     .ppc-pill {
-      margin: 0 auto 20px auto;
+      margin: 0 0 16px 0;
+      align-self: flex-start;
     }
     .ppc-fee-section {
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      display: block;
+      text-align: left;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
     }
     .ppc-fee-label {
-      text-align: center;
+      text-align: left;
     }
     .ppc-fee-price {
-      justify-content: center;
+      justify-content: flex-start;
     }
     .ppc-tiers {
       width: 100%;
-      max-width: 380px;
-      margin: 0 auto 18px auto;
+      max-width: 100%;
+      margin: 0 0 18px 0;
     }
     .ppc-features {
       width: 100%;
-      max-width: 340px;
-      margin: 0 auto 24px auto;
+      max-width: 100%;
+      margin: 0 0 24px 0;
     }
     .ppc-features li {
       text-align: left;
+      justify-content: flex-start;
     }
     .ppc-btn {
       width: 100%;
-      max-width: 380px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ppc-body {
+      padding: 26px 18px 20px;
+    }
+    .ppc-title {
+      font-size: 20px;
+    }
+    .ppc-price-val {
+      font-size: 28px;
+    }
+    .ppc-logo-circle {
+      width: 48px;
+      height: 48px;
+      bottom: -24px;
+      right: 16px;
     }
   }
 </style>
