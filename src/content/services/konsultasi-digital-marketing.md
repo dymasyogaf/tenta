@@ -87,8 +87,8 @@ faqs_en:
   - { q: "Can I just have a 1-on-1 consultation, without a package?", a: "Absolutely. You can book a focused 1-on-1 session to deep-dive into specific challenges or channels in your business. If you need end-to-end planning, our Growth Strategy package is more comprehensive." }
   - { q: "Is the audit guaranteed to increase revenue?", a: "Audits & strategies provide a roadmap. Revenue depends on execution — which we can also help you with if you'd like." }
 seo:
-  title: "Konsultasi Digital Marketing Indonesia — Audit & Strategi 90 Hari | Tentaklik"
+  title: "Jasa Konsultasi Digital Marketing Bisnis | Tentaklik"
   title_en: "Digital Marketing Consulting in Indonesia — 90-Day Audit & Strategy | Tentaklik"
-  description: "Konsultasi digital marketing untuk bisnis di seluruh Indonesia: audit funnel, strategi channel mix, roadmap 90 hari, dan rekomendasi tools — actionable, bukan teori."
+  description: "Bingung harus benahi iklan, website, atau funnel dulu? Konsultasi digital marketing bareng Tentaklik untuk evaluasi strategi dan tentukan langkah berikutnya."
   description_en: "Digital marketing consulting for businesses in Indonesia: funnel audit, channel mix strategy, 90-day roadmap, and tools recommendations — actionable, not theories."
 ---

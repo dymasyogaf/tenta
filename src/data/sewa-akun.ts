@@ -409,8 +409,8 @@ export const SEWA_FAQS: SewaFaq[] = [
 ];
 
 export const SEWA_SEO = {
-  title: 'Sewa Akun Whitelist Meta, Google & TikTok Ads — Tentaklik',
-  description: 'Sewa akun iklan whitelist Meta (Facebook & Instagram), Google Ads, dan TikTok Ads di Tentaklik: tanpa limit spending, tanpa PPN, anti random banned, dan saldo pindah otomatis jika disable. Fee topup mulai dari 3,5%.',
+  title: 'Sewa Akun Iklan Meta, Google & TikTok Ads | Tentaklik',
+  description: 'Sewa akun iklan Meta, Google, dan TikTok Ads di Tentaklik. Cek pilihan akun, biaya, dan dukungan tim untuk kebutuhan iklan bisnis atau agency kamu.',
 } as const;
 
 export const SEWA_KEYWORDS = [

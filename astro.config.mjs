@@ -24,6 +24,8 @@ export default defineConfig({
     '/en/google-whitelist': '/en/layanan/akun-google-ads-whitelist',
     '/whitelist/gads': '/layanan/akun-google-ads-whitelist',
     '/en/whitelist/gads': '/en/layanan/akun-google-ads-whitelist',
+    '/layanan/website': '/layanan/jasa-pembuatan-website-after-sales-terbaik',
+    '/en/layanan/website': '/en/layanan/jasa-pembuatan-website-after-sales-terbaik',
   },
 
   // i18n: ID default di root (/), EN di /en/. Halaman EN yang belum ada

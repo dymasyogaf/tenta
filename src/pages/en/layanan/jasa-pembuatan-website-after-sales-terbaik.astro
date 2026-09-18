@@ -1,0 +1,1820 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Check from '@components/icons/Check.astro';
+import ArrowRight from '@components/icons/ArrowRight.astro';
+import { serviceJsonLd, faqJsonLd, breadcrumbJsonLd } from '@lib/seo';
+import { site } from '@data/site';
+
+const url = `${site.url}/en/layanan/jasa-pembuatan-website-after-sales-terbaik`;
+
+const pageSeo = {
+  title: "#1 Best After-Sales Website Development Services",
+  description: "Tentaklik provides website development services with the best after-sales support for your business needs to get more CLICKS.",
+};
+
+const clientLogos = [
+  { src: '/assets/layanan/website/client-alfatihah-min.png', alt: 'client-alfatihah-min.png' },
+  { src: '/assets/layanan/website/client-alhuffadz-min.png', alt: 'client-alhuffadz-min.png' },
+  { src: '/assets/layanan/website/client-mpa-min.png', alt: 'client-mpa-min.png' },
+  { src: '/assets/layanan/website/client-bmh-min.png', alt: 'client-bmh-min.png' },
+  { src: '/assets/layanan/website/client-sandaran-min.png', alt: 'client-sandaran-min.png' },
+  { src: '/assets/layanan/website/client-asgatour-min.png', alt: 'client-asgatour-min.png' },
+];
+
+const portfolios = [
+  {
+    title: "PT. Grajevan",
+    desc: "Corporate company profile featuring a contemporary, elegant aesthetic",
+    img: "/assets/layanan/website/grajevan-mockup-min.png",
+  },
+  {
+    title: "PT. Media Pelajar",
+    desc: "Official educational equivalence exam platform built to regulatory standards",
+    img: "/assets/layanan/website/jasa-ujian-persamaan-mockup-min.png",
+  },
+  {
+    title: "Rumah Yatim Indonesia",
+    desc: "Social foundation web platform with seamless online donation and crowdfunding",
+    img: "/assets/layanan/website/rumah-yatim-indonesia-mockup-min.png",
+  },
+  {
+    title: "PT. Karya Kita",
+    desc: "Interior architecture website integrated with live chat for direct client inquiries",
+    img: "/assets/layanan/website/karya-kita-desain-mockup-min.png",
+  },
+  {
+    title: "PT. Tunas Mobilindo",
+    desc: "Luxury BMW showcase portal featuring comprehensive models and pricelists",
+    img: "/assets/layanan/website/promo-bmw-mockup-min.png",
+  },
+  {
+    title: "Aksi Indonesia",
+    desc: "Non-profit charity foundation platform designed for community fundraising events",
+    img: "/assets/layanan/website/aksi-indonesia-mockup-min.png",
+  },
+];
+
+const features = [
+  {
+    title: "Elegant design",
+    desc: "Modern, refined, and aesthetically compelling visual layout tailored to your brand",
+    icon: "brush",
+  },
+  {
+    title: "Stable & optimized hosting",
+    desc: "High-performance infrastructure guarantees ultra-fast page load times worldwide",
+    icon: "server",
+  },
+  {
+    title: "Fully responsive",
+    desc: "Engineered to deliver a flawless browsing experience across smartphones, tablets, and desktops",
+    icon: "laptop",
+  },
+  {
+    title: "Complete documentation",
+    desc: "Intuitive administration dashboards and clear documentation for effortless content management",
+    icon: "book",
+  },
+  {
+    title: "Stunning user experience",
+    desc: "Keeps visitors engaged longer with intuitive navigation and frictionless interaction",
+    icon: "sparkle",
+  },
+  {
+    title: "SEO friendly",
+    desc: "Built with clean semantic markup to achieve superior visibility on major search engines",
+    icon: "search",
+  },
+];
+
+const faqs = [
+  {
+    q: "How long does website development take?",
+    a: "Development timelines depend on scope and materials, but standard projects typically take only 1–7 business days.",
+  },
+  {
+    q: "What if I do not have technical skills?",
+    a: "No worries at all! We provide personalized onboarding and clear step-by-step guidance until you feel completely confident managing your site.",
+  },
+  {
+    q: "Can pricing be customized to fit my budget?",
+    a: "Absolutely. Let us discuss your exact project goals so we can recommend the most effective and economical solution.",
+  },
+  {
+    q: "Do you offer after-sales technical support?",
+    a: "Yes! Once you partner with us, you receive continuous technical support and error warranties completely FREE.",
+  },
+];
+
+const pageKeywords = [
+  'website development services',
+  'best after sales website development',
+  'web developer indonesia',
+  'professional website creation',
+  'landing page services',
+  'company profile website',
+  'ecommerce website development',
+  'custom web design',
+  'tentaklik',
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: pageSeo.title,
+    description: pageSeo.description,
+    url,
+    serviceType: "Website Development Services",
+    plans: [
+      { name: "Starter", price: "3990000" },
+      { name: "Standard", price: "5940000" },
+      { name: "Bisnis", price: "7490000" },
+    ],
+  }),
+  faqJsonLd(faqs),
+  breadcrumbJsonLd([
+    { name: 'Home', url: `${site.url}/en` },
+    { name: 'Services', url: `${site.url}/en/#layanan` },
+    { name: 'Website Development', url },
+  ]),
+];
+---
+
+<BaseLayout
+  lang="en"
+  title={pageSeo.title}
+  description={pageSeo.description}
+  keywords={pageKeywords}
+  image="/assets/services/webdev.png"
+  active="layanan"
+  jsonLd={jsonLd}
+>
+  <!-- 1. Hero Section -->
+  <section class="v2-hero">
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0;">
+      <div style="position:absolute;top:-80px;right:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle, rgba(255,122,26,0.10), rgba(255,122,26,0) 70%);"></div>
+      <div style="position:absolute;bottom:-60px;left:-100px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle, rgba(255,122,26,0.06), rgba(255,122,26,0) 70%);"></div>
+    </div>
+    <div class="container v2-hero-grid" style="position:relative;z-index:1;">
+      <div class="v2-hero-content">
+        <h1 class="v2-hero-title">
+          Build Trust,<br />From the First <span style="color:var(--orange-500);">CLICK</span>.
+        </h1>
+        
+        <div class="v2-hero-desc">
+          <p>Potential customers have arrived—do not leave them confused about what you offer. Help them understand your brand, grasp your offer, and know exactly where to click through a clean, easy-to-use website.</p>
+          <p>Starting from Rp3 million for high-converting landing pages to full business websites.</p>
+        </div>
+        
+        <div class="v2-hero-cta">
+          <a href="#buat" class="btn btn-primary" title="View Website Packages">
+            <span>View Website Packages</span>
+            <ArrowRight size={16} />
+          </a>
+          <a
+            href="https://api.whatsapp.com/send?phone=6282219987770&#038;text=Hello%2C%20I%20would%20like%20to%20consult%20about%20website%20development"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost"
+            title="Tell Us Your Needs"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            <span>Tell Us Your Needs</span>
+          </a>
+        </div>
+        
+        <div class="v2-hero-badges">
+          <div class="v2-badge-item">
+            <span class="v2-badge-icon"><Check size={13} /></span>
+            <span>Sekali bayar</span>
+          </div>
+          <div class="v2-badge-item">
+            <span class="v2-badge-icon"><Check size={13} /></span>
+            <span>Akses 100%</span>
+          </div>
+          <div class="v2-badge-item">
+            <span class="v2-badge-icon"><Check size={13} /></span>
+            <span>Full support</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="v2-hero-visual">
+        <div class="kraken-float" style="width:100%;max-width:440px;margin:0 auto;filter:drop-shadow(0 20px 40px rgba(255,107,26,0.18));">
+          <picture>
+            <source type="image/webp" srcset="/assets/layanan/website/mascot-webdev.webp" />
+            <img
+              src="/assets/layanan/website/mascot-webdev.png"
+              alt="Tentaklik Mascot Website Development Service"
+              width="1254"
+              height="1254"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              style="width:100%;height:auto;display:block;"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Solusi Terbaik Buat Sukses Di Era Digital -->
+  <section class="v2-solution-section" id="tentang">
+    <div class="container v2-solution-grid">
+      <div class="v2-solution-visual">
+        <img
+          src="/assets/layanan/website/jasa-pembuatan-website-after-sales-terbaik-min.webp"
+          alt="jasa pembuatan website after sales terbaik min"
+          width="960"
+          height="640"
+          loading="lazy"
+          class="v2-solution-img"
+        />
+      </div>
+      <div class="v2-solution-content">
+        <h2 class="v2-sec-title">The optimal solution to succeed in the digital era</h2>
+        <div class="v2-sec-desc">
+          <p>Modern advancements make conventional methods increasingly ineffective for sustaining business growth.</p>
+          <p>Your business scales significantly faster when you adapt and leverage digital media. Do not wait until you are left behind—take action today!</p>
+        </div>
+        <div class="v2-btn-wrap">
+          <a href="#buat" class="btn btn-primary" title="buatsekarang">
+            Build now! <ArrowRight size={14} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Value Proposition / 3 Fitur Nilai -->
+  <section class="v2-values-section">
+    <div class="container v2-values-grid">
+      <div class="v2-value-cards">
+        <div class="v2-value-card">
+          <div class="v2-value-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </div>
+          <div>
+            <h3>Abundant organic traffic</h3>
+            <p>Customers increasingly prefer online solutions because they can access services from home effortlessly, making a website an essential asset</p>
+          </div>
+        </div>
+
+        <div class="v2-value-card">
+          <div class="v2-value-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h3>Broader market reach</h3>
+            <p>When your business is online, potential customers can discover your products or services with ease, accelerating your business growth</p>
+          </div>
+        </div>
+
+        <div class="v2-value-card">
+          <div class="v2-value-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+          </div>
+          <div>
+            <h3>Systematized operations</h3>
+            <p>Beyond marketing, a website acts as an operational asset to automate customer service, streamline order processing, and organize reports</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="v2-values-info">
+        <h2 class="v2-sec-title">The ultimate website development solution</h2>
+        <div class="v2-sec-desc">
+          <p>Do not just take our word for it—our web development solutions have empowered hundreds of entrepreneurs, SMEs, and brands to scale online effortlessly.</p>
+          <p>Many businesses hit a ceiling by clinging to manual, inefficient legacy methods. The time to transition into the digital era is now.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Client Logos Bar & Stats -->
+  <section class="v2-clients-section">
+    <div class="container">
+      <div class="v2-clients-header">
+        <h2 class="v2-clients-title">Trusted by 742+ clients</h2>
+      </div>
+      
+      <!-- Auto-scrolling Infinite Marquee -->
+      <div class="v2-marquee-container">
+        <div class="v2-marquee-track">
+          {clientLogos.map((client) => (
+            <div class="v2-client-item">
+              <img src={client.src} alt={client.alt} loading="lazy" />
+            </div>
+          ))}
+          {clientLogos.map((client) => (
+            <div class="v2-client-item" aria-hidden="true">
+              <img src={client.src} alt={client.alt} loading="lazy" />
+            </div>
+          ))}
+          {clientLogos.map((client) => (
+            <div class="v2-client-item" aria-hidden="true">
+              <img src={client.src} alt={client.alt} loading="lazy" />
+            </div>
+          ))}
+          {clientLogos.map((client) => (
+            <div class="v2-client-item" aria-hidden="true">
+              <img src={client.src} alt={client.alt} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="v2-stats-grid">
+        <div class="v2-stat-card">
+          <div class="v2-stat-num">172<span>+</span></div>
+          <div class="v2-stat-label">Projects completed</div>
+        </div>
+        <div class="v2-stat-card">
+          <div class="v2-stat-num">500<span>+</span></div>
+          <div class="v2-stat-label">Online businesses</div>
+        </div>
+        <div class="v2-stat-card">
+          <div class="v2-stat-num">300<span>+</span></div>
+          <div class="v2-stat-label">Design templates</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Mengurus Bisnis Jadi Lebih Teratur (Redesigned Video Showcase) -->
+  <section class="v2-video-section" id="video">
+    <div class="container">
+      <div class="v2-video-header">
+        <h2 class="v2-sec-title">Streamline your business with structured systems</h2>
+      </div>
+
+      <!-- Modern Cinematic Video Showcase -->
+      <div class="v2-video-showcase">
+        <div class="v2-video-player-box" id="v2-video-box">
+          <img
+            id="v2-video-poster"
+            src="/assets/layanan/website/ngurusin-bisnis-lebih-mudah-min.webp"
+            alt="Mengurus Bisnis Jadi Lebih Teratur"
+            class="v2-video-poster-img"
+            loading="lazy"
+          />
+          <button
+            type="button"
+            id="v2-play-button"
+            class="v2-video-play-btn"
+            aria-label="Putar Video"
+          >
+            <span class="v2-video-ripple"></span>
+            <span class="v2-video-play-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 4 20 12 6 20 6 4"/>
+              </svg>
+            </span>
+          </button>
+          <div id="v2-iframe-wrap" class="v2-iframe-container" style="display: none;"></div>
+        </div>
+      </div>
+
+      <!-- Structured Benefit Cards (Exact Copywriting Verbatim) -->
+      <div class="v2-video-cards">
+        <div class="v2-benefit-card">
+          <div class="v2-benefit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="v2-benefit-text">
+            <p>
+              Every modern business requires a website to save valuable time and allow leadership to focus on sales and scaling without operational friction.
+            </p>
+          </div>
+        </div>
+
+        <div class="v2-benefit-card highlight">
+          <div class="v2-benefit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+          </div>
+          <div class="v2-benefit-text">
+            <p>
+              Creative and interactive design is essential, complemented by dedicated after-sales guidance in digital marketing. You are never left to navigate online growth alone!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="v2-video-cta-wrap">
+        <a href="#buat" class="btn btn-primary" title="miliki">
+          Get started now <ArrowRight size={16} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Section Portofolio Mockup -->
+  <section class="v2-portfolio-section" id="portofolio">
+    <div class="container">
+      <div class="v2-section-head">
+        <h2 class="v2-sec-title">Portfolio</h2>
+      </div>
+
+      <div class="v2-portfolio-grid">
+        {portfolios.map((item) => (
+          <div class="v2-portfolio-card">
+            <div class="v2-portfolio-img-wrap">
+              <img src={item.img} alt={item.title} loading="lazy" />
+            </div>
+            <div class="v2-portfolio-content">
+              <h5>{item.title}</h5>
+              <p>{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Fitur Unggulan Grid (6 Poin) -->
+  <section class="v2-features-section" id="fitur">
+    <div class="container">
+      <div class="v2-section-head">
+        <h2 class="v2-sec-title">The best choice for your business</h2>
+        <p class="v2-sec-subtitle">Top-tier website features designed to take your business to the next level</p>
+      </div>
+
+      <div class="v2-features-grid">
+        {features.map((feat) => (
+          <div class="v2-feat-card">
+            <div class="v2-feat-icon">
+              {feat.icon === 'brush' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/><path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/></svg>
+              )}
+              {feat.icon === 'server' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+              )}
+              {feat.icon === 'laptop' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="10" x="8" y="2" rx="2"/><rect width="8" height="14" x="2" y="8" rx="2"/><line x1="15" x2="15" y1="12"/></svg>
+              )}
+              {feat.icon === 'book' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+              )}
+              {feat.icon === 'sparkle' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+              )}
+              {feat.icon === 'search' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+              )}
+            </div>
+            <h3>{feat.title}</h3>
+            <p>{feat.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Bonus Spesial & After Sales -->
+  <section class="v2-bonus-section">
+    <div class="container v2-bonus-grid">
+      <div class="v2-bonus-visual">
+        <img
+          src="/assets/layanan/website/pesen-website-banyak-bonus-ahzelan.webp"
+          alt="No #1 Jasa Pembuatan Website After Sales Terbaik"
+          width="768"
+          height="697"
+          loading="lazy"
+        />
+      </div>
+      <div class="v2-bonus-content">
+        <h2 class="v2-sec-title">Beyond code, we are dedicated to helping your business flourish</h2>
+        <div class="v2-sec-desc">
+          <p>We do not just hand over a website; we deliver measurable business impact.</p>
+          <p>If you only needed basic template code, you could find cheap alternatives anywhere.</p>
+          <p>Our commitment is providing a holistic digital foundation so your brand consistently outpaces market competitors.</p>
+        </div>
+        <div class="v2-btn-wrap">
+          <a href="#buat" class="btn btn-primary" title="buatweb">
+            Build now! <ArrowRight size={14} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Pricing Section (Tabel Paket & Harga SAMA PERSIS /v2) -->
+  <section class="v2-pricing-section" id="buat">
+    <div class="container">
+      <div class="v2-section-head">
+        <h2 class="v2-sec-title">Build your website right now</h2>
+        <p class="v2-sec-subtitle">Do not let your business lag behind using outdated methods when competitors are moving digital</p>
+      </div>
+
+      <div class="v2-pricing-grid">
+        <!-- Paket 1: Starter -->
+        <div class="v2-plan-card">
+          <div class="v2-plan-header">
+            <h3>Starter</h3>
+            <p class="v2-plan-tagline">Ideal for ventures launching online on a lean budget while unlocking the growth potential of a web presence</p>
+          </div>
+          <div class="v2-plan-strike">Rp 5.000.000</div>
+          <div class="v2-plan-price-box">
+            <span class="v2-plan-curr">Rp</span>
+            <span class="v2-plan-amount">3.990.000</span>
+          </div>
+          <div class="v2-plan-renew">Annual renewal Rp 990.000/year</div>
+          <a
+            href="https://api.whatsapp.com/send?phone=6282219987770&#038;text=Hello%2C%20I%20am%20interested%20in%20the%20Starter%20website%20package"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost v2-plan-btn"
+            title="starter"
+          >
+            Select plan
+          </a>
+          <div class="v2-plan-notice">*Prices are subject to increase without prior notice—secure your slot today</div>
+          <div class="v2-plan-features">
+            <h4>What you get:</h4>
+            <ul>
+              <li><span class="v2-chk"><Check size={13} /></span> Stable hosting &amp; free domain</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Full responsive</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Elegant design</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Free SSL certificate</li>
+              <li><span class="v2-chk"><Check size={13} /></span> 100% full admin access</li>
+              <li><span class="v2-chk"><Check size={13} /></span> SEO setup &amp; optimization</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Security &amp; maintenance</li>
+              <li><span class="v2-chk"><Check size={13} /></span> System updates</li>
+              <li class="disabled"><span class="v2-cross">&#10005;</span> Dedicated technical support</li>
+              <li class="disabled"><span class="v2-cross">&#10005;</span> Full regular backup</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Special bonus</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Paket 2: Standard (Featured) -->
+        <div class="v2-plan-card featured">
+          <div class="v2-plan-header">
+            <h3>Standard</h3>
+            <p class="v2-plan-tagline">Recommended for consumer-facing businesses and retail brands seeking custom visual identity and enhanced reach</p>
+          </div>
+          <div class="v2-plan-strike">Rp 7.000.000</div>
+          <div class="v2-plan-price-box">
+            <span class="v2-plan-curr">Rp</span>
+            <span class="v2-plan-amount">5.940.000</span>
+          </div>
+          <div class="v2-plan-renew">Annual renewal Rp 1.200.000/year</div>
+          <a
+            href="https://api.whatsapp.com/send?phone=6282219987770&#038;text=Hello%2C%20I%20am%20interested%20in%20the%20Standard%20website%20package"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary v2-plan-btn"
+            title="standard"
+          >
+            Select plan
+          </a>
+          <div class="v2-plan-notice">*Prices are subject to increase without prior notice—secure your slot today</div>
+          <div class="v2-plan-features">
+            <h4>What you get:</h4>
+            <ul>
+              <li><span class="v2-chk"><Check size={13} /></span> Stable hosting &amp; free domain</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Full responsive</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Elegant design</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Free SSL certificate</li>
+              <li><span class="v2-chk"><Check size={13} /></span> 100% full admin access</li>
+              <li><span class="v2-chk"><Check size={13} /></span> SEO setup &amp; optimization</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Security &amp; maintenance</li>
+              <li><span class="v2-chk"><Check size={13} /></span> System updates</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Dedicated technical support</li>
+              <li class="disabled"><span class="v2-cross">&#10005;</span> Full regular backup</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Exclusive bonus++</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Paket 3: Bisnis -->
+        <div class="v2-plan-card">
+          <div class="v2-plan-header">
+            <h3>Bisnis</h3>
+            <p class="v2-plan-tagline">Built for B2B enterprises, corporate firms, and manufacturers demanding scale, speed, and tailored integrations</p>
+          </div>
+          <div class="v2-plan-strike">Rp 15.000.000</div>
+          <div class="v2-plan-price-box">
+            <span class="v2-plan-curr">Rp</span>
+            <span class="v2-plan-amount">7.490.000</span>
+          </div>
+          <div class="v2-plan-renew">Perpanjangan Rp. 1.490.000/tahun</div>
+          <a
+            href="https://api.whatsapp.com/send?phone=6282219987770&#038;text=Hello%2C%20I%20am%20interested%20in%20the%20Business%20website%20package"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost v2-plan-btn"
+            title="bisnis"
+          >
+            Select plan
+          </a>
+          <div class="v2-plan-notice">*Prices are subject to increase without prior notice—secure your slot today</div>
+          <div class="v2-plan-features">
+            <h4>What you get:</h4>
+            <ul>
+              <li><span class="v2-chk"><Check size={13} /></span> Stable hosting &amp; free domain</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Full responsive</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Elegant design</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Free SSL certificate</li>
+              <li><span class="v2-chk"><Check size={13} /></span> 100% full admin access</li>
+              <li><span class="v2-chk"><Check size={13} /></span> SEO setup &amp; optimization</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Security &amp; maintenance</li>
+              <li><span class="v2-chk"><Check size={13} /></span> System updates</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Dedicated technical support</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Full regular backup</li>
+              <li><span class="v2-chk"><Check size={13} /></span> Exclusive bonus+++</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FAQ Section (Accordion Native) -->
+  <section class="v2-faq-section" id="faq">
+    <div class="container" style="max-width: 860px;">
+      <div class="v2-faq-list">
+        {faqs.map((faq, idx) => (
+          <details class="v2-faq-item" open={idx === 0}>
+            <summary class="v2-faq-question">
+              <span>{faq.q}</span>
+              <span class="v2-faq-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="v2-faq-answer">
+              <p>{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Bottom CTA Banner (Homepage Style) -->
+  <section class="v2-bottom-cta">
+    <div class="container">
+      <div class="v2-cta-banner">
+        <div class="v2-cta-text">
+          <h2>Ready to scale your business with a website?</h2>
+          <p>Select your package now and <a href="/en/kontak" style="color:#ffffff;font-weight:700;text-decoration:underline;">contact us</a> to start crafting your website exactly to your vision</p>
+        </div>
+        <div class="v2-cta-action">
+          <a href="#buat" class="btn btn-ghost v2-cta-btn" title="buatwebsite">
+            Build now! <ArrowRight size={14} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ── CSS Halaman /layanan/website (Aligned to Homepage Design System) ── */
+  .text-orange {
+    color: var(--orange-500);
+  }
+
+  /* 1. Hero Section */
+  .v2-hero {
+    padding: 48px 0 56px 0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+  .v2-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .v2-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: white;
+    border: 1px solid var(--ink-100);
+    box-shadow: 0 2px 8px rgba(31, 26, 23, 0.04);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-700);
+    margin-bottom: 20px;
+  }
+  .v2-hero-badge-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: var(--orange-500);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .v2-hero-title {
+    font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: -0.015em;
+    color: var(--ink-900);
+  }
+  .v2-hero-desc {
+    margin-bottom: 30px;
+    max-width: 540px;
+  }
+  .v2-hero-desc p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-500);
+    margin-bottom: 10px;
+    font-family: 'Inter Variable', 'Inter', sans-serif;
+  }
+  .v2-hero-desc strong {
+    color: var(--ink-900);
+  }
+  .v2-hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .v2-hero-badges {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(14px, 2vw, 24px);
+    flex-wrap: nowrap;
+    padding-top: 14px;
+    border-top: 1px solid var(--ink-100);
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .v2-hero-badges::-webkit-scrollbar {
+    display: none;
+  }
+  .v2-badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-700);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .v2-badge-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    background: var(--orange-100);
+    color: var(--orange-500);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .v2-hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .v2-hero-img-box {
+    width: 100%;
+    max-width: 600px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible;
+  }
+  .v2-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    filter: none;
+  }
+
+  /* 2. Solusi Era Digital */
+  .v2-solution-section {
+    padding: 80px 0;
+    background: var(--bg);
+  }
+  .v2-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .v2-solution-visual {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(31, 26, 23, 0.08);
+    border: 1px solid var(--ink-100);
+  }
+  .v2-solution-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .v2-sec-title {
+    font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-top: 14px;
+    margin-bottom: 18px;
+    color: var(--ink-900);
+  }
+  .v2-solution-content .v2-sec-title,
+  .v2-values-info .v2-sec-title,
+  .v2-bonus-content .v2-sec-title {
+    margin-top: 0;
+  }
+  .v2-sec-desc p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-500);
+    margin-bottom: 14px;
+  }
+  .v2-btn-wrap {
+    margin-top: 24px;
+  }
+
+  /* 3. Value Proposition / 3 Pilar */
+  .v2-values-section {
+    padding: 80px 0;
+    background: var(--bg-warm);
+  }
+  .v2-values-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .v2-value-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .v2-value-card {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--ink-100);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .v2-value-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--orange-200);
+  }
+  .v2-value-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    background: var(--orange-50);
+    color: var(--orange-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .v2-value-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--ink-900);
+  }
+  .v2-value-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-500);
+    margin: 0;
+  }
+
+  /* 4. Client Logos Bar & Stats */
+  .v2-clients-section {
+    padding: 64px 0 56px 0;
+    background: #ffffff;
+    border-top: 1px solid var(--ink-100);
+    border-bottom: 1px solid var(--ink-100);
+    overflow: hidden;
+  }
+  .v2-clients-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .v2-clients-title {
+    font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--ink-900);
+    letter-spacing: -0.025em;
+    margin: 0;
+    line-height: 1.15;
+  }
+  .v2-marquee-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 8px 0 36px 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  .v2-marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 72px;
+    width: max-content;
+    animation: v2-marquee-scroll 32s linear infinite;
+  }
+  .v2-marquee-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes v2-marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .v2-client-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .v2-client-item img {
+    height: 52px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    filter: grayscale(15%) contrast(105%);
+    opacity: 0.9;
+    transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+  }
+  .v2-client-item img:hover {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  .v2-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-top: 32px;
+    border-top: 1px dashed var(--ink-200);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .v2-stat-card {
+    text-align: center;
+  }
+  .v2-stat-num {
+    font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--orange-500);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .v2-stat-num span {
+    color: var(--orange-600);
+  }
+  .v2-stat-label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-600);
+    line-height: 1.35;
+  }
+
+  /* 5. Video Section Redesigned (Cinematic Showcase) */
+  .v2-video-section {
+    padding: 80px 0;
+    background: var(--bg-warm);
+    position: relative;
+  }
+  .v2-video-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 36px auto;
+  }
+  .v2-video-header .v2-sec-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--ink-900);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+  .v2-video-showcase {
+    max-width: 880px;
+    margin: 0 auto 36px auto;
+  }
+  .v2-video-player-box {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: #0F172A;
+    aspect-ratio: 16 / 10;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12), 0 4px 16px rgba(15, 23, 42, 0.06);
+    border: 1px solid var(--ink-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .v2-video-poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .v2-video-player-box:hover .v2-video-poster-img {
+    transform: scale(1.02);
+  }
+  .v2-video-play-btn {
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .v2-video-play-icon {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF7A1A 0%, #E65A00 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 32px rgba(255, 122, 26, 0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .v2-video-play-icon svg {
+    margin-left: 4px;
+  }
+  .v2-video-play-btn:hover .v2-video-play-icon {
+    transform: scale(1.12);
+    box-shadow: 0 16px 40px rgba(255, 122, 26, 0.65);
+  }
+  .v2-iframe-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background: #000;
+  }
+  .v2-iframe-container :global(iframe),
+  :global(.v2-iframe-container iframe) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+    display: block;
+  }
+
+  /* Two Benefit Cards */
+  .v2-video-cards {
+    max-width: 880px;
+    margin: 0 auto 36px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .v2-benefit-card {
+    background: #FFFFFF;
+    border: 1px solid var(--ink-100);
+    border-radius: var(--radius-xl);
+    padding: 24px 28px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .v2-benefit-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--orange-200);
+  }
+  .v2-benefit-card.highlight {
+    background: var(--orange-50);
+    border-color: var(--orange-200);
+  }
+  .v2-benefit-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--orange-100);
+    color: var(--orange-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .v2-benefit-text p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-600);
+    margin: 0;
+  }
+  .v2-benefit-card.highlight .v2-benefit-text p {
+    color: var(--ink-800);
+    font-weight: 500;
+  }
+
+  /* CTA */
+  .v2-video-cta-wrap {
+    text-align: center;
+  }
+  .v2-video-cta-wrap .btn-primary {
+    padding: 14px 36px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  /* 6. Portofolio Section */
+  .v2-portfolio-section {
+    padding: 80px 0;
+    background: var(--bg);
+  }
+  .v2-section-head {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 48px auto;
+  }
+  .v2-sec-subtitle {
+    font-size: 16px;
+    color: var(--ink-500);
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+  .v2-portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .v2-portfolio-card {
+    background: var(--bg);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--ink-100);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .v2-portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--orange-200);
+  }
+  .v2-portfolio-img-wrap {
+    background: #f1f4f8;
+    aspect-ratio: 440 / 285;
+    overflow: hidden;
+  }
+  .v2-portfolio-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .v2-portfolio-card:hover .v2-portfolio-img-wrap img {
+    transform: scale(1.03);
+  }
+  .v2-portfolio-content {
+    padding: 22px 24px;
+  }
+  .v2-portfolio-content h5 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--ink-900);
+  }
+  .v2-portfolio-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-500);
+    margin: 0;
+  }
+
+  /* 7. Fitur Unggulan Grid (6 Poin) */
+  .v2-features-section {
+    padding: 80px 0;
+    background: var(--bg-warm);
+  }
+  .v2-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .v2-feat-card {
+    background: #ffffff;
+    border-radius: var(--radius-xl);
+    padding: 28px 24px;
+    border: 1px solid var(--ink-100);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .v2-feat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--orange-200);
+  }
+  .v2-feat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background: var(--orange-50);
+    color: var(--orange-600);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .v2-feat-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--ink-900);
+  }
+  .v2-feat-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-500);
+    margin: 0;
+  }
+
+  /* 8. Bonus Spesial */
+  .v2-bonus-section {
+    padding: 80px 0;
+    background: #ffffff;
+  }
+  .v2-bonus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .v2-bonus-visual img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* 9. Pricing Section */
+  .v2-pricing-section {
+    padding: 80px 0;
+    background: var(--bg-warm);
+  }
+  .v2-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+  .v2-plan-card {
+    background: #ffffff;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--ink-100);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .v2-plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .v2-plan-card.featured {
+    border: 2px solid var(--orange-500);
+    box-shadow: 0 12px 32px rgba(255, 122, 26, 0.16);
+    background: #ffffff;
+  }
+  .v2-plan-header h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink-900);
+    margin-bottom: 8px;
+  }
+  .v2-plan-tagline {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-500);
+    min-height: 44px;
+    margin-bottom: 16px;
+  }
+  .v2-plan-strike {
+    font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-400);
+    text-decoration: line-through;
+    text-decoration-color: #EF4444;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+  .v2-plan-price-box {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .v2-plan-curr {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--orange-500);
+  }
+  .v2-plan-amount {
+    font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--ink-900);
+    letter-spacing: -0.02em;
+  }
+  .v2-plan-renew {
+    font-size: 13px;
+    color: var(--ink-500);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .v2-plan-btn {
+    width: 100%;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+  .v2-plan-notice {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--ink-400);
+    margin-bottom: 20px;
+  }
+  .v2-plan-features {
+    border-top: 1px solid var(--ink-100);
+    padding-top: 20px;
+    flex-grow: 1;
+  }
+  .v2-plan-features h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-800);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .v2-plan-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+  .v2-plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink-600);
+  }
+  .v2-plan-features li.disabled {
+    color: var(--ink-300);
+    text-decoration: line-through;
+  }
+  .v2-chk {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: var(--orange-100);
+    color: var(--orange-500);
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .v2-cross {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: var(--ink-100);
+    color: var(--ink-400);
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* 10. FAQ Section */
+  .v2-faq-section {
+    padding: 80px 0;
+    background: #ffffff;
+  }
+  .v2-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .v2-faq-item {
+    border: 1px solid var(--ink-100);
+    border-radius: var(--radius-lg);
+    background: var(--bg);
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .v2-faq-item[open] {
+    border-color: var(--orange-200);
+    box-shadow: var(--shadow-sm);
+    background: var(--orange-50);
+  }
+  .v2-faq-question {
+    padding: 18px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink-900);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .v2-faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .v2-faq-arrow {
+    color: var(--ink-400);
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.25s ease, color 0.2s ease;
+  }
+  .v2-faq-item[open] .v2-faq-arrow {
+    transform: rotate(180deg);
+    color: var(--orange-500);
+  }
+  .v2-faq-answer {
+    padding: 0 24px 20px 24px;
+    border-top: 1px solid var(--ink-100);
+    padding-top: 14px;
+  }
+  .v2-faq-answer p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-600);
+    margin: 0;
+  }
+
+  /* 11. Bottom CTA Banner (Homepage Style) */
+  .v2-bottom-cta {
+    padding: 60px 0 80px 0;
+    background: var(--bg-warm);
+  }
+  .v2-cta-banner {
+    background: linear-gradient(95deg, var(--orange-500), var(--orange-600));
+    border-radius: var(--radius-2xl);
+    padding: 44px 48px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    box-shadow: 0 12px 36px rgba(255, 122, 26, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .v2-cta-banner::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+  }
+  .v2-cta-text {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+  .v2-cta-text h2 {
+    font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    letter-spacing: -0.015em;
+  }
+  .v2-cta-text p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: white;
+    opacity: 0.95;
+    margin: 0;
+  }
+  .v2-cta-action {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+  .v2-cta-btn {
+    background: #ffffff !important;
+    color: var(--orange-700) !important;
+    font-weight: 700 !important;
+    padding: 14px 28px !important;
+    border: none !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1) !important;
+  }
+  .v2-cta-btn:hover {
+    background: var(--orange-50) !important;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .v2-hero-grid,
+    .v2-solution-grid,
+    .v2-values-grid,
+    .v2-bonus-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .v2-hero-title {
+      font-size: 38px;
+    }
+    .v2-portfolio-grid,
+    .v2-features-grid,
+    .v2-pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .v2-solution-visual,
+    .v2-bonus-visual {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .v2-hero-content {
+      text-align: left !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+      width: 100% !important;
+    }
+    .v2-hero-title {
+      text-align: left !important;
+      font-size: clamp(28px, 7.5vw, 36px) !important;
+      line-height: 1.2 !important;
+    }
+    .v2-hero-desc {
+      text-align: left !important;
+      margin-inline: 0 !important;
+      max-width: 100% !important;
+    }
+    .v2-hero-desc p {
+      text-align: left !important;
+    }
+    .v2-hero-cta {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      justify-content: flex-start !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      gap: 12px !important;
+      margin-inline: 0 !important;
+      margin-bottom: 24px !important;
+    }
+    .v2-hero-cta .btn {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 14px 20px !important;
+      font-size: 15px !important;
+      box-sizing: border-box !important;
+      border-radius: 10px !important;
+    }
+    .v2-hero-badges {
+      justify-content: flex-start !important;
+      margin-inline: 0 !important;
+      flex-wrap: wrap !important;
+      gap: 10px 18px !important;
+      width: 100% !important;
+    }
+    .v2-solution-content,
+    .v2-values-info,
+    .v2-bonus-content {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 100%;
+    }
+    .v2-values-info {
+      order: -1;
+    }
+    .v2-solution-content .v2-sec-title,
+    .v2-values-info .v2-sec-title,
+    .v2-bonus-content .v2-sec-title {
+      text-align: left;
+    }
+    .v2-solution-content .v2-sec-desc,
+    .v2-values-info .v2-sec-desc,
+    .v2-bonus-content .v2-sec-desc {
+      text-align: left;
+      max-width: 100%;
+      margin-inline: 0;
+    }
+    .v2-values-info .eyebrow,
+    .v2-bonus-content .eyebrow {
+      margin-inline: 0;
+    }
+    .v2-sec-desc {
+      display: block !important;
+      width: 100% !important;
+      text-align: left;
+    }
+    .v2-sec-desc p {
+      display: block !important;
+      width: 100% !important;
+      text-align: left;
+      margin-bottom: 14px;
+    }
+    .v2-btn-wrap {
+      display: flex !important;
+      justify-content: flex-start !important;
+      width: 100% !important;
+      margin-top: 24px;
+    }
+    .v2-btn-wrap .btn {
+      margin-inline: 0;
+      padding: 14px 24px !important;
+      font-size: 15px !important;
+      border-radius: 10px !important;
+    }
+    .v2-cta-banner {
+      flex-direction: column;
+      text-align: center;
+      padding: 36px 24px;
+      gap: 20px;
+    }
+    .v2-cta-text h2 {
+      font-size: 26px;
+    }
+    .v2-video-cards {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .v2-video-player-box {
+      border-radius: 18px;
+    }
+    .v2-video-play-btn {
+      width: 72px;
+      height: 72px;
+    }
+    .v2-video-play-icon {
+      width: 64px;
+      height: 64px;
+    }
+    .v2-video-play-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .v2-hero {
+      padding: 40px 0 48px 0;
+    }
+    .v2-hero-badges {
+      gap: 12px;
+      padding-top: 10px;
+    }
+    .v2-badge-item {
+      font-size: 12px;
+      gap: 6px;
+    }
+    .v2-badge-icon {
+      width: 18px;
+      height: 18px;
+    }
+    .v2-clients-section {
+      padding: 42px 0 38px 0;
+    }
+    .v2-clients-title {
+      font-size: 24px;
+    }
+    .v2-clients-header {
+      margin-bottom: 20px;
+    }
+    .v2-client-item img {
+      height: 40px;
+      max-width: 130px;
+    }
+    .v2-marquee-track {
+      gap: 36px;
+    }
+    .v2-marquee-container {
+      padding: 0 0 24px 0;
+    }
+    .v2-sec-title {
+      font-size: 24px;
+    }
+    .v2-benefit-card {
+      padding: 18px 20px;
+      border-radius: 16px;
+    }
+    .v2-stats-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding-top: 24px;
+    }
+    .v2-stat-num {
+      font-size: 26px;
+      margin-bottom: 3px;
+    }
+    .v2-stat-label {
+      font-size: 11.5px;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+  }
+</style>
+
+<script>
+  const playBtn = document.getElementById('v2-play-button');
+  const iframeWrap = document.getElementById('v2-iframe-wrap');
+  const poster = document.getElementById('v2-video-poster');
+
+  if (playBtn && iframeWrap && poster) {
+    playBtn.addEventListener('click', () => {
+      iframeWrap.innerHTML = `
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/XoZbnZkzpyo?autoplay=1&rel=0" 
+          title="Mengurus Bisnis Jadi Lebih Teratur" 
+          width="100%"
+          height="100%"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block;"
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      `;
+      iframeWrap.style.display = 'block';
+      playBtn.style.display = 'none';
+      poster.style.display = 'none';
+    });
+  }
+</script>

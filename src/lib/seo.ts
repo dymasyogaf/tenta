@@ -158,7 +158,7 @@ export function localBusinessJsonLd() {
       itemListElement: [
         {
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Jasa Pembuatan Website', url: `${site.url}/layanan/website` },
+          itemOffered: { '@type': 'Service', name: 'Jasa Pembuatan Website', url: `${site.url}/layanan/jasa-pembuatan-website-after-sales-terbaik` },
         },
         {
           '@type': 'Offer',

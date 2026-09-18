@@ -153,8 +153,8 @@ export const META_LP: Record<Lang, MetaLpData> = {
       btn: 'Dapatkan Akun Iklan',
     },
     seo: {
-      title: 'Sewa Akun Meta Ads Whitelist (Facebook & Instagram) — Tentaklik',
-      description: 'Sewa akun Meta Ads whitelist (Facebook & Instagram) di Tentaklik: akun stabil terverifikasi Business Manager resmi, tanpa limit spending, anti random restrict, dan support appeal jalur partner Meta.',
+      title: 'Sewa Akun Meta Ads Whitelist untuk Bisnis | Tentaklik',
+      description: 'Sewa akun Meta Ads untuk beriklan di Facebook dan Instagram. Cek biaya, ketentuan akun, serta dukungan tim Tentaklik sesuai kebutuhan campaign kamu.',
     },
     keywords: ['sewa akun meta ads', 'akun whitelist meta', 'sewa akun facebook ads', 'sewa akun instagram ads', 'akun facebook ads whitelist'],
   },
@@ -284,8 +284,8 @@ export const GOOGLE_LP: Record<Lang, GoogleLpData> = {
       btn: 'Dapatkan Akun Sekarang',
     },
     seo: {
-      title: 'Sewa Akun Google Ads Whitelist — Tentaklik',
-      description: 'Sewa akun Google Ads whitelist di Tentaklik: dikelola Google Partner resmi, risiko suspend lebih rendah, tanpa batas spending harian, dan proses appeal lebih cepat untuk skala besar.',
+      title: 'Sewa Akun Google Ads Whitelist | Tentaklik',
+      description: 'Butuh akun untuk beriklan di Google dan YouTube? Cek layanan sewa akun Google Ads Tentaklik, lengkap dengan informasi biaya, top up, dan dukungan tim.',
     },
     keywords: ['sewa akun google ads', 'akun whitelist google', 'sewa akun google ads whitelist', 'akun google ads mcc', 'sewa akun iklan google'],
   },
@@ -415,8 +415,8 @@ export const TIKTOK_LP: Record<Lang, TikTokLpData> = {
       btn: 'Ajukan Sekarang',
     },
     seo: {
-      title: 'Sewa Akun TikTok Ads Whitelist (Agency Account) — Tentaklik',
-      description: 'Sewa akun TikTok Ads Whitelist agency resmi di Tentaklik: tanpa limit spending, bebas PPN, approval kilat, proteksi saldo, dan appeal jalur partner TikTok.',
+      title: 'Sewa Akun TikTok Ads Whitelist | Tentaklik',
+      description: 'Jangkau audiens di TikTok lewat layanan sewa akun TikTok Ads Tentaklik. Pelajari pilihan akun, biaya, dan alur aktivasi untuk kebutuhan campaign kamu.',
     },
     keywords: ['sewa akun tiktok ads', 'akun whitelist tiktok', 'tiktok agency account', 'tiktok ads whitelist', 'sewa tiktok ads partner'],
   },
