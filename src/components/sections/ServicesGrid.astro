@@ -9,7 +9,7 @@ const services = [
   {
     title: lang === 'en' ? 'Tier 1 Ad Accounts' : 'Akun Iklan Tier 1',
     desc: t('svcgrid.sewaAkun.desc'),
-    slug: 'sewa-akun',
+    slug: 'sewa-akun-whitelist',
     image: '/assets/services/tier-1-ad-account.avif'
   },
   {
@@ -129,9 +129,9 @@ const services = [
     transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
   .service-card:hover .service-cta-btn {
-    background: var(--orange-600);
+    background: #32961f;
     transform: translateY(-1px);
-    box-shadow: 0 10px 22px rgba(255, 107, 26, 0.34);
+    box-shadow: 0 10px 22px rgba(59, 173, 37, 0.34);
   }
   @media (max-width: 992px) {
     .services-grid-list {

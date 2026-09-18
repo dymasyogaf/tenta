@@ -30,7 +30,7 @@ const jsonLd = [
         Yuk ngobrol soal <span style="color:var(--orange-500);">bisnis Anda</span>
       </h1>
       <p style="font-size:17px;color:var(--ink-500);max-width:620px;margin:0 auto;">
-        Hubungi kami via WhatsApp
+        Silahkan isi form untuk menghubungi kami atau chat via WhatsApp
       </p>
     </div>
   </section>
@@ -48,6 +48,14 @@ const jsonLd = [
             <div>
               <div style="font-size:12px;color:var(--ink-500);">WhatsApp</div>
               <div style="font-size:15px;font-weight:600;">{site.phone}</div>
+            </div>
+          </a>
+          <a href="https://whatsapp.com/channel/0029VaA5YfTCXC3BM8Ljv20w" target="_blank" rel="noopener noreferrer"
+            class="contact-row">
+            <div class="contact-icon"><WhatsApp size={18} /></div>
+            <div>
+              <div style="font-size:12px;color:var(--ink-500);">Saluran WhatsApp</div>
+              <div style="font-size:15px;font-weight:600;">Komunitas Tentaklik</div>
             </div>
           </a>
           <a href={`mailto:${site.email}`} class="contact-row">
@@ -125,7 +133,8 @@ const jsonLd = [
           <label for="kontak-message">Cerita Singkat tentang Project *</label>
           <textarea id="kontak-message" name="message" required placeholder="Ceritakan kondisi bisnis, tujuan, dan apa yang sedang dicari..." maxlength="2000" minlength="10"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" style="align-self:flex-start;padding:14px 28px;">
+
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;padding:14px 28px;border-radius:10px;">
           Kirim Pesan <ArrowRight size={14} />
         </button>
         <p style="font-size:12px;color:var(--ink-500);">Dengan submit, Anda setuju kami menghubungi Anda untuk follow-up. Data tidak akan dibagikan ke pihak ketiga.</p>

@@ -29,7 +29,7 @@ const partnerHref = L('/partner');
 const kontakHref = L('/kontak');
 
 const layananItems = [
-  { id: 'sewa-akun', label: t('svc.sewaAkun'),   href: L('/layanan/sewa-akun'),  icon: 'shield' as const },
+  { id: 'sewa-akun', label: t('svc.sewaAkun'),   href: L('/layanan/sewa-akun-whitelist'),  icon: 'shield' as const },
   { id: 'website',   label: t('svc.website'),    href: L('/layanan/website'),    icon: 'code' as const },
   { id: 'konsultasi',label: t('svc.konsultasi'), href: L('/layanan/konsultasi'), icon: 'lightbulb' as const },
 ];
@@ -475,12 +475,12 @@ const langOptions = [
     padding: 9px 20px;
     font-size: 14px;
     font-weight: 600;
-    border-radius: var(--radius-pill);
-    background: var(--orange-500) !important;
+    border-radius: 10px;
+    background: #3bad25 !important;
     color: #ffffff !important;
     border: 1.5px solid transparent;
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 4px 12px rgba(255, 107, 26, 0.25);
+    box-shadow: 0 4px 12px rgba(59, 173, 37, 0.25);
     white-space: nowrap;
     text-decoration: none;
     display: inline-flex !important;
@@ -504,11 +504,15 @@ const langOptions = [
   .mobile-drawer-links > a.mobile-kontak-btn:hover,
   .mobile-drawer-links > a.mobile-kontak-btn.active {
     color: #ffffff !important;
-    background: var(--orange-500) !important;
+    background: #3bad25 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
+    border-radius: 10px !important;
+    padding: 12px 24px !important;
+    margin-top: 12px !important;
+    box-shadow: 0 4px 14px rgba(59, 173, 37, 0.25) !important;
   }
 </style>
 

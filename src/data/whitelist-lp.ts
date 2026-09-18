@@ -1,5 +1,5 @@
 // src/data/whitelist-lp.ts
-// Konten 2 landing page standalone: /whitelist/metaads & /whitelist/gads (+ /en/*).
+// Konten landing page: /layanan/akun-meta-ads-whitelist & /whitelist/gads (+ /en/*).
 // Tanpa harga, tanpa WA — CTA mengarah ke /layanan/sewa-akun.
 // Bilingual: akses via META_LP[lang] / GOOGLE_LP[lang] / INDUSTRIES_LP[lang].
 import type { Industry } from '@data/sewa-akun';
@@ -91,15 +91,15 @@ export const INDUSTRY_LP_HEADING: Record<Lang, { title: string; sub: string }> =
   },
 };
 
-const CTA_HREF = '/layanan/sewa-akun';
+const CTA_HREF = '/layanan/sewa-akun-whitelist';
 
 export const META_LP: Record<Lang, MetaLpData> = {
   id: {
     platform: 'meta',
     hero: {
       eyebrow: 'Tier 1 Meta Ad Account',
-      title: 'Mau Sampai Kapan Ngiklan',
-      titleAccent: 'Dengan Banyak Hambatan?',
+      title: 'Mau Sampai Kapan Ngiklan Dengan',
+      titleAccent: 'Banyak Hambatan?',
       desc: 'Sudah saatnya beralih pakai akun iklan meta ads tier 1 yang lebih stabil, tahan restrict dan dapat dukungan langsung dari meta secara penuh supaya bisnis kamu makin tumbuh.',
     },
     whyHeading: 'Mengapa Memilih Akun Whitelist?',
@@ -159,8 +159,8 @@ export const META_LP: Record<Lang, MetaLpData> = {
     platform: 'meta',
     hero: {
       eyebrow: 'Tier 1 Meta Ad Account',
-      title: 'How Long Will You Run Ads',
-      titleAccent: 'With So Many Obstacles?',
+      title: 'How Long Will You Run Ads With',
+      titleAccent: 'So Many Obstacles?',
       desc: 'It is time to switch to a tier 1 Meta ad account that is more stable, restrict-resistant, and fully supported directly by Meta so your business can grow faster.',
     },
     whyHeading: 'Why Choose a Whitelist Account?',

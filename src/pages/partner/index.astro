@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ArrowRight from '@components/icons/ArrowRight.astro';
-import { getCollection } from 'astro:content';
+import { PARTNER_ITEMS } from '@data/partners';
 import { breadcrumbJsonLd, itemListJsonLd } from '@lib/seo';
 import { site } from '@data/site';
 import { getLang, useT } from '@i18n/utils';
@@ -10,10 +10,7 @@ const lang = getLang(Astro.currentLocale);
 const tr = useT(lang);
 const L = (p: string) => (lang === 'en' ? '/en' + (p === '/' ? '' : p) : p) || '/';
 
-const allCases = (await getCollection('caseStudies')).sort((a, b) =>
-  b.data.publishDate.getTime() - a.data.publishDate.getTime()
-);
-const filters = [tr('partner.filter.all'), 'Website', 'Google Ads', 'Meta Ads', 'Konsultasi'];
+const categories = ['Semua', 'Hosting', 'Plugin', 'Payment Gateway'];
 
 const url = `${site.url}/partner`;
 const jsonLd = [
@@ -22,78 +19,71 @@ const jsonLd = [
     { name: tr('nav.partner'), url },
   ]),
   itemListJsonLd(
-    allCases.map(c => ({
-      name: `${c.data.brand} — ${c.data.metric}`,
-      url: `${site.url}/partner/${c.id}`,
-      description: c.data.desc,
+    PARTNER_ITEMS.map(p => ({
+      name: p.title,
+      url: p.url,
+      description: `${p.category} — ${p.title}`,
     })),
     'Partner Tentaklik',
   ),
 ];
 
-const seoTitle = lang === 'en'
-  ? 'Partners — Real Results | Tentaklik Digital Marketing'
-  : 'Partner Tentaklik — Hasil Nyata Klien Digital Marketing';
-const seoDesc = lang === 'en'
-  ? 'Brands & partners that grew with Tentaklik — real numbers, clear periods, and the strategy behind them.'
-  : 'Partner & brand yang tumbuh bareng Tentaklik: hasil nyata Google Ads, Meta Ads, dan website — angka sebenarnya, periode jelas, dan strategi di baliknya.';
+const seoTitle = 'Partner & Rekomendasi Tools — Tentaklik';
+const seoDesc = 'Rekomendasi hosting terbaik, plugin website, dan payment gateway resmi pilihan partner Tentaklik untuk akselerasi bisnis online Anda.';
 ---
 <BaseLayout
   title={seoTitle}
   description={seoDesc}
   active="case"
   jsonLd={jsonLd}
-  keywords={['partner tentaklik', 'case study tentaklik', 'portofolio digital marketing', 'hasil google ads', 'hasil meta ads']}
+  keywords={['partner tentaklik', 'rekomendasi hosting', 'hosting murah', 'plugin donasi', 'tripay payment gateway']}
 >
-  <section style="padding-top:56px;padding-bottom:32px;background:var(--bg-warm);">
-    <div class="container" style="text-align:center;position:relative;">
+  <section class="partner-hero">
+    <div class="container partner-hero-container">
       <span class="eyebrow">{tr('partner.eyebrow')}</span>
-      <h1 style="font-size:48px;margin-top:18px;margin-bottom:14px;">
+      <h1 class="partner-hero-title">
         {tr('partner.title1')} <span style="color:var(--orange-500);">{tr('partner.titleAccent')}</span>
       </h1>
-      <p style="font-size:16px;color:var(--ink-500);max-width:680px;margin:0 auto;line-height:1.65;white-space:pre-line;">
+      <p class="partner-hero-desc">
         {tr('partner.lede')}
       </p>
     </div>
   </section>
 
-  <section style="padding-top:32px;">
+  <section style="padding-top:20px;padding-bottom:60px;">
     <div class="container">
-      <div style="display:flex;justify-content:center;gap:8px;margin-bottom:32px;flex-wrap:wrap;">
-        {filters.map((f, i) => (
-          <button class={`filter-btn${i === 0 ? ' active' : ''}`} data-filter={f}>{f}</button>
+      <!-- Filter Tabs -->
+      <div class="filter-wrap">
+        {categories.map((cat, i) => (
+          <button class={`filter-btn${i === 0 ? ' active' : ''}`} data-filter={cat}>{cat}</button>
         ))}
       </div>
 
-      <div id="cases-grid" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px;">
-        {allCases.map(c => (
-          <div class="card reveal case-card cs-card" data-tags={c.data.tags.join(',')} style="padding:0;overflow:hidden;">
-            <!-- Cover -->
-            <div class="cs-cover">
-              {c.data.cover ? (
-                <picture>
-                  <source type="image/avif" srcset={c.data.cover.replace('.png', '.avif')} />
-                  <source type="image/webp" srcset={c.data.cover.replace('.png', '.webp')} />
-                  <img src={c.data.cover} alt={c.data.brand} loading="lazy" decoding="async" width="800" height="450" style="width:100%;height:100%;object-fit:cover;display:block;" />
-                </picture>
-              ) : (
-                <div style="width:100%;height:100%;background:repeating-linear-gradient(135deg, var(--orange-100), var(--orange-100) 8px, var(--orange-50) 8px, var(--orange-50) 16px);display:flex;align-items:center;justify-content:center;">
-                  <span style="font-family:'Inter Variable', 'Inter',sans-serif;font-size:12px;color:var(--orange-700);">{c.data.brand}</span>
-                </div>
-              )}
+      <!-- Partner Cards Grid -->
+      <div id="partner-grid" class="partner-grid">
+        {PARTNER_ITEMS.map(item => (
+          <div class="card reveal partner-card" data-category={item.category}>
+            <div class="partner-cover">
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+                decoding="async"
+                width="640"
+                height="360"
+              />
             </div>
-            <!-- Content -->
-            <div style="padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;">
-              <div style="display:flex;justify-content:space-between;align-items:center;">
-                <span style="font-size:11px;color:var(--ink-500);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">{c.data.industry ?? ''}</span>
-                <span style="font-size:11px;color:var(--ink-500);">{c.data.period ?? ''}</span>
-              </div>
-              <h3 style="font-size:19px;margin:0;">{c.data.brand}</h3>
-              <div style="font-size:22px;font-weight:800;color:var(--orange-600);font-family:'Plus Jakarta Sans Variable', 'Plus Jakarta Sans',sans-serif;">{c.data.metric}</div>
-              <p style="font-size:13.5px;color:var(--ink-500);flex:1;margin:0;">{c.data.desc}</p>
-              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
-                {c.data.tags.map(t => <span style="font-size:11px;padding:4px 10px;background:var(--orange-100);color:var(--orange-700);border-radius:999px;font-weight:600;">{t}</span>)}
-              </div>
+            <div class="partner-body">
+              <span class="partner-cat">{item.category}</span>
+              <h3 class="partner-item-title">{item.title}</h3>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-partner"
+              >
+                {item.btnText}
+              </a>
             </div>
           </div>
         ))}
@@ -101,7 +91,7 @@ const seoDesc = lang === 'en'
     </div>
   </section>
 
-  <section style="padding-bottom:24px;">
+  <section style="padding-bottom:48px;">
     <div class="container">
       <div class="cta-banner reveal">
         <div style="flex:1;">
@@ -115,55 +105,202 @@ const seoDesc = lang === 'en'
 </BaseLayout>
 
 <style>
+  .partner-hero {
+    padding-top: 56px;
+    padding-bottom: 32px;
+    background: var(--bg-warm);
+  }
+  .partner-hero-container {
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .partner-hero-title {
+    font-size: clamp(32px, 5vw, 48px);
+    margin-top: 18px;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .partner-hero-desc {
+    font-size: 16px;
+    color: var(--ink-500);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.65;
+    white-space: pre-line;
+  }
+  .filter-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
   .filter-btn {
-    padding: 8px 18px;
-    border-radius: 999px;
+    padding: 8px 20px;
+    border-radius: 10px;
     border: 1.5px solid var(--ink-100);
     background: white;
     color: var(--ink-700);
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: border-color 0.15s, background 0.15s, color 0.15s;
+    transition: all 0.15s ease;
     font-family: inherit;
   }
-  .filter-btn:hover { border-color: var(--orange-300); }
-  .filter-btn.active { border-color: var(--orange-500); background: var(--orange-500); color: white; }
-  .case-card { display: flex; flex-direction: column; gap: 14px; }
-  .case-card[hidden] { display: none !important; }
-  .cs-cover {
+  .filter-btn:hover {
+    border-color: var(--orange-300);
+    color: var(--orange-600);
+  }
+  .filter-btn.active {
+    border-color: var(--orange-500);
+    background: var(--orange-500);
+    color: white;
+  }
+
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .partner-card {
+    padding: 16px;
+    border-radius: 16px;
+    border: 1.5px solid var(--ink-100);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .partner-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange-300);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  }
+  .partner-card[hidden] {
+    display: none !important;
+  }
+
+  .partner-cover {
     width: 100%;
-    height: 180px;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    flex-shrink: 0;
+    border-radius: 12px;
     background: var(--orange-50);
   }
-  .cs-cover :global(picture) { display: block; width: 100%; height: 100%; }
-  .cs-cover :global(img) {
+  .partner-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    transition: transform 0.3s ease;
   }
-  .cs-card { display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  .cs-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-  .cs-card:hover .cs-cover :global(img) { transform: scale(1.04); }
+  .partner-card:hover .partner-cover img {
+    transform: scale(1.03);
+  }
+
+  .partner-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .partner-cat {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0284c7;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .partner-item-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink-900);
+    line-height: 1.35;
+    margin: 0 0 18px 0;
+    flex: 1;
+  }
+  .btn-partner {
+    width: 100%;
+    background: #3bad25;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px 20px;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 4px 14px rgba(59, 173, 37, 0.28);
+  }
+  .btn-partner:hover {
+    background: #32961f;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(59, 173, 37, 0.36);
+  }
+
+  @media (max-width: 960px) {
+    .partner-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .partner-hero {
+      padding-top: 40px;
+      padding-bottom: 24px;
+    }
+    .partner-hero-container {
+      align-items: flex-start;
+      text-align: left;
+    }
+    .partner-hero-container .eyebrow {
+      align-self: center;
+      margin-inline: auto;
+    }
+    .partner-hero-title {
+      font-size: clamp(26px, 6.5vw, 34px);
+      text-align: left;
+      width: 100%;
+    }
+    .partner-hero-desc {
+      text-align: left;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      font-size: 15px;
+    }
+    .filter-wrap {
+      justify-content: flex-start;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .partner-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .partner-item-title {
+      font-size: 16px;
+    }
+  }
 </style>
 
 <script>
   const btns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const cards = document.querySelectorAll<HTMLElement>('.case-card');
+  const cards = document.querySelectorAll<HTMLElement>('.partner-card');
 
-  const allLabel = btns[0]?.dataset.filter ?? 'Semua';
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter ?? allLabel;
+      const filter = btn.dataset.filter ?? 'Semua';
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       cards.forEach(card => {
-        const tags = (card.dataset.tags ?? '').split(',');
-        const visible = filter === allLabel || tags.includes(filter);
+        const cat = card.dataset.category ?? '';
+        const visible = filter === 'Semua' || cat.toUpperCase() === filter.toUpperCase();
         if (visible) card.removeAttribute('hidden');
         else card.setAttribute('hidden', '');
       });

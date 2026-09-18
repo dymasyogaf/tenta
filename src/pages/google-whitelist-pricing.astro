@@ -26,8 +26,8 @@ const jsonLd = [
   serviceJsonLd({ name: d.seo.title, description: d.seo.description, url, serviceType: 'Google Ads Whitelist' }),
   breadcrumbJsonLd([
     { name: lang === 'en' ? 'Home' : 'Beranda', url: lang === 'en' ? `${site.url}/en` : site.url },
-    { name: lang === 'en' ? 'Account Rental' : 'Sewa Akun', url: `${site.url}${lang === 'en' ? '/en' : ''}/layanan/sewa-akun` },
-    { name: 'Google Whitelist Pricing', url },
+    { name: lang === 'en' ? 'Account Rental' : 'Sewa Akun', url: `${site.url}${lang === 'en' ? '/en' : ''}/layanan/sewa-akun-whitelist` },
+    { name: lang === 'en' ? 'Google Ads Whitelist Pricing' : 'Harga Whitelist Google Ads', url },
   ]),
 ];
 ---

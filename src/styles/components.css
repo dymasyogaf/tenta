@@ -31,21 +31,21 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-content: center;
   gap: 8px;
   padding: 14px 22px;
-  border-radius: var(--radius-pill);
+  border-radius: 10px;
   font-weight: 600;
   font-size: 15px;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   white-space: nowrap;
 }
 .btn-primary {
-  background: var(--orange-500);
+  background: #3bad25;
   color: white;
-  box-shadow: 0 6px 16px rgba(255, 107, 26, 0.28);
+  box-shadow: 0 6px 16px rgba(59, 173, 37, 0.28);
 }
 .btn-primary:hover {
-  background: var(--orange-600);
+  background: #32961f;
   transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(255, 107, 26, 0.34);
+  box-shadow: 0 10px 22px rgba(59, 173, 37, 0.34);
 }
 .btn-ghost {
   background: white;
@@ -53,18 +53,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border: 1.5px solid var(--ink-200);
 }
 .btn-ghost:hover {
-  border-color: var(--orange-500);
-  color: var(--orange-600);
+  border-color: #3bad25;
+  color: #2b841a;
 }
 .btn-wa {
-  background: var(--orange-500);
+  background: #3bad25;
   color: white;
-  box-shadow: 0 6px 16px rgba(255, 107, 26, 0.28);
+  box-shadow: 0 6px 16px rgba(59, 173, 37, 0.28);
 }
 .btn-wa:hover {
-  background: var(--orange-600);
+  background: #32961f;
   transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(255, 107, 26, 0.34);
+  box-shadow: 0 10px 22px rgba(59, 173, 37, 0.34);
 }
 .btn-wa::before {
   content: "";
@@ -74,10 +74,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
           mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M19.05 4.91A9.82 9.82 0 0012.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 004.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01zM12.05 20.15h-.01a8.23 8.23 0 01-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 01-1.26-4.39c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.69 8.23-8.23 8.23z'/></svg>") center/contain no-repeat;
 }
 .btn-wa-icon {
-  background: var(--orange-500);
+  background: #3bad25;
   color: white;
   width: 38px; height: 38px;
-  border-radius: 999px;
+  border-radius: 10px;
   display: inline-flex;
   align-items: center;
   justify-content: center;

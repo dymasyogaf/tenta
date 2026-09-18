@@ -45,8 +45,8 @@ interface TeamMember {
 
 const team: TeamMember[] = [
   { name: "Dr. Sono Prabowo", role: "Chief Financial Officer", image: "/assets/team/sonoprabowo.avif" },
-  { name: "Muhammad Jaelani", role: "Business Development", image: "/assets/team/jaelani.avif" },
-  { name: "Zabarjad Dliyaul Haq", role: "Chief Executive Officer", image: "/assets/team/zabarjad.avif" },
+  { name: "A. Ghani", role: "Business Development", image: "/assets/team/jaelani.avif" },
+  { name: "Zabarjad Dliyaul Haq", role: "Chief Executive Officer", image: "/assets/team/Zabar.avif" },
   { name: "Sari Setianingsih", role: "Operations Manager", image: "/assets/team/sari.avif" },
   { name: "Dilla Wahdana", role: "Customer Specialist", image: "/assets/team/dilla.avif" },
   { name: "Dymas Yoga", role: "DevOps", image: "/assets/team/dymas.avif" },
@@ -540,24 +540,32 @@ const jsonLd = [
       }
     }
 
-    /* Mobile ONLY (max-width: 768px): Align Center for Hero, Values Cards, and Our Story */
+    /* Mobile ONLY (max-width: 768px) */
     @media (max-width: 768px) {
       .tentang-hero-grid {
         grid-template-columns: 1fr !important;
         gap: 28px !important;
-        text-align: center !important;
+        text-align: left !important;
       }
       .tentang-hero-content {
-        align-items: center !important;
-        text-align: center !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        width: 100% !important;
+      }
+      .tentang-hero-content .eyebrow {
+        align-self: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
       .tentang-hero-title {
         font-size: clamp(28px, 6.5vw, 38px) !important;
-        text-align: center !important;
+        text-align: left !important;
+        width: 100% !important;
       }
       .tentang-hero-desc {
-        text-align: center !important;
-        margin: 0 auto !important;
+        text-align: left !important;
+        margin: 0 !important;
+        width: 100% !important;
       }
 
       .values-grid {

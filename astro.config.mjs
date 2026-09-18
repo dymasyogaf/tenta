@@ -12,11 +12,15 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
 
-  // Permalink LP diubah ke /whitelist/*. Redirect 301 dari URL lama (SEO + iklan existing).
+  // Permalink LP diubah ke /layanan/*. Redirect 301 dari URL lama (SEO + iklan existing).
   redirects: {
-    '/meta-whitelist': '/whitelist/metaads',
+    '/whitelist/metaads': '/layanan/akun-meta-ads-whitelist',
+    '/en/whitelist/metaads': '/en/layanan/akun-meta-ads-whitelist',
+    '/meta-whitelist': '/layanan/akun-meta-ads-whitelist',
+    '/en/meta-whitelist': '/en/layanan/akun-meta-ads-whitelist',
+    '/layanan/sewa-akun': '/layanan/sewa-akun-whitelist',
+    '/en/layanan/sewa-akun': '/en/layanan/sewa-akun-whitelist',
     '/google-whitelist': '/whitelist/gads',
-    '/en/meta-whitelist': '/en/whitelist/metaads',
     '/en/google-whitelist': '/en/whitelist/gads',
   },
 

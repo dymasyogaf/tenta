@@ -11,46 +11,46 @@ import { getLang, useT } from '@i18n/utils';
 import { serviceJsonLd, faqJsonLd, breadcrumbJsonLd } from '@lib/seo';
 import { site } from '@data/site';
 import {
-  SEWA_HERO_EN, META_WL_EN, GOOGLE_WL_EN, TIKTOK_WL_EN, SEWA_PLANS_EN,
-  SEWA_FAQS_EN, SEWA_SEO_EN, SEWA_KEYWORDS_EN,
-  INDUSTRIES_EN, INDUSTRY_HEADING_EN,
+  SEWA_HERO, META_WL, GOOGLE_WL, TIKTOK_WL, SEWA_PLANS,
+  SEWA_FAQS, SEWA_SEO, SEWA_KEYWORDS,
+  INDUSTRIES, INDUSTRY_HEADING,
   type WhitelistInfo,
 } from '@data/sewa-akun';
 
 const lang = getLang(Astro.currentLocale);
 const t = useT(lang);
 
-const url = `${site.url}/en/layanan/sewa-akun`;
-const wlBlocks: WhitelistInfo[] = [META_WL_EN, GOOGLE_WL_EN, TIKTOK_WL_EN];
+const url = `${site.url}/layanan/sewa-akun-whitelist`;
+const wlBlocks: WhitelistInfo[] = [META_WL, GOOGLE_WL, TIKTOK_WL];
 
 const jsonLd = [
   serviceJsonLd({
-    name: SEWA_SEO_EN.title,
-    description: SEWA_SEO_EN.description,
+    name: SEWA_SEO.title,
+    description: SEWA_SEO.description,
     url,
-    serviceType: 'Ad Account Whitelist Rental',
+    serviceType: 'Sewa Akun Ads Whitelist',
   }),
-  faqJsonLd(SEWA_FAQS_EN),
+  faqJsonLd(SEWA_FAQS),
   breadcrumbJsonLd([
-    { name: 'Home', url: `${site.url}/en` },
-    { name: 'Services', url: `${site.url}/en#layanan` },
-    { name: 'Account Rental', url },
+    { name: 'Beranda', url: site.url },
+    { name: 'Layanan', url: `${site.url}/#layanan` },
+    { name: 'Sewa Akun', url },
   ]),
 ];
 ---
 <BaseLayout
-  title={SEWA_SEO_EN.title}
-  description={SEWA_SEO_EN.description}
+  title={SEWA_SEO.title}
+  description={SEWA_SEO.description}
   active="layanan"
   jsonLd={jsonLd}
-  keywords={SEWA_KEYWORDS_EN}
+  keywords={SEWA_KEYWORDS}
 >
   <ServiceHero
-    eyebrow={SEWA_HERO_EN.eyebrow}
-    title={SEWA_HERO_EN.title}
-    titleAccent={SEWA_HERO_EN.titleAccent}
-    desc={SEWA_HERO_EN.desc}
-    flipWords={SEWA_HERO_EN.flipWords}
+    eyebrow={SEWA_HERO.eyebrow}
+    title={SEWA_HERO.title}
+    titleAccent={SEWA_HERO.titleAccent}
+    desc={SEWA_HERO.desc}
+    flipWords={SEWA_HERO.flipWords}
     flipInterval={1200}
   >
     <div slot="illustration" class="kraken-float" style="width:100%;max-width:480px;margin:0 auto;filter:drop-shadow(0 24px 48px rgba(255,107,26,0.18));">
@@ -75,7 +75,7 @@ const jsonLd = [
             </div>
             <h3 class="wl-title">{wl.title}</h3>
             <p class="wl-desc">{wl.desc}</p>
-            <h4 class="wl-sub">Advantages</h4>
+            <h4 class="wl-sub">Keunggulan</h4>
             <ul class="wl-benefits">
               {wl.benefits.map((b) => (
                 <li><span class="wl-check" aria-hidden="true"><Check size={12} /></span><span>{b}</span></li>
@@ -83,7 +83,7 @@ const jsonLd = [
             </ul>
             <div class="wl-action">
               <a href={wl.href} class="wl-cta-btn">
-                View Rental Plans →
+                Lihat Paket Sewa →
               </a>
             </div>
           </article>
@@ -93,16 +93,16 @@ const jsonLd = [
   </section>
 
   <IndustriesGrid 
-    items={INDUSTRIES_EN} 
-    heading={INDUSTRY_HEADING_EN} 
+    items={INDUSTRIES} 
+    heading={INDUSTRY_HEADING} 
     bg="warm" 
     center 
     variant="premium" 
   />
 
-  <PricingSection plans={SEWA_PLANS_EN} service="Account Rental" />
+  <PricingSection plans={SEWA_PLANS} service="Sewa Akun" />
 
-  <ServiceFAQ items={SEWA_FAQS_EN} />
+  <ServiceFAQ items={SEWA_FAQS} />
   <ServiceCTA />
 </BaseLayout>
 
@@ -177,21 +177,23 @@ const jsonLd = [
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 10px 16px;
-    font-size: 13.5px;
+    padding: 11px 16px;
+    font-size: 14px;
     font-weight: 600;
-    color: var(--ink-700);
-    background: var(--ink-50);
-    border: 1px solid var(--ink-200);
-    border-radius: var(--radius-md);
+    color: #ffffff;
+    background: #3bad25;
+    border: 1px solid #3bad25;
+    border-radius: 10px;
     text-decoration: none;
+    box-shadow: 0 4px 14px rgba(59, 173, 37, 0.25);
     transition: all 0.2s ease;
   }
   .wl-cta-btn:hover {
-    background: var(--orange-500);
+    background: #32961f;
     color: #ffffff;
-    border-color: var(--orange-500);
-    box-shadow: 0 4px 14px rgba(255, 107, 26, 0.3);
+    border-color: #32961f;
+    box-shadow: 0 6px 18px rgba(59, 173, 37, 0.35);
+    transform: translateY(-1px);
   }
 
   @media (max-width: 980px) {

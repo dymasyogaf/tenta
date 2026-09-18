@@ -55,9 +55,9 @@ const { eyebrow, title, titleAccent, desc, ctaText, ctaHref } = Astro.props;
     align-items: flex-start;
   }
   .lp-hero-title {
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.2;
     margin-top: 20px;
     margin-bottom: 20px;
     color: var(--ink-900);
@@ -98,20 +98,35 @@ const { eyebrow, title, titleAccent, desc, ctaText, ctaHref } = Astro.props;
     }
     .lp-hero-grid {
       grid-template-columns: 1fr;
-      gap: 40px;
-      text-align: center;
+      gap: 36px;
+      text-align: left;
     }
     .lp-hero-content {
-      align-items: center;
+      align-items: flex-start;
+      text-align: left;
+      width: 100%;
     }
-    .lp-hero-title {
-      font-size: 38px;
-      max-width: 600px;
-    }
-    .lp-hero-desc {
+    .lp-hero-content .eyebrow {
+      align-self: center;
       margin-left: auto;
       margin-right: auto;
+    }
+    .lp-hero-title {
+      font-size: clamp(28px, 6.5vw, 36px);
+      max-width: 100%;
+      text-align: left;
+      width: 100%;
+    }
+    .lp-hero-desc {
+      margin-left: 0;
+      margin-right: 0;
       font-size: 16px;
+      text-align: left;
+      width: 100%;
+    }
+    .lp-hero-actions {
+      justify-content: flex-start;
+      width: 100%;
     }
     .lp-hero-visual {
       min-height: auto;
@@ -124,11 +139,11 @@ const { eyebrow, title, titleAccent, desc, ctaText, ctaHref } = Astro.props;
       padding-bottom: 48px;
     }
     .lp-hero-title {
-      font-size: 32px;
+      font-size: clamp(26px, 6vw, 30px);
+      text-align: left;
     }
     .hero-title-accent {
-      display: block;
-      margin-top: 4px;
+      display: inline;
     }
   }
 </style>

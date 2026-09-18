@@ -41,11 +41,11 @@ const L = (path: string) => {
       <ul>
         <li><a href={L("/layanan/website")}>{t('svc.website')}</a></li>
         <li>
-          <a href={L("/layanan/sewa-akun")}>{t('svc.sewaAkun')}</a>
+          <a href={L("/layanan/sewa-akun-whitelist")}>{t('svc.sewaAkun')}</a>
           <ul class="footer-subnav">
-            <li><a href={L("/layanan/sewa-akun#meta")}>{t('footer.metaWhitelist')}</a></li>
-            <li><a href={L("/layanan/sewa-akun#google")}>{t('footer.googleWhitelist')}</a></li>
-            <li><a href={L("/layanan/sewa-akun#tiktok")}>{t('footer.tiktokWhitelist')}</a></li>
+            <li><a href={L("/layanan/sewa-akun-whitelist#meta")}>{t('footer.metaWhitelist')}</a></li>
+            <li><a href={L("/layanan/sewa-akun-whitelist#google")}>{t('footer.googleWhitelist')}</a></li>
+            <li><a href={L("/layanan/sewa-akun-whitelist#tiktok")}>{t('footer.tiktokWhitelist')}</a></li>
           </ul>
         </li>
         <li><a href={L("/layanan/konsultasi")}>{t('svc.konsultasi')}</a></li>
@@ -54,11 +54,9 @@ const L = (path: string) => {
     <div>
       <h4>{t('footer.halaman')}</h4>
       <ul>
-        <li><a href={L("/")}>{t('nav.beranda')}</a></li>
         <li><a href={L("/tentang")}>{t('footer.tentang')}</a></li>
-        <li><a href={L("/karir")}>{t('nav.karir')}</a></li>
         <li><a href={L("/partner")}>{t('footer.partner')}</a></li>
-        <li><a href={L("/#faq")}>{t('footer.faq')}</a></li>
+        <li><a href={L("/karir")}>{t('nav.karir')}</a></li>
         <li><a href="https://mediawaktu.com" target="_blank" rel="noopener noreferrer">{t('nav.blog')} ↗</a></li>
       </ul>
     </div>

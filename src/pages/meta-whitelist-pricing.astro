@@ -26,8 +26,8 @@ const jsonLd = [
   serviceJsonLd({ name: d.seo.title, description: d.seo.description, url, serviceType: 'Meta Ads Whitelist' }),
   breadcrumbJsonLd([
     { name: lang === 'en' ? 'Home' : 'Beranda', url: lang === 'en' ? `${site.url}/en` : site.url },
-    { name: lang === 'en' ? 'Account Rental' : 'Sewa Akun', url: `${site.url}${lang === 'en' ? '/en' : ''}/layanan/sewa-akun` },
-    { name: 'Meta Whitelist Pricing', url },
+    { name: lang === 'en' ? 'Account Rental' : 'Sewa Akun', url: `${site.url}${lang === 'en' ? '/en' : ''}/layanan/sewa-akun-whitelist` },
+    { name: lang === 'en' ? 'Meta Ads Whitelist Pricing' : 'Harga Whitelist Meta Ads', url },
   ]),
 ];
 ---

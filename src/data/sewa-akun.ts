@@ -58,7 +58,7 @@ export const META_WL: WhitelistInfo = {
   key: 'meta',
   title: 'Meta Ads Whitelist',
   desc: 'Akun iklan Facebook & Instagram yang sudah terverifikasi di bawah Business Manager resmi partner Meta.',
-  href: '/whitelist/metaads',
+  href: '/layanan/akun-meta-ads-whitelist',
   benefits: [
     'Akun stabil, minim risiko random restrict',
     'Tidak ada limit spending harian — bebas scale',
@@ -99,7 +99,7 @@ export const TIKTOK_WL: WhitelistInfo = {
   key: 'tiktok',
   title: 'TikTok Ads Whitelist',
   desc: 'Akun TikTok Ads agency resmi dari TikTok Marketing Partner dengan fitur prioritas dan stabilitas tinggi.',
-  href: '/whitelist/tiktokads',
+  href: '/layanan/akun-tiktok-ads-whitelist',
   benefits: [
     'Akses fitur TikTok Whitelist & Spark Ads tanpa limitasi akun personal',
     'Limit harian tanpa batas — bebas scale campaign viral & GMV Max',
@@ -217,7 +217,7 @@ export const SEWA_PLATFORM_PRICING: PlatformPricingCard[] = [
     monthlyFeeLabel: 'Monthly Fee',
     monthlyFeePrice: 'Rp150.000',
     monthlyFeeUnit: '/bulan',
-    href: '/whitelist/metaads',
+    href: '/layanan/akun-meta-ads-whitelist',
     btnText: 'Dapetin Akun WL Meta',
     tiers: [
       { label: '300rb – 5jt', fee: '5%' },
@@ -283,7 +283,7 @@ export const SEWA_PLATFORM_PRICING_EN: PlatformPricingCard[] = [
     monthlyFeeLabel: 'Monthly Fee',
     monthlyFeePrice: '$31',
     monthlyFeeUnit: '/month',
-    href: '/en/whitelist/metaads',
+    href: '/en/layanan/akun-meta-ads-whitelist',
     btnText: 'Get Meta WL Account',
     tiers: [
       { label: '$0 – $10,000', fee: '5%' },
@@ -456,7 +456,7 @@ export const META_WL_EN: WhitelistInfo = {
   key: 'meta',
   title: 'Meta Ads Whitelist',
   desc: 'Verified Facebook & Instagram ad accounts under the official Business Manager of a Meta partner.',
-  href: '/en/whitelist/metaads',
+  href: '/en/layanan/akun-meta-ads-whitelist',
   benefits: [
     'Stable account, minimal risk of random restrictions',
     'No daily spending limit — free to scale',
@@ -497,7 +497,7 @@ export const TIKTOK_WL_EN: WhitelistInfo = {
   key: 'tiktok',
   title: 'TikTok Ads Whitelist',
   desc: 'Official agency TikTok Ads account directly from TikTok Marketing Partner with priority features and high stability.',
-  href: '/en/whitelist/tiktokads',
+  href: '/en/layanan/akun-tiktok-ads-whitelist',
   benefits: [
     'Access to TikTok Whitelist features & Spark Ads without personal account limits',
     'No daily spending limit — scale viral & GMV Max campaigns freely',

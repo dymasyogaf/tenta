@@ -1,8 +1,8 @@
 ---
-title: "Kami Bantu Kamu Paham"
-title_en: "We Help You Understand"
-titleAccent: "A-Z Soal Digital Marketing"
-titleAccent_en: "A-Z Digital Marketing."
+title: "Kami Bantu Kamu Paham A-Z"
+title_en: "We Help You Understand A-Z"
+titleAccent: "Soal Digital Marketing"
+titleAccent_en: "of Digital Marketing"
 eyebrow: "Konsultasi Digital Marketing"
 eyebrow_en: "Digital Marketing Consulting"
 desc: "Tentaklik bisa bantu kamu cari solusi terbaik untuk masalah digital marketing di bisnis kamu. Mulai dari stuktur hingga scaleup bisa kamu konsultasikan dengan yang benar-benar paham dan berpengalaman. Jadi bukan hanya main tebak-tebakan."
@@ -79,12 +79,12 @@ process_en:
 faqs:
   - { q: "Apakah konsultasi termasuk eksekusi?", a: "Tidak. Konsultasi fokus di strategi & rekomendasi. Untuk eksekusi, ada paket Website / Ads terpisah." }
   - { q: "Bagaimana kalau kami tidak punya data?", a: "Kami bisa setup tracking dasar dulu (GA4, FB Pixel) sebelum audit, jadi bahasanya tetap data-driven." }
-  - { q: "Bisa konsultasi 1-on-1 saja, tanpa paket?", a: "Bisa via Quick Audit (Rp 2jt/sesi). Kalau butuh full strategy, Growth Strategy lebih lengkap." }
+  - { q: "Bisa konsultasi 1-on-1 saja, tanpa paket?", a: "Bisa banget. Kamu bisa ambil sesi 1-on-1 terfokus untuk bedah kendala atau channel spesifik bisnismu. Kalau butuh strategi menyeluruh dari hulu ke hilir, paket Growth Strategy akan jauh lebih lengkap." }
   - { q: "Apakah hasil audit dijamin meningkatkan revenue?", a: "Audit & strategi memberi peta jalan. Hasil revenue tergantung eksekusi — kami juga bisa bantu jalankan kalau Anda mau." }
 faqs_en:
   - { q: "Does the consultation include execution?", a: "No. Consultation focuses on strategy & recommendations. For execution, we have separate Website / Ads packages." }
   - { q: "What if we don't have data?", a: "We can setup basic tracking (GA4, FB Pixel) before the audit, so the approach remains data-driven." }
-  - { q: "Can I just have a 1-on-1 consultation, without a package?", a: "Yes, via Quick Audit (Rp 2m/session). If you need full strategy, Growth Strategy is more comprehensive." }
+  - { q: "Can I just have a 1-on-1 consultation, without a package?", a: "Absolutely. You can book a focused 1-on-1 session to deep-dive into specific challenges or channels in your business. If you need end-to-end planning, our Growth Strategy package is more comprehensive." }
   - { q: "Is the audit guaranteed to increase revenue?", a: "Audits & strategies provide a roadmap. Revenue depends on execution — which we can also help you with if you'd like." }
 seo:
   title: "Konsultasi Digital Marketing Indonesia — Audit & Strategi 90 Hari | Tentaklik"

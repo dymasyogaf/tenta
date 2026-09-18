@@ -2,7 +2,6 @@
 // Halaman LP whitelist (Meta/Google) — dipakai oleh route ID & EN.
 // Tipis: pilih data per (platform, lang), render section yang sama.
 import BaseLayout from '@layouts/BaseLayout.astro';
-import LpHeader from '@components/layout/LpHeader.astro';
 import LpHero from '@components/sections/lp/LpHero.astro';
 import LpWhyPlatform from '@components/sections/lp/LpWhyPlatform.astro';
 import LpComparison from '@components/sections/lp/LpComparison.astro';
@@ -37,7 +36,7 @@ const seo = {
     : `Akun Whitelist ${platformLabel}`,
 };
 
-const slug = platform === 'google' ? 'whitelist/gads' : platform === 'tiktok' ? 'whitelist/tiktokads' : 'whitelist/metaads';
+const slug = platform === 'google' ? 'whitelist/gads' : platform === 'tiktok' ? 'layanan/akun-tiktok-ads-whitelist' : 'layanan/akun-meta-ads-whitelist';
 const path = lang === 'en' ? `/en/${slug}` : `/${slug}`;
 const url = `${site.url}${path}`;
 const crumbSewa = lang === 'en' ? 'Account Rental' : 'Sewa Akun';
@@ -52,7 +51,7 @@ const jsonLd = [
   }),
   breadcrumbJsonLd([
     { name: crumbHome, url: lang === 'en' ? `${site.url}/en` : site.url },
-    { name: crumbSewa, url: `${site.url}${lang === 'en' ? '/en' : ''}/layanan/sewa-akun` },
+    { name: crumbSewa, url: `${site.url}${lang === 'en' ? '/en' : ''}/layanan/sewa-akun-whitelist` },
     { name: seo.crumbWhitelist, url },
   ]),
 ];
@@ -62,7 +61,6 @@ const jsonLd = [
   description={seo.description}
   active="layanan"
   bareLayout
-  bareHeader
   jsonLd={jsonLd}
   keywords={seo.keywords}
   preloadHeroSrc="true"
@@ -90,7 +88,6 @@ const jsonLd = [
       </Fragment>
     )}
 
-  <LpHeader platform={platform} lang={lang} />
   <LpHero
     eyebrow={content.hero.eyebrow}
     title={content.hero.title}

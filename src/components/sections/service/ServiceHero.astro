@@ -36,7 +36,7 @@ const {
       <h1 class="service-hero-title">
         {title} <span style="color:var(--orange-500);">{titleAccent}</span>{flipWords && flipWords.length > 0 && (
           <span class="hero-flip-wrapper" data-flip-words={JSON.stringify(flipWords)} data-flip-interval={flipInterval}>
-            <span class="hero-flip-word" style="color:var(--orange-500);">{flipWords[0]}</span>
+            <span class="hero-flip-word">{flipWords[0]}</span>
           </span>
         )}
       </h1>
@@ -66,25 +66,32 @@ const {
     align-items: center;
   }
   .service-hero-title {
-    font-size: 50px;
+    font-size: 42px;
     margin-top: 18px;
     margin-bottom: 18px;
-    line-height: 1.15;
+    line-height: 1.2;
   }
   .hero-flip-wrapper {
     display: inline-block;
     position: relative;
     perspective: 600px;
     vertical-align: baseline;
-    text-align: left;
-    margin-left: 0.2em;
+    text-align: center;
+    margin-left: 0.22em;
     white-space: nowrap;
+    background: #3bad25;
+    color: #ffffff;
+    padding: 0.05em 0.32em;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(59, 173, 37, 0.25);
   }
   .hero-flip-word {
     display: inline-block;
     transform-origin: 50% 50% -12px;
     transition: transform 0.24s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.22s ease;
     will-change: transform, opacity;
+    color: #ffffff;
+    font-weight: 700;
   }
   .hero-flip-word.flip-out {
     transform: translateY(-80%) rotateX(85deg);
@@ -99,30 +106,39 @@ const {
     .service-hero-grid {
       grid-template-columns: 1fr;
       gap: 32px;
-      text-align: center;
+      text-align: left;
     }
     .service-hero-grid > div:first-child {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      align-items: flex-start;
+      text-align: left;
+      width: 100%;
     }
-    .service-hero-title {
-      font-size: 38px;
-      text-align: center;
-    }
-    .service-hero-grid p {
-      text-align: center;
+    .service-hero-grid > div:first-child .eyebrow {
+      align-self: center;
       margin-left: auto;
       margin-right: auto;
     }
+    .service-hero-title {
+      font-size: clamp(28px, 6.5vw, 38px);
+      text-align: left;
+      width: 100%;
+    }
+    .service-hero-grid p {
+      text-align: left;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
     .service-hero-grid > div:first-child > div:last-child {
-      justify-content: center;
+      justify-content: flex-start;
+      width: 100%;
     }
   }
   @media (max-width: 480px) {
     .service-hero-title {
-      font-size: 32px;
+      font-size: clamp(26px, 6vw, 32px);
     }
   }
 </style>

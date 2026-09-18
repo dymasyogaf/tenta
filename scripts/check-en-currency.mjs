@@ -7,7 +7,7 @@ const data = read('src/data/sewa-akun.ts');
 const ui = read('src/i18n/ui.ts');
 const homePricing = read('src/components/sections/HomePricing.astro');
 const whitelistLpPage = read('src/components/sections/lp/WhitelistLpPage.astro');
-const enRentalPage = read('src/pages/en/layanan/sewa-akun.astro');
+const enRentalPage = read('src/pages/en/layanan/sewa-akun-whitelist.astro');
 const enContact = read('src/pages/en/kontak.astro');
 const idContact = read('src/pages/kontak.astro');
 const metaPricing = read('src/pages/meta-whitelist-pricing.astro');
@@ -171,7 +171,7 @@ const geoLogicStart = middleware.indexOf('const isEnPath');
 assert.notEqual(routeGuardStart, -1, 'Middleware must derive a locale-neutral path');
 assert.ok(geoLogicStart > routeGuardStart, 'Middleware route guard must run before geo logic');
 const routeGuard = middleware.slice(routeGuardStart, geoLogicStart);
-assert.match(routeGuard, /['"]\/whitelist\/metaads\/?['"]/, 'Middleware must allow only the Meta Ads whitelist LP');
+assert.match(routeGuard, /['"]\/(?:layanan\/akun-meta-ads-whitelist|whitelist\/metaads)\/?['"]/, 'Middleware must allow the Meta Ads whitelist LP');
 assert.match(routeGuard, /['"]\/whitelist\/gads\/?['"]/, 'Middleware must allow only the Google Ads whitelist LP');
 assert.match(routeGuard, /if\b[\s\S]*return\s+next\s*\(\s*\)/, 'Middleware must bypass paths outside the whitelist LP allowlist');
 assert.ok(
@@ -191,7 +191,7 @@ const monthlySpendHtml = new RegExp(`Monthly${htmlSpace}spend${htmlSpace}:${html
 
 const builtPages = [
   ['dist/client/en/kontak/index.html', usdHtmlPattern('300'), 'English contact'],
-  ['dist/client/en/layanan/sewa-akun/index.html', monthlySpendHtml, 'English account-rental'],
+  ['dist/client/en/layanan/sewa-akun-whitelist/index.html', monthlySpendHtml, 'English account-rental'],
   ['dist/client/meta-whitelist-usd/index.html', usdHtmlPattern('31'), 'Meta Whitelist USD'],
   ['dist/client/google-whitelist-usd/index.html', usdHtmlPattern('31'), 'Google Whitelist USD'],
 ];
