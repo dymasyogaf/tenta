@@ -90,6 +90,11 @@ const { eyebrow, title, titleAccent, desc, ctaText, ctaHref } = Astro.props;
   .hero-title-accent {
     display: inline;
   }
+  @media (min-width: 901px) {
+    .hero-title-accent {
+      display: block;
+    }
+  }
 
   @media (max-width: 900px) {
     .lp-hero-section {

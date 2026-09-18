@@ -223,8 +223,8 @@ export const GOOGLE_LP: Record<Lang, GoogleLpData> = {
     platform: 'google',
     hero: {
       eyebrow: 'Akun Google Ads Tier 1',
-      title: 'Bisnis Kamu Lebih Maju',
-      titleAccent: 'Dengan Akun Google Ads Terverifikasi Resmi',
+      title: 'Bisnis Kamu Lebih Maju Dengan Akun Google Ads',
+      titleAccent: 'Terverifikasi Resmi',
       desc: 'Tentaklik bisa penuhi kebutuhan kamu untuk jalankan iklan Google Ads tanpa batas, tanpa hambatan dan tanpa halangan. Sudahi bayang-bayang akun banned, restrict dan dibatasi dengan akun iklan dari kami.',
     },
     whyHeading: 'Mengapa Memilih Akun Whitelist?',
@@ -284,8 +284,8 @@ export const GOOGLE_LP: Record<Lang, GoogleLpData> = {
     platform: 'google',
     hero: {
       eyebrow: 'Tier 1 Google Ads Account',
-      title: 'Grow Your Business Faster',
-      titleAccent: 'With Officially Verified Google Ads Accounts',
+      title: 'Grow Your Business Faster With Google Ads Accounts',
+      titleAccent: 'Officially Verified',
       desc: 'Tentaklik fulfills your need to run Google Ads with no limits, no friction, and no obstacles. Leave behind worries of bans, restricts, and spending limits with our verified ad accounts.',
     },
     whyHeading: 'Why Choose a Whitelist Account?',

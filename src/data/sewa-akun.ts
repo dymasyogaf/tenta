@@ -80,7 +80,7 @@ export const GOOGLE_WL: WhitelistInfo = {
   key: 'google',
   title: 'Google Ads Whitelist',
   desc: 'Akun Google Ads yang dikelola resmi Google Partner agensi Tentaklik.',
-  href: '/whitelist/gads',
+  href: '/layanan/akun-google-ads-whitelist',
   benefits: [
     'Risiko suspend lebih rendah dibanding akun Google Ads personal biasa',
     'Tidak ada batas maksimal spending harian — cocok untuk skala besar',
@@ -238,7 +238,7 @@ export const SEWA_PLATFORM_PRICING: PlatformPricingCard[] = [
     monthlyFeeLabel: 'Monthly Fee',
     monthlyFeePrice: 'Rp150.000',
     monthlyFeeUnit: '/bulan',
-    href: '/whitelist/gads',
+    href: '/layanan/akun-google-ads-whitelist',
     btnText: 'Dapetin Akun WL Google',
     tiers: [
       { label: '300rb – 5jt', fee: '5%' },
@@ -305,7 +305,7 @@ export const SEWA_PLATFORM_PRICING_EN: PlatformPricingCard[] = [
     monthlyFeeLabel: 'Monthly Fee',
     monthlyFeePrice: '$31',
     monthlyFeeUnit: '/month',
-    href: '/en/whitelist/gads',
+    href: '/en/layanan/akun-google-ads-whitelist',
     btnText: 'Get Google WL Account',
     tiers: [
       { label: '$0 – $10,000', fee: '5%' },
@@ -478,7 +478,7 @@ export const GOOGLE_WL_EN: WhitelistInfo = {
   key: 'google',
   title: 'Google Ads Whitelist',
   desc: 'Google Ads account officially managed by Tentaklik, a Google Partner agency.',
-  href: '/en/whitelist/gads',
+  href: '/en/layanan/akun-google-ads-whitelist',
   benefits: [
     'Lower suspension risk compared to regular personal Google Ads accounts',
     'No maximum daily spending limit — suitable for large scale',

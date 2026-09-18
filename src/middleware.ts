@@ -17,7 +17,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const { request, url, cookies } = context;
 
   const neutral = stripLocale(url.pathname).replace(/\/$/, '');
-  if (!['/layanan/akun-meta-ads-whitelist', '/layanan/akun-tiktok-ads-whitelist', '/whitelist/gads', '/whitelist/tiktokads'].includes(neutral)) return next();
+  if (!['/layanan/akun-meta-ads-whitelist', '/layanan/akun-google-ads-whitelist', '/layanan/akun-tiktok-ads-whitelist', '/whitelist/gads', '/whitelist/tiktokads'].includes(neutral)) return next();
 
   const isEnPath = url.pathname === '/en' || url.pathname.startsWith('/en/');
   const currentLang: 'id' | 'en' = isEnPath ? 'en' : 'id';

@@ -172,7 +172,7 @@ assert.notEqual(routeGuardStart, -1, 'Middleware must derive a locale-neutral pa
 assert.ok(geoLogicStart > routeGuardStart, 'Middleware route guard must run before geo logic');
 const routeGuard = middleware.slice(routeGuardStart, geoLogicStart);
 assert.match(routeGuard, /['"]\/(?:layanan\/akun-meta-ads-whitelist|whitelist\/metaads)\/?['"]/, 'Middleware must allow the Meta Ads whitelist LP');
-assert.match(routeGuard, /['"]\/whitelist\/gads\/?['"]/, 'Middleware must allow only the Google Ads whitelist LP');
+assert.match(routeGuard, /['"]\/(?:layanan\/akun-google-ads-whitelist|whitelist\/gads)\/?['"]/, 'Middleware must allow only the Google Ads whitelist LP');
 assert.match(routeGuard, /if\b[\s\S]*return\s+next\s*\(\s*\)/, 'Middleware must bypass paths outside the whitelist LP allowlist');
 assert.ok(
   /!\s*[^;\n]*(?:includes|has|some)\s*\(/.test(routeGuard)

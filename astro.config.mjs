@@ -20,8 +20,10 @@ export default defineConfig({
     '/en/meta-whitelist': '/en/layanan/akun-meta-ads-whitelist',
     '/layanan/sewa-akun': '/layanan/sewa-akun-whitelist',
     '/en/layanan/sewa-akun': '/en/layanan/sewa-akun-whitelist',
-    '/google-whitelist': '/whitelist/gads',
-    '/en/google-whitelist': '/en/whitelist/gads',
+    '/google-whitelist': '/layanan/akun-google-ads-whitelist',
+    '/en/google-whitelist': '/en/layanan/akun-google-ads-whitelist',
+    '/whitelist/gads': '/layanan/akun-google-ads-whitelist',
+    '/en/whitelist/gads': '/en/layanan/akun-google-ads-whitelist',
   },
 
   // i18n: ID default di root (/), EN di /en/. Halaman EN yang belum ada
