@@ -137,7 +137,7 @@ export const META_LP: Record<Lang, MetaLpData> = {
       { src: '/assets/meta/meta2.avif', alt: 'Kunjungan ke kantor Meta', position: 'center 65%' },
       { src: '/assets/meta/meta3.avif', alt: 'Sesi Diskusi & Workshop Meta', position: 'center 85%' },
       { src: '/assets/meta/meta4.webp', alt: 'Kemitraan Resmi Tim Meta', position: 'center 75%' },
-      { src: '/assets/meta/meta5.jpg', alt: 'Event Meta Partner Agency', position: 'center center' },
+      { src: '/assets/meta/meta5.jpg', alt: 'Event Meta Partner Agency', position: 'center bottom' },
       { src: '/assets/meta/meta6.jpg', alt: 'Kolaborasi Eksklusif Meta Partner', position: 'center 75%' },
     ],
     testimonials: [
@@ -201,7 +201,7 @@ export const META_LP: Record<Lang, MetaLpData> = {
       { src: '/assets/meta/meta2.avif', alt: 'Visit to the Meta office', position: 'center 65%' },
       { src: '/assets/meta/meta3.avif', alt: 'Meta Workshop & Discussion', position: 'center 85%' },
       { src: '/assets/meta/meta4.webp', alt: 'Meta Official Partner Collaboration', position: 'center 75%' },
-      { src: '/assets/meta/meta5.jpg', alt: 'Meta Partner Agency Event', position: 'center center' },
+      { src: '/assets/meta/meta5.jpg', alt: 'Meta Partner Agency Event', position: 'center bottom' },
       { src: '/assets/meta/meta6.jpg', alt: 'Exclusive Meta Partner Collaboration', position: 'center 75%' },
     ],
     testimonials: [
