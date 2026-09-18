@@ -7,7 +7,7 @@ import type { Lang } from '@i18n/utils';
 
 export interface WhyItem { iconId: 'stable' | 'comfortable' | 'scale' | 'tax' | 'priority' | 'expert' | 'protection'; title: string; desc: string }
 export interface LpProblem { iconId: string; title: string; desc: string }
-export interface LpPhoto { src: string; alt: string; portrait?: boolean }
+export interface LpPhoto { src: string; alt: string; portrait?: boolean; position?: string; }
 export interface LpTestimonial { stars: number; text: string; name: string; role: string; initials: string; avatar: string; }
 
 export interface BaseLpData {
@@ -133,9 +133,12 @@ export const META_LP: Record<Lang, MetaLpData> = {
     photoHeading: 'Terhubung langsung <span style="color: var(--orange-500)">dengan Meta</span>',
     photoSub: 'Tentaklik aktif menjalin kerjasama dengan Meta dan kamu bisa jadi bagian barunya',
     photos: [
-      { src: '/assets/galeri-meta/meta1.avif', alt: 'Tim Tentaklik di event Meta' },
-      { src: '/assets/galeri-meta/meta2.avif', alt: 'Kunjungan ke kantor Meta' },
-      { src: '/assets/galeri-meta/meta5.avif', alt: 'Kantor Meta Singapore', portrait: true },
+      { src: '/assets/meta/meta1.avif', alt: 'Tim Tentaklik di event Meta', position: 'center 70%' },
+      { src: '/assets/meta/meta2.avif', alt: 'Kunjungan ke kantor Meta', position: 'center 65%' },
+      { src: '/assets/meta/meta3.avif', alt: 'Sesi Diskusi & Workshop Meta', position: 'center 85%' },
+      { src: '/assets/meta/meta4.webp', alt: 'Kemitraan Resmi Tim Meta', position: 'center 75%' },
+      { src: '/assets/meta/meta5.jpg', alt: 'Event Meta Partner Agency', position: 'center center' },
+      { src: '/assets/meta/meta6.jpg', alt: 'Kolaborasi Eksklusif Meta Partner', position: 'center 75%' },
     ],
     testimonials: [
       { stars: 5, text: "Sejak menggunakan Akun Whitelist, akun iklan kami jauh lebih stabil. Spending harian berjalan lancar tanpa kendala seperti sebelumnya.", name: "Fajar", role: "Owner Brand Fashion", initials: "F", avatar: "/assets/testimonials/review_fajar.png" },
@@ -194,9 +197,12 @@ export const META_LP: Record<Lang, MetaLpData> = {
     photoHeading: 'Directly connected <span style="color: var(--orange-500)">with Meta</span>',
     photoSub: 'Tentaklik actively collaborates with Meta, and you can be part of it.',
     photos: [
-      { src: '/assets/galeri-meta/meta1.avif', alt: 'Tentaklik team at a Meta event' },
-      { src: '/assets/galeri-meta/meta2.avif', alt: 'Visit to the Meta office' },
-      { src: '/assets/galeri-meta/meta5.avif', alt: 'Meta Singapore Office', portrait: true },
+      { src: '/assets/meta/meta1.avif', alt: 'Tentaklik team at a Meta event', position: 'center 70%' },
+      { src: '/assets/meta/meta2.avif', alt: 'Visit to the Meta office', position: 'center 65%' },
+      { src: '/assets/meta/meta3.avif', alt: 'Meta Workshop & Discussion', position: 'center 85%' },
+      { src: '/assets/meta/meta4.webp', alt: 'Meta Official Partner Collaboration', position: 'center 75%' },
+      { src: '/assets/meta/meta5.jpg', alt: 'Meta Partner Agency Event', position: 'center center' },
+      { src: '/assets/meta/meta6.jpg', alt: 'Exclusive Meta Partner Collaboration', position: 'center 75%' },
     ],
     testimonials: [
       { stars: 5, text: "Since using a Whitelist Account, our ad accounts have been much more stable. Daily spending runs smoothly without the previous obstacles.", name: "Fajar", role: "Fashion Brand Owner", initials: "F", avatar: "/assets/testimonials/review_fajar.png" },
@@ -258,9 +264,12 @@ export const GOOGLE_LP: Record<Lang, GoogleLpData> = {
     photoHeading: 'Terhubung langsung <span style="color: var(--orange-500)">dengan Google</span>',
     photoSub: 'Kami siap bantu kamu selalu terhubung dengan Google secara langsung',
     photos: [
-      { src: '/assets/galeri/8.jpg', alt: 'Tim Tentaklik di kantor Google' },
-      { src: '/assets/galeri/5.jpg', alt: 'Event Akselerasi Bisnis dengan Google Ads' },
-      { src: '/assets/galeri/2.jpg', alt: 'Kunjungan tim ke Google Partner' },
+      { src: '/assets/google/gg1.jpg', alt: 'Event Akselerasi Bisnis Google Ads' },
+      { src: '/assets/google/gg2.jpg', alt: 'Tim Tentaklik di kantor Google' },
+      { src: '/assets/google/gg3.jpg', alt: 'Workshop Google Partner' },
+      { src: '/assets/google/gg4.avif', alt: 'Sesi Diskusi Strategi Google Ads' },
+      { src: '/assets/google/gg5.avif', alt: 'Kunjungan Kerja Google Partner' },
+      { src: '/assets/google/gg6.jpg', alt: 'Kunjungan tim ke Google Partner' },
     ],
     testimonials: [
       { stars: 5, text: "Sejak menggunakan Akun Whitelist, akun iklan kami jauh lebih stabil. Spending harian berjalan lancar tanpa kendala seperti sebelumnya.", name: "Fajar", role: "Owner Brand Fashion", initials: "F", avatar: "/assets/testimonials/review_fajar.png" },
@@ -319,9 +328,12 @@ export const GOOGLE_LP: Record<Lang, GoogleLpData> = {
     photoHeading: 'Directly connected <span style="color: var(--orange-500)">with Google</span>',
     photoSub: 'We are ready to help you always stay directly connected with Google',
     photos: [
-      { src: '/assets/galeri/8.jpg', alt: 'Tentaklik team at Google office' },
-      { src: '/assets/galeri/5.jpg', alt: 'Business Acceleration Event with Google Ads' },
-      { src: '/assets/galeri/2.jpg', alt: 'Team visit to Google Partner' },
+      { src: '/assets/google/gg1.jpg', alt: 'Business Acceleration Event with Google Ads' },
+      { src: '/assets/google/gg2.jpg', alt: 'Tentaklik team at Google office' },
+      { src: '/assets/google/gg3.jpg', alt: 'Google Partner Workshop' },
+      { src: '/assets/google/gg4.avif', alt: 'Google Ads Strategy Discussion' },
+      { src: '/assets/google/gg5.avif', alt: 'Google Partner Agency Meeting' },
+      { src: '/assets/google/gg6.jpg', alt: 'Team visit to Google Partner' },
     ],
     testimonials: [
       { stars: 5, text: "Since using a Whitelist Account, our ad accounts have been much more stable. Daily spending runs smoothly without the previous obstacles.", name: "Fajar", role: "Fashion Brand Owner", initials: "F", avatar: "/assets/testimonials/review_fajar.png" },
@@ -380,14 +392,15 @@ export const TIKTOK_LP: Record<Lang, TikTokLpData> = {
       'Dukungan **direct appeal** ke tim partner resmi TikTok',
       'Saldo otomatis pindah ke **akun pengganti** jika terjadi kendala (syarat & ketentuan berlaku)',
     ],
-    photoHeading: 'Didukung Partner Resmi <span style="color: var(--orange-500)">Meta, Google &amp; TikTok</span>',
-    photoSub: 'Tim Tentaklik memiliki akses langsung ke perwakilan dan jaringan partner tier-1.',
+    photoHeading: 'Terhubung langsung <span style="color: var(--orange-500)">dengan TikTok Partner</span>',
+    photoSub: 'Tentaklik menjalin kemitraan resmi untuk memastikan iklan TikTok kamu berjalan tanpa hambatan.',
     photos: [
-      { src: '/assets/galeri-meta/meta1.avif', alt: 'Tim Tentaklik di event Meta' },
-      { src: '/assets/galeri-meta/meta2.avif', alt: 'Kunjungan ke kantor Meta' },
-      { src: '/assets/galeri/2.jpg', alt: 'Kunjungan tim ke kantor Google' },
-      { src: '/assets/galeri/3.jpg', alt: 'Event resmi Partner' },
-      { src: '/assets/galeri-meta/meta5.avif', alt: 'Tim Tentaklik', portrait: true },
+      { src: '/assets/tiktok/tt1.avif', alt: 'Partner resmi TikTok', position: 'center center' },
+      { src: '/assets/tiktok/tt2.avif', alt: 'Event TikTok Ads Partner', position: 'center 40%' },
+      { src: '/assets/tiktok/tt3.avif', alt: 'Tim Tentaklik TikTok Specialist', position: 'center 85%' },
+      { src: '/assets/tiktok/tt4.avif', alt: 'Workshop TikTok Ads Agency', position: 'center 85%' },
+      { src: '/assets/tiktok/tt5.avif', alt: 'Sesi Kolaborasi TikTok Partner', position: 'center 60%' },
+      { src: '/assets/tiktok/tt6.avif', alt: 'Tentaklik di Kantor TikTok', position: 'center 35%' },
     ],
     testimonials: [
       { stars: 5, text: "Setelah beralih ke Akun Whitelist TikTok Tentaklik, campaign Spark Ads kami bisa tembus omzet ratusan juta tanpa terhenti masalah limit spending harian.", name: "Dion", role: "TikTok Shop Merchant", initials: "D", avatar: "/assets/testimonials/review_fajar.png" },
@@ -443,14 +456,15 @@ export const TIKTOK_LP: Record<Lang, TikTokLpData> = {
       'Direct appeal support through **official TikTok partner lines**',
       'Automatic **balance transfer** to a replacement account (T&C apply)',
     ],
-    photoHeading: 'Supported by Tier-1 Partners <span style="color: var(--orange-500)">Meta, Google &amp; TikTok</span>',
-    photoSub: 'The Tentaklik team maintains direct access to partner managers and official programs.',
+    photoHeading: 'Directly connected <span style="color: var(--orange-500)">with TikTok Partner</span>',
+    photoSub: 'Tentaklik maintains official partnerships to ensure your TikTok ads run smoothly without obstacles.',
     photos: [
-      { src: '/assets/galeri-meta/meta1.avif', alt: 'Tentaklik team at a partner event' },
-      { src: '/assets/galeri-meta/meta2.avif', alt: 'Visit to partner office' },
-      { src: '/assets/galeri/2.jpg', alt: 'Team visit to Google office' },
-      { src: '/assets/galeri/3.jpg', alt: 'Official partner event' },
-      { src: '/assets/galeri-meta/meta5.avif', alt: 'Tentaklik Team', portrait: true },
+      { src: '/assets/tiktok/tt1.avif', alt: 'Official TikTok Partner', position: 'center center' },
+      { src: '/assets/tiktok/tt2.avif', alt: 'TikTok Ads Partner Event', position: 'center 40%' },
+      { src: '/assets/tiktok/tt3.avif', alt: 'Tentaklik TikTok Specialist Team', position: 'center 85%' },
+      { src: '/assets/tiktok/tt4.avif', alt: 'TikTok Ads Agency Workshop', position: 'center 85%' },
+      { src: '/assets/tiktok/tt5.avif', alt: 'TikTok Partner Collaboration Session', position: 'center 60%' },
+      { src: '/assets/tiktok/tt6.avif', alt: 'Tentaklik at TikTok Office', position: 'center 35%' },
     ],
     testimonials: [
       { stars: 5, text: "Switching to Tentaklik's TikTok Whitelist account allowed our Spark Ads campaigns to reach 9-figure revenues without hitting daily spend caps.", name: "Dion", role: "TikTok Shop Merchant", initials: "D", avatar: "/assets/testimonials/review_fajar.png" },
