@@ -12,7 +12,7 @@ export interface LpTestimonial { stars: number; text: string; name: string; role
 
 export interface BaseLpData {
   platform: 'meta' | 'google' | 'tiktok';
-  hero: { eyebrow: string; title: string; titleAccent: string; desc: string };
+  hero: { eyebrow: string; title: string; titleAccent: string; desc: string; image?: string };
   photoHeading: string;
   photoSub: string;
   photos: LpPhoto[];
@@ -98,9 +98,10 @@ export const META_LP: Record<Lang, MetaLpData> = {
     platform: 'meta',
     hero: {
       eyebrow: 'Tier 1 Meta Ad Account',
-      title: 'Mau Sampai Kapan Ngiklan Dengan',
-      titleAccent: 'Banyak Hambatan?',
+      title: 'Mau Sampai Kapan Ngiklan',
+      titleAccent: 'Dengan Banyak Hambatan?',
       desc: 'Sudah saatnya beralih pakai akun iklan meta ads tier 1 yang lebih stabil, tahan restrict dan dapat dukungan langsung dari meta secara penuh supaya bisnis kamu makin tumbuh.',
+      image: '/assets/meta/sewa-akun-meta-ads-whitelist.avif',
     },
     whyHeading: 'Mengapa Memilih Akun Whitelist?',
     whySub: 'Solusi terbaik untuk scale-up iklan Anda dengan aman, nyaman, dan bebas hambatan.',
@@ -162,9 +163,10 @@ export const META_LP: Record<Lang, MetaLpData> = {
     platform: 'meta',
     hero: {
       eyebrow: 'Tier 1 Meta Ad Account',
-      title: 'How Long Will You Run Ads With',
-      titleAccent: 'So Many Obstacles?',
+      title: 'How Long Will You Run Ads',
+      titleAccent: 'With So Many Obstacles?',
       desc: 'It is time to switch to a tier 1 Meta ad account that is more stable, restrict-resistant, and fully supported directly by Meta so your business can grow faster.',
+      image: '/assets/meta/sewa-akun-meta-ads-whitelist.avif',
     },
     whyHeading: 'Why Choose a Whitelist Account?',
     whySub: 'The ultimate solution to scale your ads safely, comfortably, and without obstacles.',
@@ -229,9 +231,10 @@ export const GOOGLE_LP: Record<Lang, GoogleLpData> = {
     platform: 'google',
     hero: {
       eyebrow: 'Akun Google Ads Tier 1',
-      title: 'Bisnis Kamu Lebih Maju Dengan Akun Google Ads',
-      titleAccent: 'Terverifikasi Resmi',
+      title: 'Bisnis Lebih Maju Dengan',
+      titleAccent: 'Akun Google Ads Terverifikasi Resmi',
       desc: 'Tentaklik bisa penuhi kebutuhan kamu untuk jalankan iklan Google Ads tanpa batas, tanpa hambatan dan tanpa halangan. Sudahi bayang-bayang akun banned, restrict dan dibatasi dengan akun iklan dari kami.',
+      image: '/assets/google/sewa-akun-google-ads-whitelist.avif',
     },
     whyHeading: 'Mengapa Memilih Akun Whitelist?',
     whySub: 'Solusi terbaik untuk scale-up iklan Google Ads dengan aman, nyaman dan tanpa hambatan.',
@@ -293,9 +296,10 @@ export const GOOGLE_LP: Record<Lang, GoogleLpData> = {
     platform: 'google',
     hero: {
       eyebrow: 'Tier 1 Google Ads Account',
-      title: 'Grow Your Business Faster With Google Ads Accounts',
-      titleAccent: 'Officially Verified',
+      title: 'Grow Your Business Faster With',
+      titleAccent: 'Officially Verified Google Ads Accounts',
       desc: 'Tentaklik fulfills your need to run Google Ads with no limits, no friction, and no obstacles. Leave behind worries of bans, restricts, and spending limits with our verified ad accounts.',
+      image: '/assets/google/sewa-akun-google-ads-whitelist.avif',
     },
     whyHeading: 'Why Choose a Whitelist Account?',
     whySub: 'The best solution to scale up your Google Ads safely, comfortably, and without obstacles.',
@@ -359,10 +363,11 @@ export const TIKTOK_LP: Record<Lang, TikTokLpData> = {
   id: {
     platform: 'tiktok',
     hero: {
-      eyebrow: 'Akun Whitelist',
-      title: 'Jangan Biarkan',
-      titleAccent: 'Kendala Akun Menghambat Pertumbuhan Bisnis Anda',
+      eyebrow: 'Akun Iklan Tiktok Premium',
+      title: 'Iklan Tiktok Kamu',
+      titleAccent: 'Bisa Jalan Mulus Terus-menerus',
       desc: 'Akun Whitelist TikTok Ads membantu bisnis yang aktif beriklan menjalankan campaign Spark Ads & GMV Max dengan nyaman dan bebas drama limit.',
+      image: '/assets/tiktok/sewa-akun-tiktok-ads.avif',
     },
     whyHeading: 'Mengapa Memilih Akun Whitelist TikTok?',
     whySub: 'Solusi terbaik untuk scale-up iklan TikTok Anda dengan aman, nyaman, dan bebas hambatan.',
@@ -427,6 +432,7 @@ export const TIKTOK_LP: Record<Lang, TikTokLpData> = {
       title: "Don't Let",
       titleAccent: 'Account Limits Hinder Your Business Growth',
       desc: 'TikTok Ads Whitelist Accounts help active advertisers scale Spark Ads & GMV Max campaigns smoothly and free from spending caps.',
+      image: '/assets/tiktok/sewa-akun-tiktok-ads.avif',
     },
     whyHeading: 'Why Choose a TikTok Whitelist Account?',
     whySub: 'The ultimate solution to scale your TikTok ads safely, comfortably, and without hurdles.',

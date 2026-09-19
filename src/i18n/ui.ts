@@ -21,7 +21,7 @@ export const UI = {
     'nav.closeMenu': 'Tutup menu',
     // ── Layanan dropdown ──
     'svc.website': 'Website Development',
-    'svc.sewaAkun': 'Sewa Akun',
+    'svc.sewaAkun': 'Agency Ad Account',
     'svc.konsultasi': 'Konsultasi Digital Marketing',
     // ── Shortform LP ──
     'form.nama': 'Nama Lengkap',
@@ -199,7 +199,7 @@ export const UI = {
     'nav.closeMenu': 'Close menu',
     // ── Services dropdown ──
     'svc.website': 'Website Development',
-    'svc.sewaAkun': 'Account Rental',
+    'svc.sewaAkun': 'Agency Ad Account',
     'svc.konsultasi': 'Digital Marketing Consulting',
     // ── Shortform LP ──
     'form.nama': 'Full Name',

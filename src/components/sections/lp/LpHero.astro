@@ -8,8 +8,9 @@ interface Props {
   desc: string;
   ctaText: string;
   ctaHref: string;
+  image?: string;
 }
-const { eyebrow, title, titleAccent, desc, ctaText, ctaHref } = Astro.props;
+const { eyebrow, title, titleAccent, desc, ctaText, ctaHref, image } = Astro.props;
 ---
 <section class="lp-hero-section">
   <div class="container lp-hero-grid">
@@ -25,11 +26,15 @@ const { eyebrow, title, titleAccent, desc, ctaText, ctaHref } = Astro.props;
     </div>
     <div class="lp-hero-visual">
       <div class="kraken-float">
-        <picture>
-          <source type="image/avif" srcset="/assets/kraken-hero-400.avif 400w, /assets/kraken-hero-560.avif 560w, /assets/kraken-hero-800.avif 800w" sizes="(max-width: 760px) min(440px, 95vw), 440px" />
-          <source type="image/webp" srcset="/assets/kraken-hero-400.webp 400w, /assets/kraken-hero-560.webp 560w, /assets/kraken-hero-800.webp 800w" sizes="(max-width: 760px) min(440px, 95vw), 440px" />
-          <img src="/assets/kraken-hero.png" alt="Tentaklik" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:auto;display:block;" />
-        </picture>
+        {image ? (
+          <img src={image} alt="Tentaklik" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:auto;display:block;" />
+        ) : (
+          <picture>
+            <source type="image/avif" srcset="/assets/kraken-hero-400.avif 400w, /assets/kraken-hero-560.avif 560w, /assets/kraken-hero-800.avif 800w" sizes="(max-width: 760px) min(440px, 95vw), 440px" />
+            <source type="image/webp" srcset="/assets/kraken-hero-400.webp 400w, /assets/kraken-hero-560.webp 560w, /assets/kraken-hero-800.webp 800w" sizes="(max-width: 760px) min(440px, 95vw), 440px" />
+            <img src="/assets/kraken-hero.png" alt="Tentaklik" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:auto;display:block;" />
+          </picture>
+        )}
       </div>
     </div>
   </div>

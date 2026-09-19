@@ -9,7 +9,7 @@ export const site = {
   url: PUBLIC_SITE_URL,
   wa: PUBLIC_WA_NUMBER,
   email: 'hi@tentaklik.com',
-  emailKarir: 'karir@tentaklik.com',
+  emailKarir: 'hi@tentaklik.com',
   phone: '+62 822-1998-7770',
   phoneIntl: '+6282219987770',
   address: 'Indonesia',

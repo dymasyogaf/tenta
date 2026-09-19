@@ -31,52 +31,138 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="Karir di Tentaklik — Lowongan Digital Marketing & Web Developer"
-  description="Lowongan kerja di Tentaklik: Web Developer, Meta Ads Specialist, Google Ads Specialist, TikTok Ads, dan Customer Specialist. Gabung tim agensi digital marketing yang serius soal hasil."
+  title="Gabung Jadi Tentakel Baru di Tentaklik"
+  description="Cari posisi lowongan pekerjaan kamu di Tentaklik dan kirim lamaran ke posisi yang tersedia."
   active="karir"
   jsonLd={jsonLd}
   keywords={['lowongan kerja tentaklik', 'karir digital marketing', 'lowongan web developer semarang', 'lowongan meta ads', 'lowongan google ads specialist', 'karir agensi digital']}
 >
-  <section style="padding-top:56px;padding-bottom:48px;background:var(--bg-warm);position:relative;overflow:hidden;">
-    <div class="container" style="display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;">
-      <div>
-        <span class="eyebrow">Karir</span>
-        <h1 style="font-size:48px;margin-top:18px;margin-bottom:18px;">
+  <section class="karir-hero-section">
+    <div class="container karir-hero-grid">
+      <div class="karir-hero-content">
+        <span class="eyebrow">Bertumbuh Bareng Tenta</span>
+        <h1 class="karir-hero-title">
           Gabung jadi <span style="color:var(--orange-500);">tentakel</span> baru di Tentaklik.
         </h1>
-        <p style="font-size:17px;color:var(--ink-500);max-width:540px;">
+        <p class="karir-hero-desc">
           Kami sedang berkembang dan butuh orang-orang yang serius soal craft. Tim kecil, dampak besar — kamu bukan sekadar resource, tapi partner yang ikut bentuk arah Tentaklik.
         </p>
-        <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;">
+        <div class="karir-hero-actions">
           <a href="#lowongan" class="btn btn-primary">Lihat Lowongan <ArrowRight size={14} /></a>
           <a href="#proses" class="btn btn-ghost">Cara Apply</a>
         </div>
       </div>
-      <div class="kraken-float" style="width:100%;max-width:560px;margin:0 auto;filter:drop-shadow(0 24px 48px rgba(255,107,26,0.18));">
-        <picture>
-          <source
-            type="image/avif"
-            srcset="/assets/kraken-hero-400.avif 400w, /assets/kraken-hero-560.avif 560w, /assets/kraken-hero-800.avif 800w, /assets/kraken-hero.avif 1200w"
-            sizes="(max-width: 760px) min(480px, 95vw), 560px"
-          />
-          <source
-            type="image/webp"
-            srcset="/assets/kraken-hero-400.webp 400w, /assets/kraken-hero-560.webp 560w, /assets/kraken-hero-800.webp 800w, /assets/kraken-hero.webp 1200w"
-            sizes="(max-width: 760px) min(480px, 95vw), 560px"
-          />
+      <div class="karir-hero-visual">
+        <div class="kraken-float" style="width:100%;max-width:560px;margin:0 auto;filter:drop-shadow(0 24px 48px rgba(255,107,26,0.18));">
           <img
-            src="/assets/kraken-hero.png"
-            alt="Tentaklik kraken"
+            src="/assets/karir/karir.avif"
+            alt="Karir Tentaklik"
             width="1200"
             height="960"
-            loading="lazy"
+            loading="eager"
+            fetchpriority="high"
             decoding="async"
             style="width:100%;height:auto;display:block;"
           />
-        </picture>
+        </div>
       </div>
     </div>
   </section>
+
+  <style>
+    .karir-hero-section {
+      padding-top: 56px;
+      padding-bottom: 48px;
+      background: var(--bg-warm);
+      position: relative;
+      overflow: hidden;
+    }
+    .karir-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .karir-hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .karir-hero-title {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.15;
+      margin-top: 18px;
+      margin-bottom: 18px;
+    }
+    .karir-hero-desc {
+      font-size: 17px;
+      color: var(--ink-500);
+      max-width: 540px;
+      line-height: 1.6;
+    }
+    .karir-hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .karir-hero-visual {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: 900px) {
+      .karir-hero-section {
+        padding-top: 48px;
+        padding-bottom: 40px;
+      }
+      .karir-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        text-align: left;
+      }
+      .karir-hero-content {
+        align-items: flex-start;
+      }
+      .karir-hero-title {
+        font-size: clamp(28px, 6vw, 36px);
+        text-align: left;
+      }
+      .karir-hero-desc {
+        text-align: left;
+        max-width: 100%;
+      }
+      .karir-hero-actions {
+        justify-content: flex-start;
+        width: 100%;
+      }
+      .karir-hero-visual {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .karir-hero-section {
+        padding-top: 40px;
+        padding-bottom: 36px;
+      }
+      .karir-hero-title {
+        font-size: 28px;
+      }
+      .karir-hero-desc {
+        font-size: 15px;
+      }
+      .karir-hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .karir-hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 
   <KarirBenefits />
   <KarirJobList />
@@ -90,7 +176,7 @@ const jsonLd = [
           <h3>Posisi yang kamu cari belum ada?</h3>
           <p style="margin-top:8px;font-size:15px;opacity:0.95;">Tetap kirim CV kamu — kalau cocok, kami simpan untuk peluang berikutnya.</p>
         </div>
-        <a href="mailto:karir@tentaklik.com" class="btn btn-ghost">Kirim CV ke Kami <ArrowRight size={14} /></a>
+        <a href="mailto:hi@tentaklik.com" class="btn btn-ghost">Kirim CV ke Kami <ArrowRight size={14} /></a>
       </div>
     </div>
   </section>
