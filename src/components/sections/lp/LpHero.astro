@@ -9,14 +9,15 @@ interface Props {
   ctaText: string;
   ctaHref: string;
   image?: string;
+  platform?: string;
 }
-const { eyebrow, title, titleAccent, desc, ctaText, ctaHref, image } = Astro.props;
+const { eyebrow, title, titleAccent, desc, ctaText, ctaHref, image, platform } = Astro.props;
 ---
 <section class="lp-hero-section">
   <div class="container lp-hero-grid">
     <div class="lp-hero-content">
       <span class="eyebrow">{eyebrow}</span>
-      <h1 class="lp-hero-title">
+      <h1 class:list={['lp-hero-title', platform && `lp-hero-title-${platform}`]}>
         {title} <span class="hero-title-accent" style="color:var(--orange-500);">{titleAccent}</span>
       </h1>
       <p class="lp-hero-desc">{desc}</p>
@@ -66,6 +67,9 @@ const { eyebrow, title, titleAccent, desc, ctaText, ctaHref, image } = Astro.pro
     margin-top: 20px;
     margin-bottom: 20px;
     color: var(--ink-900);
+  }
+  .lp-hero-title-google {
+    font-size: 33px;
   }
   .lp-hero-desc {
     font-size: 17px;
@@ -127,6 +131,9 @@ const { eyebrow, title, titleAccent, desc, ctaText, ctaHref, image } = Astro.pro
       text-align: left;
       width: 100%;
     }
+    .lp-hero-title-google {
+      font-size: clamp(24px, 5.5vw, 30px);
+    }
     .lp-hero-desc {
       margin-left: 0;
       margin-right: 0;
@@ -151,6 +158,9 @@ const { eyebrow, title, titleAccent, desc, ctaText, ctaHref, image } = Astro.pro
     .lp-hero-title {
       font-size: clamp(26px, 6vw, 30px);
       text-align: left;
+    }
+    .lp-hero-title-google {
+      font-size: clamp(22px, 5.5vw, 26px);
     }
     .hero-title-accent {
       display: inline;
