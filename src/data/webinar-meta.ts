@@ -1,86 +1,208 @@
-// Webinar Meta LP — Content Data
-// Ganti placeholder sebelum go-live.
+// Webinar Meta LP — Content Data with normal sentence casing (huruf kapital di depan)
 import bilalPhoto from '../assets/webinar/bilal-fb.avif';
-import mascotHero from '../assets/webinar/mockup-fb.avif';
 
 export const WEBINAR_META = {
   seo: {
-    title: 'Dari Boncos ke Profit: Bedah Campaign Meta Ads yang Salah Strategi',
-    description: 'Webinar online khusus praktisi Meta Ads. Pelajari cara baca data campaign, temukan kebocoran budget, dan tentukan titik optimasi yang tepat.',
-    keywords: ['webinar meta ads','optimasi meta ads','belajar meta ads','bedah campaign facebook ads','tentaklik webinar'],
+    title: 'Punya iklan yang tadinya untung? Pas di-scale kok malah boncos? — Webinar Meta Ads Tentaklik',
+    description: 'Bedah kesalahan scaling yang bikin campaign profitable kehilangan performanya. Live session 100% FREE via Zoom.',
+    keywords: [
+      'webinar meta ads gratis',
+      'scaling meta ads',
+      'kesalahan scaling facebook ads',
+      'belajar meta ads',
+      'optimasi meta ads',
+      'tentaklik webinar'
+    ],
   },
-  event: {
-    date: 'Jumat, 28 Agustus 2026',
-    time: '20.00 WIB',
-    platform: 'Online via Zoom',
-    earlyBirdDeadline: '2026-08-21T23:59:59+07:00',
-    seatLeft: 10,
-    priceEarlyBird: 'Rp10.000',
-    priceRegular: 'Rp17.000',
-    priceOriginal: 'Rp99.000',
-  },
+  telegramUrl: 'https://t.me/komunitastentaklik',
   hero: {
-    ribbon: 'Dirgahayu Republik Indonesia',
-    ribbonBadge: 'KE-81',
-    title: 'Dari Boncos',
-    titleAccent: 'ke Profit',
-    subtitle: 'Bedah Campaign Meta\u00A0Ads yang Salah Strategi',
-    desc: [],
-    ctaText: 'Daftar Webinar Sekarang',
-    ctaHref: '#form-registrasi',
-    mascotSrc: mascotHero.src,
+    badge: 'Live Session 100% Free via Zoom',
+    title: 'Punya iklan yang tadinya untung?',
+    titleAccent: 'Pas di-scale kok malah buntung?',
+    subtitle: 'Bedah kesalahan scaling yang bikin campaign profitable kehilangan performanya',
+    story: [
+      'Campaign sudah profitable.',
+      'ROAS bagus. Order mulai stabil.',
+      'Tapi begitu budget dinaikkan...',
+      'CPA naik. ROAS turun. Cost membengkak.',
+      'Sebenarnya apa yang terjadi?'
+    ],
+    desc: 'Di sesi ini, kita akan membedah kesalahan scaling dari sisi algoritma, data, struktur campaign, hingga creative — supaya kamu tidak asal menaikkan budget ketika campaign sedang bagus.',
+    ctaText: 'Gabung Webinar Gratis',
+    ctaSub: '100% Gratis · Live via Zoom',
+    ctaHref: '#komunitas',
+    mockupSrc: '/assets/meta/sewa-akun-meta-ads-whitelist.avif',
   },
   problems: {
-    heading: 'Pernah Mengalami Ini?',
-    sub: 'Kalau Anda pernah mengalami salah satunya, webinar ini untuk Anda.',
+    eyebrow: 'Kendala utama',
+    heading: 'Pernah mengalami ini?',
     items: [
-      { icon: 'trending-down', title: 'Budget naik, tapi hasil justru turun?' },
-      { icon: 'target', title: 'ROAS tidak sesuai target?' },
-      { icon: 'sliders', title: 'Campaign sudah berjalan, tapi bingung harus optimasi bagian mana?' },
-      { icon: 'video', title: 'Sudah testing creative, tapi performance tetap tidak stabil?' },
+      'Campaign awalnya profitable, tapi setelah budget dinaikkan performanya turun?',
+      'ROAS bagus di budget kecil, tapi mulai berantakan ketika spending diperbesar?',
+      'CPA tiba-tiba naik setelah melakukan scaling?',
+      'Bingung kapan harus Stop, Wait, atau Scale?',
+      'Sudah mencoba vertical maupun horizontal scaling, tapi hasilnya belum konsisten?',
+      'Takut menaikkan budget karena khawatir campaign yang tadinya untung malah boncos?'
     ],
+    closer: 'Kalau pernah mengalami ini, webinar ini untuk kamu.',
   },
   curriculum: {
-    heading: 'Dalam webinar ini, Anda akan diajak memahami:',
+    eyebrow: 'Materi sesi',
+    heading: 'Yang akan kamu pelajari',
     items: [
-      { icon: 'bar-chart', title: 'Baca Data Campaign', desc: 'Pelajari cara membaca performance campaign dan memahami angka yang benar-benar penting.' },
-      { icon: 'rupiah', title: 'Temukan Kebocoran Budget', desc: 'Cari tahu bagian mana yang membuat budget tidak bekerja secara optimal.' },
-      { icon: 'target', title: 'Tentukan Titik Optimasi', desc: 'Pahami mana yang harus diperbaiki, dipertahankan, atau dihentikan.' },
-      { icon: 'trending-up', title: 'Ambil Keputusan Berdasarkan Data', desc: 'Jangan lagi mengoptimasi campaign hanya berdasarkan feeling atau asumsi.' },
-    ],
+      {
+        num: '01',
+        title: '01 — Pahami kenapa campaign bisa ambruk saat di-scale',
+        lead: 'Bukan cuma soal budget terlalu kecil atau terlalu besar.',
+        desc: 'Kita akan membahas bagaimana algoritma, data, delivery, dan perubahan volume dapat memengaruhi performa campaign ketika scaling dilakukan.'
+      },
+      {
+        num: '02',
+        title: '02 — Bedah 5 kesalahan scaling yang sering bikin boncos',
+        lead: 'Cari tahu kesalahan yang sering terjadi ketika advertiser mencoba memperbesar campaign yang sebelumnya sudah profitable.',
+        desc: 'Mulai dari salah membaca data, timing yang kurang tepat, sampai perubahan campaign yang terlalu agresif.'
+      },
+      {
+        num: '03',
+        title: '03 — Framework STOP – WAIT – SCALE',
+        lead: 'Pelajari cara membaca kondisi campaign sebelum mengambil keputusan:',
+        framework: [
+          {
+            label: 'STOP',
+            desc: 'Kapan campaign sebaiknya tidak dipaksa untuk scale?'
+          },
+          {
+            label: 'WAIT',
+            desc: 'Kapan campaign sebenarnya membutuhkan waktu dan data tambahan?'
+          },
+          {
+            label: 'SCALE',
+            desc: 'Kapan campaign menunjukkan sinyal yang lebih siap untuk dinaikkan volumenya?'
+          }
+        ]
+      },
+      {
+        num: '04',
+        title: '04 — Teknik scaling yang lebih aman',
+        lead: 'Kita akan membahas pendekatan:',
+        bullets: [
+          'Vertical Scaling',
+          'Horizontal Scaling',
+          'CBO vs ABO',
+          'Creative Freshness'
+        ],
+        desc: 'Termasuk bagaimana menjaga campaign tetap memiliki ruang untuk berkembang ketika volume mulai meningkat.'
+      },
+      {
+        num: '05',
+        title: '05 — Studi kasus before → after',
+        lead: 'Kita akan melihat contoh campaign yang mengalami perubahan performa setelah scaling.',
+        sublead: 'Kemudian membedah:',
+        questions: [
+          'Apa yang berubah?',
+          'Apa yang menyebabkan performa turun?',
+          'Apa yang perlu diperbaiki?',
+          'Bagaimana proses scaling dilakukan?'
+        ]
+      }
+    ]
   },
   audience: {
-    heading: 'Siapa yang Cocok Ikut?',
-    sub: 'Webinar ini khusus untuk Anda yang sudah pernah menjalankan Meta Ads.',
+    eyebrow: 'Target peserta',
+    heading: 'Siapa yang wajib hadir?',
+    sub: 'Sesi ini dirancang untuk kamu yang sudah menjalankan Meta Ads dan ingin memahami scaling dengan pendekatan yang lebih terstruktur.',
     items: [
-      'Business Owner',
-      'Performance Marketer',
-      'Digital Marketer',
-      'E-commerce Seller',
-      'Media Buyer',
-      'Advertiser dengan campaign existing',
-    ],
-    note: 'Bukan webinar "cara pasang iklan dari nol". Kita akan membahas apa yang harus dilakukan setelah campaign sudah berjalan.',
+      {
+        role: 'Business Owner',
+        desc: 'Sudah beriklan dan ingin meningkatkan volume tanpa asal menaikkan budget.'
+      },
+      {
+        role: 'Performance Marketer',
+        desc: 'Ingin memahami lebih dalam proses scaling dan membaca perubahan performa campaign.'
+      },
+      {
+        role: 'Digital Marketer',
+        desc: 'Ingin memperdalam strategi Meta Ads setelah memahami basic campaign setup.'
+      },
+      {
+        role: 'Media Buyer',
+        desc: 'Sering menemukan campaign profitable tetapi kesulitan mempertahankan performanya ketika scale.'
+      },
+      {
+        role: 'Advertiser',
+        desc: 'Sudah memiliki campaign yang berjalan dan ingin meningkatkan volume dengan lebih terukur.'
+      }
+    ]
   },
   speaker: {
+    eyebrow: 'Pembicara',
     name: 'Bilal Abdurrahman',
-    title: 'Meta Ads & Performance Marketing Manager',
-    bio: 'Praktisi Performance Marketing dengan fokus pada Meta Ads dan strategi digital advertising berbasis data untuk membantu bisnis mendapatkan hasil iklan yang lebih efektif dan terukur.',
+    titleLine1: 'Meta Ads Specialist',
+    titleLine2: 'Performance Marketing',
+    bio: 'Berpengalaman dalam mengelola dan menganalisis campaign digital advertising serta membantu advertiser memahami strategi scaling berdasarkan data dan kondisi campaign.',
     photoSrc: bilalPhoto.src,
-    credentials: ['Campaign Strategy', 'Audience Targeting', 'Performance Optimization'],
   },
-  form: {
-    badge: 'Webinar Spesial Kemerdekaan',
-    heading: 'Siap Mengetahui Di Mana Budget Iklan Anda Bocor?',
-    sub: 'Jangan hanya melihat berapa banyak budget yang sudah Anda keluarkan. Cari tahu apa yang sebenarnya terjadi di dalam campaign Anda.',
-    promoLabel: 'Promo Kemerdekaan',
-    priceNote: 'Rp10.000 untuk 10 peserta tercepat!',
-    heading2: 'Form Registrasi',
-    consentText: 'Saya bersedia menerima informasi terkait webinar dan layanan Tentaklik melalui WhatsApp/email.',
-    ctaText: 'Daftar Sekarang',
-    footnote: 'Kuota peserta terbatas.',
-    scriptUrl: 'https://script.google.com/macros/s/AKfycbyqBbjxA91y18QR_PvcYArI62SSEbdD0JU49PFnlb4Wj7Q1xviBNbwDaHG_jSKZk0OutA/exec',
-    waNumber: '6282219987770',
-    pixelId: '1341980327384883',
+  agenda: {
+    eyebrow: 'Agenda webinar',
+    heading: 'Yang akan kita bedah',
+    items: [
+      { num: '01', title: 'Kenapa campaign bisa ambruk?', desc: 'Pahami kenapa campaign profitable bisa ambruk saat di-scale.' },
+      { num: '02', title: '5 kesalahan saat scaling', desc: 'Kesalahan paling sering yang menyebabkan performa turun.' },
+      { num: '03', title: 'Framework STOP – WAIT – SCALE', desc: 'Baca timing scaling berdasarkan kondisi campaign.' },
+      { num: '04', title: 'Strategi & struktur scaling', desc: 'Vertical vs Horizontal Scaling, CBO vs ABO, dan creative freshness.' },
+      { num: '05', title: 'Studi kasus before-after', desc: 'Bedah campaign yang mengalami proses scaling.' }
+    ]
   },
+  valueProp: {
+    badge: 'Live session · 100% gratis',
+    heading: 'Bukan cuma dengar materi.',
+    subheading: 'Kamu juga akan mendapatkan:',
+    perks: [
+      'Live Zoom Session',
+      'Materi Webinar',
+      'Pembahasan Tactical Scaling',
+      'Studi Kasus Campaign',
+      'Sesi Tanya Jawab Interaktif'
+    ],
+    note: 'Tidak ada biaya pendaftaran.',
+    ctaText: 'Gabung Webinar Sekarang',
+  },
+  closingHook: {
+    heading: 'Siap scale tanpa asal naikkan budget?',
+    lead: 'Campaign yang profitable belum tentu siap untuk langsung di-scale.',
+    prompt: 'Sebelum menaikkan budget, kamu perlu tahu:',
+    bullets: [
+      'Apakah campaign memang sudah siap?',
+      'Apa sinyal yang harus diperhatikan?',
+      'Dan teknik scaling apa yang paling sesuai dengan kondisi campaign?'
+    ],
+    warningLines: [
+      'Jangan sampai campaign yang tadinya menghasilkan...',
+      'justru kehilangan performa karena salah langkah saat scaling.'
+    ],
+    ctaText: 'Amankan Tempat Webinar',
+    ctaSub: '100% Gratis · Live via Zoom'
+  },
+  community: {
+    badge: 'Grup resmi peserta',
+    title: 'Webinar Meta Ads Tentaklik',
+    desc: 'Setelah mendaftar, kamu akan mendapatkan akses ke komunitas peserta untuk memperoleh informasi webinar dan materi yang dibagikan oleh Tentaklik.',
+    perksHeading: 'Yang akan kamu dapatkan:',
+    perks: [
+      {
+        title: 'Akses Live Webinar',
+        desc: 'Ikuti sesi secara langsung melalui Zoom.'
+      },
+      {
+        title: 'Materi Webinar',
+        desc: 'Dapatkan materi yang digunakan selama sesi.'
+      },
+      {
+        title: 'Informasi & Reminder',
+        desc: 'Tidak perlu khawatir ketinggalan jadwal webinar.'
+      }
+    ],
+    ctaText: 'Gabung Sekarang',
+    footnote: '100% Gratis · Akses Peserta via Komunitas'
+  }
 };
