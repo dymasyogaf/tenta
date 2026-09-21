@@ -9,6 +9,7 @@ Dokumen panduan dan checklist implementasi tracking konversi iklan (Meta Ads, Ti
 - [x] **Meta Conversions API (CAPI) Token**: `EAAJf0o2jAOkBSkQtssh...` *(Sudah didapatkan - siap untuk EMQ tinggi)*
 - [x] **TikTok Pixel ID**: `DAOI0C3C77U88MSNV1I0` *(Sudah didapatkan)*
 - [x] **Google Ads Conversion ID**: `AW-304997094` *(Sudah terpasang di repo)*
+- [x] **Google Analytics 4 (GA4) ID**: `G-7TZENR9L4G` *(Sudah terpasang di repo & .env)*
 - [ ] **Konfirmasi Nomor / Teks Link WhatsApp** per masing-masing layanan jika ada format khusus.
 
 ---

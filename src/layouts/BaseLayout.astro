@@ -11,7 +11,7 @@ import { PUBLIC_GA_ID } from 'astro:env/client';
 import { getAbsoluteLocaleUrl } from 'astro:i18n';
 import { getLang, stripLocale } from '@i18n/utils';
 
-const gaId = PUBLIC_GA_ID;
+const gaId = PUBLIC_GA_ID || 'G-7TZENR9L4G';
 const gscVerification = site.verification.google;
 
 const propLang = Astro.props.lang as 'en' | 'id' | undefined;

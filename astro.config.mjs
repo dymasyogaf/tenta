@@ -92,7 +92,7 @@ export default defineConfig({
     schema: {
       PUBLIC_SITE_URL:  envField.string({ context: 'client', access: 'public', default: 'https://tentaklik.com' }),
       PUBLIC_WA_NUMBER: envField.string({ context: 'client', access: 'public', default: '6282219987770' }),
-      PUBLIC_GA_ID:     envField.string({ context: 'client', access: 'public', optional: true }),
+      PUBLIC_GA_ID:     envField.string({ context: 'client', access: 'public', default: 'G-7TZENR9L4G', optional: true }),
     },
   },
 
