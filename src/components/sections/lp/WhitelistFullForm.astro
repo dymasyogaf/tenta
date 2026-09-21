@@ -288,6 +288,19 @@ const subKey = platform === 'google' ? 'mwf.sub.google' : 'mwf.sub';
           ? `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(greeting)}`
           : '';
 
+        // Fire Centralized High-EMQ Conversion Tracking
+        if (typeof (window as any).tentaklikTrackLead === 'function') {
+          (window as any).tentaklikTrackLead({
+            service: platform === 'google' ? 'google' : (platform === 'meta' ? 'meta' : 'konsultasi'),
+            action: 'submit_form',
+            userData: {
+              email: email,
+            },
+            label: `${layanan} Document Form`,
+            sourceUrl: window.location.pathname,
+          });
+        }
+
         if (typeof (window as any).fbq === 'function') {
           (window as any).fbq('track', 'Lead', {
             content_name: `${layanan} Document Form`,

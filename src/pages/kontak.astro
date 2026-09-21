@@ -245,6 +245,28 @@ const jsonLd = [
         fetch(SHEET_URL + '?' + params.toString(), { mode: 'no-cors' }).catch(function(){});
       }
 
+      // Fire Conversion Tracking with High EMQ & Enhanced Conversions
+      if (typeof (window as any).tentaklikTrackLead === 'function') {
+        const sLower = service.toLowerCase();
+        let targetService: 'meta' | 'tiktok' | 'google' | 'website' | 'konsultasi' = 'konsultasi';
+        if (sLower.includes('meta')) targetService = 'meta';
+        else if (sLower.includes('tiktok')) targetService = 'tiktok';
+        else if (sLower.includes('google')) targetService = 'google';
+        else if (sLower.includes('web')) targetService = 'website';
+
+        (window as any).tentaklikTrackLead({
+          service: targetService,
+          action: 'submit_form',
+          userData: {
+            name: name,
+            email: email,
+            phone: phone,
+          },
+          label: `Contact Form - ${service}`,
+          sourceUrl: window.location.pathname,
+        });
+      }
+
       const msg =
         `Halo Tentaklik, saya tertarik diskusi:\n\n` +
         `Nama: ${name}\n` +

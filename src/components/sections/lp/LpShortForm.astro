@@ -291,7 +291,21 @@ const formId = `shortform-${platform}`;
       const waUrl = WA_NUMBER
         ? `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waGreeting(plat, lang, nama, kat, pkt, hasPricing, platform))}`
         : '';
-      
+
+      // Fire Centralized High-EMQ Conversion Tracking
+      if (typeof (window as any).tentaklikTrackLead === 'function') {
+        (window as any).tentaklikTrackLead({
+          service: plat === 'google' ? 'google' : (plat === 'meta' ? 'meta' : (plat === 'tiktok' ? 'tiktok' : 'konsultasi')),
+          action: 'submit_form',
+          userData: {
+            name: nama,
+            phone: wa,
+          },
+          label: `LP Form - ${kat}`,
+          sourceUrl: window.location.pathname,
+        });
+      }
+
       // Fire Meta Pixel Lead Event
       if (typeof (window as any).fbq === 'function') {
         (window as any).fbq('track', 'Lead', {
