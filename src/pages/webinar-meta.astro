@@ -4,7 +4,7 @@ import ArrowRight from "@components/icons/ArrowRight.astro";
 import Telegram from "@components/icons/Telegram.astro";
 import { WEBINAR_META as W } from "@data/webinar-meta";
 
-const { seo, hero, problems, curriculum, audience, speaker, agenda, valueProp, closingHook, community, event } = W;
+const { seo, hero, problems, caseStudy, curriculum, audience, speaker, agenda, valueProp, closingHook, community, event } = W;
 const telegramUrl = W.telegramUrl || 'https://t.me/dapurMeta';
 ---
 
@@ -233,6 +233,147 @@ const telegramUrl = W.telegramUrl || 'https://t.me/dapurMeta';
         </div>
       </div>
     </section>
+
+    <!-- ============ 2.5 BUKTI NYATA (STUDI KASUS BEFORE & AFTER) ============ -->
+    {caseStudy && (
+      <section id="bukti-nyata" class="wm-section wm-cs-section">
+        <div class="container">
+          <div class="section-header-wrap">
+            <div class="hero-badge wm-section-badge">
+              <span>{caseStudy.eyebrow}</span>
+            </div>
+            <h2 class="section-title wm-section-title">
+              {caseStudy.heading}
+            </h2>
+            <p class="wm-section-sub">
+              {caseStudy.sub}
+            </p>
+          </div>
+
+          <div class="wm-cs-grid">
+            <!-- BEFORE CARD -->
+            <div class="wm-card wm-cs-card wm-cs-before reveal">
+              <div class="wm-cs-card-top">
+                <div class="wm-cs-badge wm-badge-before">
+                  <span class="wm-cs-dot-before" aria-hidden="true"></span>
+                  <span>{caseStudy.before.badge}</span>
+                </div>
+                <h3 class="wm-cs-title">{caseStudy.before.title}</h3>
+              </div>
+
+              <!-- Metrics Summary Bar -->
+              <div class="wm-cs-metrics">
+                <div class="wm-cs-metric-item">
+                  <span class="wm-cs-metric-label">{caseStudy.before.cprLabel}</span>
+                  <span class="wm-cs-metric-val wm-metric-danger">{caseStudy.before.cprValue}</span>
+                </div>
+                <div class="wm-cs-metric-divider"></div>
+                <div class="wm-cs-metric-item">
+                  <span class="wm-cs-metric-label">{caseStudy.before.cpmLabel}</span>
+                  <span class="wm-cs-metric-val">{caseStudy.before.cpmValue}</span>
+                </div>
+                <div class="wm-cs-metric-divider"></div>
+                <div class="wm-cs-metric-item">
+                  <span class="wm-cs-metric-label">{caseStudy.before.resultsLabel}</span>
+                  <span class="wm-cs-metric-val">{caseStudy.before.resultsValue}</span>
+                </div>
+              </div>
+
+              <!-- Interactive Dashboard Screenshot -->
+              <div class="wm-cs-img-container" data-zoom-src={caseStudy.before.image} data-zoom-caption="Before: Dashboard Meta Ads Sebelum Optimasi">
+                <img
+                  src={caseStudy.before.image}
+                  alt="Dashboard Meta Ads Sebelum Optimasi"
+                  loading="lazy"
+                  decoding="async"
+                  class="wm-cs-screenshot"
+                  width="1600"
+                  height="900"
+                />
+                <div class="wm-cs-zoom-pill">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  <span>Klik untuk perbesar</span>
+                </div>
+              </div>
+
+              <!-- Caption Box -->
+              <div class="wm-cs-caption-box">
+                <p class="wm-cs-caption-text">
+                  <strong class="wm-caption-tag wm-tag-danger">❌ BEFORE:</strong>
+                  {caseStudy.before.caption.replace(/^Biaya ATC/, 'Biaya ATC')}
+                </p>
+              </div>
+            </div>
+
+            <!-- AFTER CARD -->
+            <div class="wm-card wm-cs-card wm-cs-after reveal">
+              <div class="wm-cs-card-top">
+                <div class="wm-cs-badge wm-badge-after">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>{caseStudy.after.badge}</span>
+                </div>
+                <h3 class="wm-cs-title">{caseStudy.after.title}</h3>
+              </div>
+
+              <!-- Metrics Summary Bar -->
+              <div class="wm-cs-metrics">
+                <div class="wm-cs-metric-item">
+                  <span class="wm-cs-metric-label">{caseStudy.after.cprLabel}</span>
+                  <span class="wm-cs-metric-val wm-metric-success">{caseStudy.after.cprValue}</span>
+                </div>
+                <div class="wm-cs-metric-divider"></div>
+                <div class="wm-cs-metric-item">
+                  <span class="wm-cs-metric-label">{caseStudy.after.cpmLabel}</span>
+                  <span class="wm-cs-metric-val">{caseStudy.after.cpmValue}</span>
+                </div>
+                <div class="wm-cs-metric-divider"></div>
+                <div class="wm-cs-metric-item">
+                  <span class="wm-cs-metric-label">{caseStudy.after.resultsLabel}</span>
+                  <span class="wm-cs-metric-val wm-metric-success">{caseStudy.after.resultsValue}</span>
+                </div>
+              </div>
+
+              <!-- Interactive Dashboard Screenshot -->
+              <div class="wm-cs-img-container" data-zoom-src={caseStudy.after.image} data-zoom-caption="After: Dashboard Meta Ads Setelah Optimasi & Scaling">
+                <img
+                  src={caseStudy.after.image}
+                  alt="Dashboard Meta Ads Setelah Optimasi & Scaling"
+                  loading="lazy"
+                  decoding="async"
+                  class="wm-cs-screenshot"
+                  width="1600"
+                  height="900"
+                />
+                <div class="wm-cs-zoom-pill">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  <span>Klik untuk perbesar</span>
+                </div>
+              </div>
+
+              <!-- Caption Box -->
+              <div class="wm-cs-caption-box">
+                <p class="wm-cs-caption-text">
+                  <strong class="wm-caption-tag wm-tag-success">✅ AFTER:</strong>
+                  {caseStudy.after.caption.replace(/^Biaya ATC/, 'Biaya ATC')}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Takeaway Callout -->
+          {caseStudy.takeaway && (
+            <div class="wm-cs-takeaway reveal">
+              <div class="wm-cs-takeaway-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              </div>
+              <p class="wm-cs-takeaway-text">
+                {caseStudy.takeaway}
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+    )}
 
     <!-- ============ 3. MATERI SESI (YANG AKAN KAMU PELAJARI) ============ -->
     <section id="materi" class="wm-section">
@@ -525,9 +666,29 @@ const telegramUrl = W.telegramUrl || 'https://t.me/dapurMeta';
     </div>
   </div>
 
-  <!-- Click Tracking Script -->
+  <!-- Lightbox Modal for Dashboard Screenshots -->
+  <div id="wm-img-modal" class="wm-modal" aria-hidden="true" role="dialog">
+    <div class="wm-modal-backdrop" data-close-modal></div>
+    <div class="wm-modal-container">
+      <div class="wm-modal-header">
+        <span id="wm-modal-caption" class="wm-modal-caption"></span>
+        <button type="button" class="wm-modal-close" data-close-modal aria-label="Tutup preview">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="wm-modal-body">
+        <img id="wm-modal-img" src="" alt="Detail Dashboard Meta Ads" class="wm-modal-image" />
+      </div>
+      <div class="wm-modal-footer">
+        <span>Tekan tombol <kbd>Esc</kbd> atau klik di luar untuk menutup</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Click Tracking & Zoom Script -->
   <script is:inline>
     (function() {
+      // CTA Community Tracking
       var ctaButtons = document.querySelectorAll('[data-cta-community]');
       ctaButtons.forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -546,6 +707,46 @@ const telegramUrl = W.telegramUrl || 'https://t.me/dapurMeta';
             });
           }
         });
+      });
+
+      // Zoom Lightbox Modal
+      var modal = document.getElementById('wm-img-modal');
+      var modalImg = document.getElementById('wm-modal-img');
+      var modalCaption = document.getElementById('wm-modal-caption');
+      var zoomTriggers = document.querySelectorAll('[data-zoom-src]');
+
+      function openModal(src, caption) {
+        if (!modal || !modalImg) return;
+        modalImg.src = src;
+        if (modalCaption) modalCaption.textContent = caption || 'Detail Dashboard Meta Ads';
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      zoomTriggers.forEach(function(el) {
+        el.addEventListener('click', function() {
+          var src = el.getAttribute('data-zoom-src');
+          var caption = el.getAttribute('data-zoom-caption');
+          if (src) openModal(src, caption);
+        });
+      });
+
+      document.querySelectorAll('[data-close-modal]').forEach(function(el) {
+        el.addEventListener('click', closeModal);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) {
+          closeModal();
+        }
       });
     })();
   </script>
@@ -907,6 +1108,341 @@ const telegramUrl = W.telegramUrl || 'https://t.me/dapurMeta';
     color: var(--ink-900);
     text-align: left;
     line-height: 1.45;
+  }
+
+  /* 2.5 Case Study / Bukti Nyata Section */
+  .wm-cs-section {
+    background: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+  }
+  .wm-cs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+  .wm-cs-card {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 24px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .wm-cs-before {
+    background: #FFFDFC;
+    border: 1.5px solid #FECACA;
+  }
+  .wm-cs-before:hover {
+    border-color: #F87171;
+    box-shadow: 0 16px 36px rgba(220, 38, 38, 0.08);
+  }
+  .wm-cs-after {
+    background: #FDFFFD;
+    border: 1.5px solid #BBF7D0;
+  }
+  .wm-cs-after:hover {
+    border-color: #4ADE80;
+    box-shadow: 0 16px 36px rgba(34, 197, 94, 0.1);
+  }
+  .wm-cs-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .wm-cs-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .wm-badge-before {
+    background: #FEF2F2;
+    color: #DC2626;
+    border: 1px solid #FECACA;
+  }
+  .wm-cs-dot-before {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #DC2626;
+  }
+  .wm-badge-after {
+    background: #F0FDF4;
+    color: #16A34A;
+    border: 1px solid #BBF7D0;
+  }
+  .wm-cs-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink-900);
+    margin: 0;
+  }
+  .wm-cs-metrics {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border: 1px solid var(--ink-100);
+    border-radius: 14px;
+    padding: 12px 18px;
+    margin-bottom: 18px;
+    gap: 10px;
+  }
+  .wm-cs-before .wm-cs-metrics {
+    background: #FFF8F8;
+    border-color: #FEE2E2;
+  }
+  .wm-cs-after .wm-cs-metrics {
+    background: #F4FBF6;
+    border-color: #DCFCE7;
+  }
+  .wm-cs-metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .wm-cs-metric-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-500);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .wm-cs-metric-val {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--ink-900);
+  }
+  .wm-metric-danger {
+    color: #DC2626;
+  }
+  .wm-metric-success {
+    color: #16A34A;
+  }
+  .wm-cs-metric-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--ink-100);
+    opacity: 0.8;
+  }
+  .wm-cs-img-container {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--ink-200);
+    cursor: pointer;
+    background: #0f172a;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .wm-cs-img-container:hover {
+    transform: scale(1.015);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  }
+  .wm-cs-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .wm-cs-img-container:hover .wm-cs-screenshot {
+    transform: scale(1.03);
+  }
+  .wm-cs-zoom-pill {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    pointer-events: none;
+    transition: background 0.2s ease;
+  }
+  .wm-cs-img-container:hover .wm-cs-zoom-pill {
+    background: var(--orange-500);
+  }
+  .wm-cs-caption-box {
+    margin-top: auto;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: white;
+    border: 1px solid var(--ink-100);
+  }
+  .wm-cs-before .wm-cs-caption-box {
+    border-left: 4px solid #DC2626;
+  }
+  .wm-cs-after .wm-cs-caption-box {
+    border-left: 4px solid #16A34A;
+  }
+  .wm-cs-caption-text {
+    font-size: 14px;
+    color: var(--ink-700);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .wm-caption-tag {
+    font-weight: 800;
+    margin-right: 6px;
+  }
+  .wm-tag-danger {
+    color: #DC2626;
+  }
+  .wm-tag-success {
+    color: #16A34A;
+  }
+  .wm-cs-takeaway {
+    margin-top: 36px;
+    background: #FFF7ED;
+    border: 1.5px solid var(--orange-200);
+    border-radius: 16px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 820px;
+    margin-inline: auto;
+    box-shadow: 0 4px 16px rgba(255, 122, 26, 0.05);
+  }
+  .wm-cs-takeaway-icon {
+    color: var(--orange-600);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .wm-cs-takeaway-text {
+    font-size: 14.5px;
+    color: var(--ink-800);
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* Modal Lightbox */
+  .wm-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .wm-modal.is-open {
+    display: flex;
+  }
+  .wm-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(6px);
+  }
+  .wm-modal-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    background: #0f172a;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: wmModalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes wmModalIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  .wm-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.95);
+  }
+  .wm-modal-caption {
+    font-size: 14px;
+    font-weight: 700;
+    color: #F8FAFC;
+    letter-spacing: 0.01em;
+  }
+  .wm-modal-close {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #E2E8F0;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .wm-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  .wm-modal-body {
+    padding: 12px;
+    background: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 80vh;
+    overflow: auto;
+  }
+  .wm-modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .wm-modal-footer {
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #94A3B8;
+    background: rgba(15, 23, 42, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .wm-modal-footer kbd {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    color: #F8FAFC;
   }
 
   /* 3. Curriculum Grid */
@@ -1739,9 +2275,28 @@ const telegramUrl = W.telegramUrl || 'https://t.me/dapurMeta';
     .wm-mobile-sticky {
       display: block;
     }
+    .wm-cs-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
   }
 
   @media (max-width: 480px) {
+    .wm-cs-card {
+      padding: 18px 14px;
+    }
+    .wm-cs-metrics {
+      padding: 10px 12px;
+      gap: 6px;
+    }
+    .wm-cs-metric-val {
+      font-size: 13.5px;
+    }
+    .wm-cs-takeaway {
+      flex-direction: column;
+      text-align: center;
+      padding: 14px 16px;
+    }
     .wm-ch-card {
       padding: 24px 14px;
     }
