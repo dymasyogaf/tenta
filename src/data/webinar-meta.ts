@@ -14,7 +14,13 @@ export const WEBINAR_META = {
       'tentaklik webinar'
     ],
   },
-  telegramUrl: 'https://t.me/komunitastentaklik',
+  event: {
+    date: 'Jumat, 25 September 2026',
+    time: '20.00 WIB',
+    platform: 'Live via Zoom',
+    isoDate: '2026-09-25T20:00:00+07:00',
+  },
+  telegramUrl: 'https://t.me/dapurMeta',
   hero: {
     badge: 'Live Session 100% Free via Zoom',
     title: 'Punya iklan yang tadinya untung?',
@@ -27,7 +33,6 @@ export const WEBINAR_META = {
       'CPA naik. ROAS turun. Cost membengkak.',
       'Sebenarnya apa yang terjadi?'
     ],
-    desc: 'Di sesi ini, kita akan membedah kesalahan scaling dari sisi algoritma, data, struktur campaign, hingga creative — supaya kamu tidak asal menaikkan budget ketika campaign sedang bagus.',
     ctaText: 'Gabung Webinar Gratis',
     ctaSub: '100% Gratis · Live via Zoom',
     ctaHref: '#komunitas',
@@ -191,7 +196,7 @@ export const WEBINAR_META = {
     perks: [
       {
         title: 'Akses Live Webinar',
-        desc: 'Ikuti sesi secara langsung melalui Zoom.'
+        desc: 'Ikuti sesi secara langsung melalui Zoom pada Jumat, 25 September 2026 Pukul 20.00 WIB.'
       },
       {
         title: 'Materi Webinar',
@@ -202,7 +207,7 @@ export const WEBINAR_META = {
         desc: 'Tidak perlu khawatir ketinggalan jadwal webinar.'
       }
     ],
-    ctaText: 'Gabung Sekarang',
+    ctaText: 'Gabung di Telegram',
     footnote: '100% Gratis · Akses Peserta via Komunitas'
   }
 };

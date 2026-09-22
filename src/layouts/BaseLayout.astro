@@ -60,6 +60,7 @@ export interface Props {
   modifiedTime?: string;
   gtmId?: string;
   disableGads?: boolean;
+  themeColor?: string;
 }
 
 const {
@@ -79,6 +80,7 @@ const {
   modifiedTime,
   gtmId = 'GTM-N6FD2GVL',
   disableGads = false,
+  themeColor = '#FF6B1A',
 } = Astro.props;
 
 const fullTitle = title.toLowerCase().includes('tentaklik') ? title : `${title} — Tentaklik`;
@@ -174,9 +176,9 @@ function safeJsonLd(value: unknown): string {
     <meta name="revisit-after" content="7 days" />
     <meta name="format-detection" content="telephone=yes" />
 
-    <meta name="theme-color" content="#FF6B1A" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#FF6B1A" media="(prefers-color-scheme: dark)" />
-    <meta name="msapplication-TileColor" content="#FF6B1A" />
+    <meta name="theme-color" content={themeColor} media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content={themeColor} media="(prefers-color-scheme: dark)" />
+    <meta name="msapplication-TileColor" content={themeColor} />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content={site.name} />
