@@ -306,14 +306,6 @@ const formId = `shortform-${platform}`;
         });
       }
 
-      // Fire Meta Pixel Lead Event
-      if (typeof (window as any).fbq === 'function') {
-        (window as any).fbq('track', 'Lead', {
-          content_name: hasPricing ? pkt : kat,
-          content_category: kat
-        });
-      }
-
       // Fire TikTok Pixel Event (SubmitForm & CompleteRegistration)
       if (typeof (window as any).ttq === 'object' && typeof (window as any).ttq.track === 'function') {
         (window as any).ttq.track('SubmitForm', {

@@ -31,11 +31,12 @@ const hrefEn = withSlash(getAbsoluteLocaleUrl('en', basePath));
 const ogLocale = lang === 'en' ? 'en_US' : 'id_ID';
 const ogLocaleAlt = lang === 'en' ? 'id_ID' : 'en_US';
 
-// Scoped tracking: Khusus di 5 Landing Page target iklan
+// Scoped tracking: Khusus di Landing Page target iklan
 const TARGET_LP_SLUGS = [
   'akun-meta-ads-whitelist',
   'akun-google-ads-whitelist',
   'akun-tiktok-ads-whitelist',
+  'sewa-akun-whitelist',
   'jasa-pembuatan-website-after-sales-terbaik',
   'konsultasi-digital-marketing',
 ];
@@ -110,6 +111,60 @@ function safeJsonLd(value: unknown): string {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
+    <!-- Block any outgoing AddToCart beacon to facebook.com/tr across all pages -->
+    <script is:inline>
+      (function() {
+        function isBlocked(u, d) {
+          var s = (String(u || '') + ' ' + String(d || '')).toLowerCase();
+          return s.indexOf('facebook.com/tr') !== -1 && s.indexOf('addtocart') !== -1;
+        }
+        try {
+          var imgDesc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
+          if (imgDesc && imgDesc.set) {
+            Object.defineProperty(HTMLImageElement.prototype, 'src', {
+              set: function(url) {
+                if (isBlocked(url)) return;
+                return imgDesc.set.call(this, url);
+              },
+              get: function() { return imgDesc.get.call(this); }
+            });
+          }
+        } catch(e) {}
+        try {
+          if (navigator.sendBeacon) {
+            var sb = navigator.sendBeacon.bind(navigator);
+            navigator.sendBeacon = function(url, data) {
+              if (isBlocked(url, data)) return true;
+              return sb(url, data);
+            };
+          }
+        } catch(e) {}
+        try {
+          if (window.fetch) {
+            var origFetch = window.fetch;
+            window.fetch = function(input, init) {
+              var u = typeof input === 'string' ? input : (input && input.url ? input.url : '');
+              var b = init && init.body ? init.body : '';
+              if (isBlocked(u, b)) return Promise.resolve(new Response(''));
+              return origFetch.apply(this, arguments);
+            };
+          }
+        } catch(e) {}
+        try {
+          var open = XMLHttpRequest.prototype.open;
+          var send = XMLHttpRequest.prototype.send;
+          XMLHttpRequest.prototype.open = function(m, url) {
+            this._blk = isBlocked(url);
+            return open.apply(this, arguments);
+          };
+          XMLHttpRequest.prototype.send = function(data) {
+            if (this._blk || isBlocked('', data)) return;
+            return send.apply(this, arguments);
+          };
+        } catch(e) {}
+      })();
+    </script>
+
     {gtmId && (
       <Fragment>
         <!-- Google Tag Manager -->
@@ -127,13 +182,28 @@ function safeJsonLd(value: unknown): string {
         <!-- Meta Pixel Code -->
         <script is:inline set:html={`
           !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          {if(f.fbq)return;
+          var _cm;
+          n=f.fbq=function(){
+            if(arguments[0]==='track' && arguments[1]==='AddToCart') return;
+            n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)
+          };
+          Object.defineProperty(n,'callMethod',{
+            configurable:true,enumerable:true,
+            get:function(){return _cm;},
+            set:function(fn){
+              _cm=function(){
+                if(arguments[0]==='track' && arguments[1]==='AddToCart') return;
+                return fn.apply(this,arguments);
+              };
+            }
+          });
           if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
           n.queue=[];t=b.createElement(e);t.async=!0;
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('set', 'autoConfig', false, '1341980327384883');
           fbq('init', '1341980327384883');
           fbq('track', 'PageView');
         `}></script>
@@ -304,6 +374,7 @@ function safeJsonLd(value: unknown): string {
               'akun-meta-ads-whitelist',
               'akun-google-ads-whitelist',
               'akun-tiktok-ads-whitelist',
+              'sewa-akun-whitelist',
               'jasa-pembuatan-website-after-sales-terbaik',
               'konsultasi-digital-marketing',
             ];

@@ -137,6 +137,7 @@ export async function trackLead(opts: TrackLeadOptions): Promise<void> {
 
   // 3. Meta Pixel Tracking (Advanced Matching for EMQ)
   if (typeof w.fbq === 'function') {
+    w.fbq('set', 'autoConfig', false, META_PIXEL_ID);
     if (hashedEmail || hashedPhone || hashedFirstName) {
       w.fbq('init', META_PIXEL_ID, {
         em: hashedEmail || undefined,
