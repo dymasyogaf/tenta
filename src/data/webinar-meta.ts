@@ -20,7 +20,7 @@ export const WEBINAR_META = {
     platform: 'Live via Zoom',
     isoDate: '2026-09-25T20:00:00+07:00',
   },
-  telegramUrl: 'https://t.me/dapurMeta',
+  telegramUrl: 'https://t.me/webinartentaklik',
   hero: {
     badge: 'Live Session 100% Free via Zoom',
     title: 'Punya iklan yang tadinya untung?',
