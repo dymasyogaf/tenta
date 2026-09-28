@@ -1,57 +1,89 @@
 # Tentaklik.com
 
-Production website for Tentaklik (Astro 6 + Bun).
+Official website and high-performance advertising landing pages for **Tentaklik** — Digital Marketing Specialist & Ad Whitelist Accounts.
 
-## Develop
+Built with **Astro 6**, **Tailwind CSS v4**, **TypeScript**, and deployed on **Cloudflare Pages**.
+
+---
+
+## 📖 Complete Handover Guidebook
+
+Untuk panduan lengkap serah terima proyek, arsitektur sistem, struktur data, integrasi Google Apps Script, dan maintenance untuk tim baru:
+
+👉 **[Baca Panduan Handover Lengkap (docs/HANDOVER_GUIDE.md)](./docs/HANDOVER_GUIDE.md)**
+
+---
+
+## 🚀 Quick Start
+
+### 1. Prasyarat
+- Node.js 20+ atau Bun
+- Git
+
+### 2. Setup & Jalankan Lokal
 
 ```bash
+# Clone & masuk ke direktori proyek
+cd tenta
+
+# Setup Environment Variables
+cp .env.example .env
+
+# Install dependencies (Bun atau npm)
 bun install
-bun run dev          # http://localhost:4321
+# ATAU
+npm install
+
+# Jalankan dev server (http://localhost:4321)
+bun run dev
+# ATAU
+npm run dev
 ```
 
-## Build & Preview
+### 3. Build & Typecheck
 
 ```bash
-bun run astro build  # outputs to dist/
-bun run preview      # serves dist/ for smoke test
+# Type check TypeScript & Astro diagnostics
+npm run check
+
+# Full production build (check + build + currency validation)
+npm run build
+
+# Preview build lokal via Cloudflare Wrangler
+npm run preview
 ```
 
-## TypeScript check
+---
 
-```bash
-bun run check
+## 🔑 Environment Variables
+
+Pastikan file `.env` telah dikonfigurasi:
+
+```env
+PUBLIC_SITE_URL=https://tentaklik.com
+PUBLIC_WA_NUMBER=6282219987770
+PUBLIC_GA_ID=G-7TZENR9L4G
 ```
 
-## Environment Variables
+---
 
-Copy `.env.example` to `.env` and fill in:
+## 📁 Struktur Direktori Utama
 
-- `PUBLIC_SITE_URL` — production canonical URL  
-- `PUBLIC_WA_NUMBER` — WhatsApp number for CTAs (no `+`, no spaces, e.g. `6281234567890`)
-- `PUBLIC_GA_ID` — optional Google Analytics 4 ID
+- `src/pages/` — Rute halaman website (Bahasa Indonesia di root `/`, Bahasa Inggris di `/en/`).
+- `src/components/` — Komponen UI modular (icons, layout, sections, lp, services, karir).
+- `src/content/` — Astro Content Layer (Markdown untuk layanan & case studies, JSON untuk jobs, FAQs, testimoni).
+- `src/data/` — Konfigurasi data statis (paket sewa akun `sewa-akun.ts`, landing page `whitelist-lp.ts`, info perusahaan `site.ts`).
+- `src/middleware.ts` — Cloudflare Edge middleware untuk deteksi bahasa via Geo-IP (`cf-ipcountry`).
+- `docs/apps-script/` — Kode & panduan setup Google Apps Script untuk lead capture form ke Google Sheets.
+- `scripts/` — Skrip validasi mata uang (`check-en-currency.mjs`) & optimasi gambar (`optimize-images.mjs`).
 
-## Deploy
+---
 
-**Netlify / Vercel / Cloudflare Pages:**
-- Build command: `bun run astro build`
-- Output directory: `dist`
-- Set env vars in the dashboard
+## ☁️ Deployment
 
-**VPS (static):** serve `dist/` via Nginx or Caddy after running `bun run astro build`.
+Website dihosting di **Cloudflare Pages** dengan adapter Cloudflare SSR.
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Deploy Command**: `npm run deploy`
 
-## Content updates
-
-- **Services:** `src/content/services/*.md` — edit frontmatter (features, plans, process, FAQs, SEO title/desc)
-- **Case studies:** `src/content/case-studies/*.md`
-- **Testimonials, FAQs, Jobs:** JSON files in `src/content/`
-- **Site config (WA number, social, address):** `src/data/site.ts`
-
-## Project structure
-
-- `src/components/` — icons, brand, layout, ui, sections
-- `src/content/` — Content Layer collections (markdown + JSON)
-- `src/layouts/` — BaseLayout, ServiceLayout
-- `src/lib/` — seo.ts, reveal.ts
-- `src/data/site.ts` — site-wide config
-- `src/styles/` — tokens.css, components.css, global.css
-- `public/assets/` — kraken images, partner logos
+Untuk instruksi detail pengelolaan konten, form CRM, dan integrasi pixel, silakan rujuk ke **[docs/HANDOVER_GUIDE.md](./docs/HANDOVER_GUIDE.md)**.

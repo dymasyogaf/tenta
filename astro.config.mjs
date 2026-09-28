@@ -24,8 +24,14 @@ export default defineConfig({
     '/en/google-whitelist': '/en/layanan/akun-google-ads-whitelist',
     '/whitelist/gads': '/layanan/akun-google-ads-whitelist',
     '/en/whitelist/gads': '/en/layanan/akun-google-ads-whitelist',
+    '/whitelist/tiktokads': '/layanan/akun-tiktok-ads-whitelist',
+    '/en/whitelist/tiktokads': '/en/layanan/akun-tiktok-ads-whitelist',
     '/layanan/website': '/layanan/jasa-pembuatan-website-after-sales-terbaik',
     '/en/layanan/website': '/en/layanan/jasa-pembuatan-website-after-sales-terbaik',
+    '/layanan/website-v2': '/layanan/jasa-pembuatan-website-after-sales-terbaik',
+    '/en/layanan/website-v2': '/en/layanan/jasa-pembuatan-website-after-sales-terbaik',
+    '/layanan/konsultasi': '/layanan/konsultasi-digital-marketing',
+    '/en/layanan/konsultasi': '/en/layanan/konsultasi-digital-marketing',
   },
 
   // i18n: ID default di root (/), EN di /en/. Halaman EN yang belum ada
